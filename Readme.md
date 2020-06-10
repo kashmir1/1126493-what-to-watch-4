@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Алексей Коровацкий](https://up.htmlacademy.ru/react/4/user/1126493).
-* Наставник: `Неизвестно`.
+* Наставник: [Александр Быков](https://htmlacademy.ru/profile/id7107).
 
 ---
 
