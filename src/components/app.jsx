@@ -1,10 +1,12 @@
 import React from "react";
-import Main from "./main";
+import Main from "./main.jsx";
+
 
 const App = () => {
   return (
-    <Main/>
+    <Main />
   );
 };
+
 
 export default App;
