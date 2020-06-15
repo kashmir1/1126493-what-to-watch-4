@@ -12,9 +12,7 @@ const Titles = [`Fantastic Beasts: The Crimes of Grindelwald`, `Bohemian Rhapsod
 
 ReactDOM.render(
     <App
-      movieTitle={MovieDescription.MOVIE_TITLE}
-      genre={MovieDescription.GENRE}
-      release={MovieDescription.RELEASE}
+      movieDescription={MovieDescription}
       titles={Titles}
     />,
     document.querySelector(`#root`)

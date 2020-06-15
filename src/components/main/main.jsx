@@ -3,7 +3,8 @@ import React from "react";
 const Main = (props) => {
 
   // eslint-disable-next-line react/prop-types
-  const {movieTitle, genre, release, titles} = props;
+  const {movieDescription, titles} = props;
+  const {MOVIE_TITLE, GENRE, RELEASE} = movieDescription;
   return (
     <div>
       <section className="movie-card">
@@ -36,10 +37,10 @@ const Main = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{movieTitle}</h2>
+              <h2 className="movie-card__title">{MOVIE_TITLE}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{genre}</span>
-                <span className="movie-card__year">{release}</span>
+                <span className="movie-card__genre">{GENRE}</span>
+                <span className="movie-card__year">{RELEASE}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -139,4 +140,3 @@ const Main = (props) => {
 };
 
 export default Main;
-
