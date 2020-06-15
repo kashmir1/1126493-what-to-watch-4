@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/app.jsx";
+import App from "./components/app/app.jsx";
 
 const Settings = {
   MOVIE_TITLE: `The Grand Budapest Hotel`,
