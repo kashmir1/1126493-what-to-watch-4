@@ -1,8 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Main = (props) => {
 
-  // eslint-disable-next-line react/prop-types
   const {movieDescription, titles} = props;
   const {MOVIE_TITLE, GENRE, RELEASE} = movieDescription;
   return (
@@ -137,6 +137,15 @@ const Main = (props) => {
       </div>
     </div>
   );
+};
+
+Main.propTypes = {
+  movieDescription: PropTypes.shape({
+    MOVIE_TITLE: PropTypes.string.isRequired,
+    GENRE: PropTypes.string.isRequired,
+    RELEASE: PropTypes.number.isRequired,
+  }),
+  titles: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
 };
 
 export default Main;
