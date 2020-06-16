@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Main = (props) => {
 
-  const {movieDescription, titles} = props;
+  const {movieDescription, titles, onTitleClick} = props;
   const {movieTitle, genre, release} = movieDescription;
   return (
     <div>
@@ -109,7 +109,7 @@ const Main = (props) => {
                     <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt={title} width="280" height="175" />
                   </div>
                   <h3 className="small-movie-card__title">
-                    <a className="small-movie-card__link" href="movie-page.html">{title}</a>
+                    <a onClick={onTitleClick} className="small-movie-card__link" href="movie-page.html">{title}</a>
                   </h3>
                 </article>
               );
@@ -145,7 +145,8 @@ Main.propTypes = {
     genre: PropTypes.string.isRequired,
     release: PropTypes.number.isRequired,
   }),
-  titles: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+  titles: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  onTitleClick: PropTypes.func.isRequired,
 };
 
 export default Main;

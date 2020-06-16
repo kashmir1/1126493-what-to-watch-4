@@ -26,6 +26,7 @@ it(`Render Main`, () => {
         `Snatch`,
         `Moonrise Kingdom`,
         `Seven Years in Tibet`]}
+      onTitleClick={() => {}}
     />)
     .toJSON();
 
