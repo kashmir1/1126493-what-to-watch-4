@@ -6,11 +6,11 @@ const titleLinkHandler = () => {};
 
 const App = (props) => {
 
-  const {movieDescription, titles} = props;
+  const {movieDescription, moviesList} = props;
   return (
     <Main
       movieDescription={movieDescription}
-      titles={titles}
+      moviesList={moviesList}
       onTitleClick={titleLinkHandler}
     />
   );
@@ -22,7 +22,7 @@ App.propTypes = {
     genre: PropTypes.string.isRequired,
     release: PropTypes.number.isRequired,
   }),
-  titles: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  moviesList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 };
 
 export default App;

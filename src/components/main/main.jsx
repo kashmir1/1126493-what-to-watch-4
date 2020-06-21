@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Main = (props) => {
 
-  const {movieDescription, titles, onTitleClick} = props;
+  const {movieDescription, moviesList, onTitleClick} = props;
   const {movieTitle, genre, release} = movieDescription;
   return (
     <div>
@@ -100,7 +100,7 @@ const Main = (props) => {
           </ul>
 
           <div className="catalog__movies-list">
-            {titles.map((title) => {
+            {moviesList.map((title) => {
               return (
                 <article
                   className="small-movie-card catalog__movies-card"
@@ -145,7 +145,7 @@ Main.propTypes = {
     genre: PropTypes.string.isRequired,
     release: PropTypes.number.isRequired,
   }),
-  titles: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  moviesList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   onTitleClick: PropTypes.func.isRequired,
 };
 
