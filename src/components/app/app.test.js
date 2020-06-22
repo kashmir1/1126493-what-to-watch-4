@@ -1,32 +1,41 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Main from './app.jsx';
+import App from './app.jsx';
 
-it(`Render Main`, () => {
+const mockData = {
+  movieDescription: {
+    movieTitle: `The Grand Budapest Hotel`,
+    genre: `Comedy`,
+    release: 2014
+  },
+
+  moviesList: [
+    {
+      id: 1,
+      title: `Fantastic Beasts: The Crimes of Grindelwald`,
+      image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`
+    },
+    {
+      id: 2,
+      title: `Bohemian Rhapsody`,
+      image: `img/bohemian-rhapsody.jpg`
+    },
+    {
+      id: 3,
+      title: `Macbeth`,
+      image: `img/macbeth.jpg`
+    },
+  ],
+};
+
+it(`Render App`, () => {
+  const {movieDescription, moviesList} = mockData;
   const tree = renderer
-    .create(<Main
-      movieDescription={
-        {
-          movieTitle: `The Grand Budapest Hotel`,
-          genre: `Comedy`,
-          release: 2014
-        }
-      }
-      titles={[
-        `Fantastic Beasts: The Crimes of Grindelwald`,
-        `Bohemian Rhapsody`, `Macbeth`,
-        `Aviator`,
-        `We need to talk about Kevin`,
-        `What We Do in the Shadows`,
-        `Revenant`,
-        `Johnny English`,
-        `Shutter Island`,
-        `Pulp Fiction`,
-        `No Country for Old Men`,
-        `Snatch`,
-        `Moonrise Kingdom`,
-        `Seven Years in Tibet`]}
-    />)
+    .create(
+        <App
+          movieDescription={movieDescription}
+          moviesList={moviesList}
+        />)
     .toJSON();
 
   expect(tree).toMatchSnapshot();
