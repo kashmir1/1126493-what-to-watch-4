@@ -7,21 +7,42 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-const titles = [`Fantastic Beasts: The Crimes of Grindelwald`, `Bohemian Rhapsody`, `Macbeth`, `Aviator`, `We need to talk about Kevin`, `What We Do in the Shadows`, `Revenant`, `Johnny English`, `Shutter Island`, `Pulp Fiction`, `No Country for Old Men`, `Snatch`, `Moonrise Kingdom`, `Seven Years in Tibet`];
-const movieDescription = {
-  movieTitle: `The Grand Budapest Hotel`,
-  genre: `Comedy`,
-  release: 2014
+const mockData = {
+  movieDescription: {
+    movieTitle: `The Grand Budapest Hotel`,
+    genre: `Comedy`,
+    release: 2014
+  },
+
+  moviesList: [
+    {
+      id: 1,
+      title: `Fantastic Beasts: The Crimes of Grindelwald`,
+      image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`
+    },
+    {
+      id: 2,
+      title: `Bohemian Rhapsody`,
+      image: `img/bohemian-rhapsody.jpg`
+    },
+    {
+      id: 3,
+      title: `Macbeth`,
+      image: `img/macbeth.jpg`
+    },
+  ],
 };
 
 it(`Should main title link be pressed`, () => {
-  const onTitleClick = jest.fn();
-
+  const {movieDescription, moviesList} = mockData;
+  const _handleTitleClick = jest.fn();
+  const _handleCardMouseHover = jest.fn();
   const main = shallow(
       <Main
-        titles={titles}
         movieDescription={movieDescription}
-        onTitleClick={onTitleClick}
+        moviesList={moviesList}
+        onCardMouseHover={_handleCardMouseHover}
+        onTitleClick={_handleTitleClick}
       />
   );
 
@@ -31,5 +52,5 @@ it(`Should main title link be pressed`, () => {
     link.simulate(`click`);
   });
 
-  expect(onTitleClick).toHaveBeenCalledTimes(mainTitleLink.length);
+  expect(_handleTitleClick).toHaveBeenCalledTimes(mainTitleLink.length);
 });
