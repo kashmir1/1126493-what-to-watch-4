@@ -2,31 +2,42 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Main from './main.jsx';
 
+const mockData = {
+  movieDescription: {
+    movieTitle: `The Grand Budapest Hotel`,
+    genre: `Comedy`,
+    release: 2014
+  },
+
+  moviesList: [
+    {
+      id: 1,
+      title: `Fantastic Beasts: The Crimes of Grindelwald`,
+      image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`
+    },
+    {
+      id: 2,
+      title: `Bohemian Rhapsody`,
+      image: `img/bohemian-rhapsody.jpg`
+    },
+    {
+      id: 3,
+      title: `Macbeth`,
+      image: `img/macbeth.jpg`
+    },
+  ],
+};
+
 it(`Render Main`, () => {
+  const {movieDescription, moviesList} = mockData;
+  const _handleTitleClick = jest.fn();
+  const _handleCardMouseHover = jest.fn();
   const tree = renderer
     .create(<Main
-      movieDescription={
-        {
-          movieTitle: `The Grand Budapest Hotel`,
-          genre: `Comedy`,
-          release: 2014
-        }
-      }
-      titles={[
-        `Fantastic Beasts: The Crimes of Grindelwald`,
-        `Bohemian Rhapsody`, `Macbeth`,
-        `Aviator`,
-        `We need to talk about Kevin`,
-        `What We Do in the Shadows`,
-        `Revenant`,
-        `Johnny English`,
-        `Shutter Island`,
-        `Pulp Fiction`,
-        `No Country for Old Men`,
-        `Snatch`,
-        `Moonrise Kingdom`,
-        `Seven Years in Tibet`]}
-      onTitleClick={() => {}}
+      movieDescription={movieDescription}
+      moviesList={moviesList}
+      onCardMouseHover={_handleCardMouseHover}
+      onTitleClick={_handleTitleClick}
     />)
     .toJSON();
 
