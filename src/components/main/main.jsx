@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import MovieList from "./../movie-list/movies-list.jsx";
+
 
 const Main = (props) => {
 
-  const {movieDescription, moviesList, onTitleClick} = props;
+  const {movieDescription, moviesList, onTitleClick, onCardMouseHover} = props;
   const {movieTitle, genre, release} = movieDescription;
   return (
     <div>
@@ -99,22 +101,7 @@ const Main = (props) => {
             </li>
           </ul>
 
-          <div className="catalog__movies-list">
-            {moviesList.map((title) => {
-              return (
-                <article
-                  className="small-movie-card catalog__movies-card"
-                  key={title}>
-                  <div className="small-movie-card__image">
-                    <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt={title} width="280" height="175" />
-                  </div>
-                  <h3 className="small-movie-card__title">
-                    <a onClick={onTitleClick} className="small-movie-card__link" href="movie-page.html">{title}</a>
-                  </h3>
-                </article>
-              );
-            })}
-          </div>
+          <MovieList moviesList={moviesList} onTitleClick={onTitleClick} onCardMouseHover={onCardMouseHover} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -144,9 +131,16 @@ Main.propTypes = {
     movieTitle: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     release: PropTypes.number.isRequired,
-  }),
-  moviesList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  }).isRequired,
+  moviesList: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired
+      })
+  ).isRequired,
   onTitleClick: PropTypes.func.isRequired,
+  onCardMouseHover: PropTypes.func.isRequired
 };
 
 export default Main;

@@ -2,16 +2,24 @@ import React from "react";
 import Main from "../main/main.jsx";
 import PropTypes from "prop-types";
 
-const titleLinkHandler = () => {};
-
 const App = (props) => {
 
   const {movieDescription, moviesList} = props;
+
+  const _handleTitleClick = (evt) => {
+    evt.preventDefault();
+  };
+
+  const _handleCardMouseHover = (evt) => {
+    evt.preventDefault();
+  };
+
   return (
     <Main
       movieDescription={movieDescription}
       moviesList={moviesList}
-      onTitleClick={titleLinkHandler}
+      onTitleClick={_handleTitleClick}
+      onCardMouseHover={_handleCardMouseHover}
     />
   );
 };
@@ -22,7 +30,7 @@ App.propTypes = {
     genre: PropTypes.string.isRequired,
     release: PropTypes.number.isRequired,
   }),
-  moviesList: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  moviesList: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };
 
 export default App;
