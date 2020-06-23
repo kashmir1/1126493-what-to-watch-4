@@ -30,14 +30,14 @@ const mockData = {
 
 it(`Render Main`, () => {
   const {movieDescription, moviesList} = mockData;
-  const _handleTitleClick = jest.fn();
-  const _handleCardMouseHover = jest.fn();
+  const handleTitleClick = jest.fn();
+  const handleCardMouseHover = jest.fn();
   const tree = renderer
     .create(<Main
       movieDescription={movieDescription}
       moviesList={moviesList}
-      onCardMouseHover={_handleCardMouseHover}
-      onTitleClick={_handleTitleClick}
+      onCardMouseHover={handleCardMouseHover}
+      onTitleClick={handleTitleClick}
     />)
     .toJSON();
 

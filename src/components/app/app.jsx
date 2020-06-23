@@ -6,11 +6,11 @@ const App = (props) => {
 
   const {movieDescription, moviesList} = props;
 
-  const _handleTitleClick = (evt) => {
+  const handleTitleClick = (evt) => {
     evt.preventDefault();
   };
 
-  const _handleCardMouseHover = (evt) => {
+  const handleCardMouseHover = (evt) => {
     evt.preventDefault();
   };
 
@@ -18,8 +18,8 @@ const App = (props) => {
     <Main
       movieDescription={movieDescription}
       moviesList={moviesList}
-      onTitleClick={_handleTitleClick}
-      onCardMouseHover={_handleCardMouseHover}
+      onTitleClick={handleTitleClick}
+      onCardMouseHover={handleCardMouseHover}
     />
   );
 };

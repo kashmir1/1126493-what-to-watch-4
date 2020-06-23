@@ -1,11 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import MovieList from "./../movie-list/movies-list.jsx";
+import {appType} from "../../types/index";
 
 
-const Main = (props) => {
+const Main = (aprops) => {
 
-  const {movieDescription, moviesList, onTitleClick, onCardMouseHover} = props;
+  const {movieDescription, moviesList, onTitleClick, onCardMouseHover} = aprops;
   const {movieTitle, genre, release} = movieDescription;
   return (
     <div>
@@ -127,20 +128,7 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  movieDescription: PropTypes.shape({
-    movieTitle: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    release: PropTypes.number.isRequired,
-  }).isRequired,
-  moviesList: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-        image: PropTypes.string.isRequired
-      })
-  ).isRequired,
-  onTitleClick: PropTypes.func.isRequired,
-  onCardMouseHover: PropTypes.func.isRequired
+  aprops: appType,
 };
 
 export default Main;

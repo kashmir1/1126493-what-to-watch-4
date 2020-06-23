@@ -35,14 +35,14 @@ const mockData = {
 
 it(`Should main title link be pressed`, () => {
   const {movieDescription, moviesList} = mockData;
-  const _handleTitleClick = jest.fn();
-  const _handleCardMouseHover = jest.fn();
+  const handleTitleClick = jest.fn();
+  const handleCardMouseHover = jest.fn();
   const main = shallow(
       <Main
         movieDescription={movieDescription}
         moviesList={moviesList}
-        onCardMouseHover={_handleCardMouseHover}
-        onTitleClick={_handleTitleClick}
+        onCardMouseHover={handleCardMouseHover}
+        onTitleClick={handleTitleClick}
       />
   );
 
@@ -52,5 +52,5 @@ it(`Should main title link be pressed`, () => {
     link.simulate(`click`);
   });
 
-  expect(_handleTitleClick).toHaveBeenCalledTimes(mainTitleLink.length);
+  expect(handleTitleClick).toHaveBeenCalledTimes(mainTitleLink.length);
 });
