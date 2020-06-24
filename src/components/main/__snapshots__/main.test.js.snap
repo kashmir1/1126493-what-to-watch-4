@@ -259,7 +259,7 @@ exports[`Render Main 1`] = `
       >
         <article
           className="small-movie-card catalog__movies-card"
-          onMouseEnter={[MockFunction]}
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -285,7 +285,7 @@ exports[`Render Main 1`] = `
         </article>
         <article
           className="small-movie-card catalog__movies-card"
-          onMouseEnter={[MockFunction]}
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
@@ -311,7 +311,7 @@ exports[`Render Main 1`] = `
         </article>
         <article
           className="small-movie-card catalog__movies-card"
-          onMouseEnter={[MockFunction]}
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"

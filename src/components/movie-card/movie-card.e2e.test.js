@@ -18,7 +18,6 @@ it(`When you hover over a card movie, information about movie enters the handler
   const onTitleClick = jest.fn();
   const main = shallow(
       <MovieCard
-        key={movie.id}
         title={movie.title}
         image={movie.image}
         onCardMouseHover={onCardMouseHover}

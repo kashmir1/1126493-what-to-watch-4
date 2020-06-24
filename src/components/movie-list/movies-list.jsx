@@ -1,39 +1,46 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {PureComponent} from 'react';
 import MovieCard from '../movie-card/movie-card.jsx';
+import {moviesListType} from "../../types/index";
 
-const MoviesList = (props) => {
-  const {moviesList, onTitleClick, onCardMouseHover} = props;
+class MoviesList extends PureComponent {
+  constructor(moviesListProps) {
+    super(moviesListProps);
+    this.moviesListProps = moviesListProps;
 
-  return (
-    <div className="catalog__movies-list">
-      {
-        moviesList.map((movie) => {
-          return (
-            <MovieCard
-              key={movie.id}
-              title={movie.title}
-              image={movie.image}
-              onCardMouseHover={onCardMouseHover}
-              onTitleClick={onTitleClick}
-            />
-          );
-        })
-      }
-    </div>
-  );
-};
+    this.state = {
+      avtiveMovie: {},
+    };
+  }
+
+  render() {
+    const {moviesList, onTitleClick} = this.moviesListProps;
+
+    return (
+      <div className="catalog__movies-list">
+        {
+          moviesList.map((movie) => {
+            return (
+              <MovieCard
+                key={movie.id}
+                title={movie.title}
+                image={movie.image}
+                onCardMouseHover = {() => {
+                  this.setState({
+                    activeMovie: movie,
+                  });
+                }}
+                onTitleClick={onTitleClick}
+              />
+            );
+          })
+        }
+      </div>
+    );
+  }
+}
 
 MoviesList.propTypes = {
-  moviesList: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-      })
-  ),
-  onTitleClick: PropTypes.func.isRequired,
-  onCardMouseHover: PropTypes.func.isRequired,
+  moviesListProps: moviesListType,
 };
 
 export default MoviesList;

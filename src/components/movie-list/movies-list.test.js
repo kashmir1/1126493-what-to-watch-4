@@ -21,12 +21,11 @@ const moviesList = [
 ];
 
 it(`MovieList is rendered correctly`, () => {
-  const onCardMouseHover = jest.fn();
   const onTitleClick = jest.fn();
   const tree = renderer.create(
       <MoviesList
         moviesList={moviesList}
-        onCardMouseHover={onCardMouseHover}
+        onCardMouseHover={() => {}}
         onTitleClick={onTitleClick}
       />
   ).toJSON();

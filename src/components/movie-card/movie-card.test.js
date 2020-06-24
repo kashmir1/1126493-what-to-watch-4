@@ -13,7 +13,6 @@ it(`MovieCard is rendered correctly`, () => {
   const onTitleClick = jest.fn();
   const tree = renderer.create(
       <MovieCard
-        key={movie.id}
         title={movie.title}
         image={movie.image}
         onCardMouseHover={onCardMouseHover}

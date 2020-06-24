@@ -18,3 +18,15 @@ export const appType = shape({
   onTitleClick: func.isRequired,
   onCardMouseHover: func.isRequired
 });
+
+export const moviesListType = shape({
+  moviesList: arrayOf(
+      shape({
+        id: number.isRequired,
+        title: string.isRequired,
+        image: string.isRequired,
+      })
+  ),
+  onTitleClick: func.isRequired,
+  onCardMouseHover: func.isRequired,
+});
