@@ -1,10 +1,10 @@
 import React from "react";
 import Main from "../main/main.jsx";
-import PropTypes from "prop-types";
+import {appType} from "../../types/index";
 
-const App = (props) => {
+const App = (appProps) => {
 
-  const {movieDescription, moviesList} = props;
+  const {movieDescription, moviesList} = appProps;
 
   const handleTitleClick = (evt) => {
     evt.preventDefault();
@@ -25,18 +25,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  movieDescription: PropTypes.shape({
-    movieTitle: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    release: PropTypes.number.isRequired,
-  }).isRequired,
-  moviesList: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-        image: PropTypes.string.isRequired
-      })
-  ).isRequired,
+  appProps: appType,
 };
 
 export default App;

@@ -1,20 +1,20 @@
 import PropTypes from "prop-types";
 
-const {shape} = PropTypes;
+const {shape, string, number, arrayOf, func} = PropTypes;
 
 export const appType = shape({
-  movieDescription: PropTypes.shape({
-    movieTitle: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    release: PropTypes.number.isRequired,
+  movieDescription: shape({
+    movieTitle: string.isRequired,
+    genre: string.isRequired,
+    release: number.isRequired,
   }).isRequired,
-  moviesList: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-        image: PropTypes.string.isRequired
+  moviesList: arrayOf(
+      shape({
+        title: string.isRequired,
+        id: number.isRequired,
+        image: string.isRequired
       })
   ).isRequired,
-  onTitleClick: PropTypes.func.isRequired,
-  onCardMouseHover: PropTypes.func.isRequired
+  onTitleClick: func.isRequired,
+  onCardMouseHover: func.isRequired
 });

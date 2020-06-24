@@ -4,9 +4,9 @@ import MovieList from "./../movie-list/movies-list.jsx";
 import {appType} from "../../types/index";
 
 
-const Main = (aprops) => {
+const Main = (appProps) => {
 
-  const {movieDescription, moviesList, onTitleClick, onCardMouseHover} = aprops;
+  const {movieDescription, moviesList, onTitleClick, onCardMouseHover} = appProps;
   const {movieTitle, genre, release} = movieDescription;
   return (
     <div>
@@ -128,7 +128,7 @@ const Main = (aprops) => {
 };
 
 Main.propTypes = {
-  aprops: appType,
+  appProps: appType,
 };
 
 export default Main;
