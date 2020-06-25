@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import MovieList from "./../movie-list/movies-list.jsx";
 import {appType} from "../../types/index";
 
