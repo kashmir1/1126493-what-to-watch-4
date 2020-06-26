@@ -1,6 +1,9 @@
 import React from "react";
 import Main from "../main/main.jsx";
 import {appType} from "../../types/index";
+import {Switch, Route, BrowserRouter} from "react-router-dom";
+import MovieDetails from "../movie-details/movie-details.jsx";
+
 
 const App = (appProps) => {
 
@@ -15,12 +18,23 @@ const App = (appProps) => {
   };
 
   return (
-    <Main
-      movieDescription={movieDescription}
-      moviesList={moviesList}
-      onTitleClick={handleTitleClick}
-      onCardMouseHover={handleCardMouseHover}
-    />
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Main
+            movieDescription={movieDescription}
+            moviesList={moviesList}
+            onTitleClick={handleTitleClick}
+            onCardMouseHover={handleCardMouseHover}
+          />
+        </Route>
+        <Route exact path="/dev-film">
+          <MovieDetails
+
+          />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 };
 
