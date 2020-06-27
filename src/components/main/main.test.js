@@ -4,9 +4,9 @@ import Main from './main.jsx';
 
 const mockData = {
   movieDescription: {
-    movieTitle: `The Grand Budapest Hotel`,
+    title: `The Grand Budapest Hotel`,
     genre: `Comedy`,
-    release: 2014
+    year: 2014
   },
 
   moviesList: [

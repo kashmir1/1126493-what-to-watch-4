@@ -7,7 +7,7 @@ import MovieDetails from "../movie-details/movie-details.jsx";
 
 const App = (appProps) => {
 
-  const {movieDescription, moviesList} = appProps;
+  const {movie, moviesList} = appProps;
 
   const handleTitleClick = (evt) => {
     evt.preventDefault();
@@ -22,7 +22,7 @@ const App = (appProps) => {
       <Switch>
         <Route exact path="/">
           <Main
-            movieDescription={movieDescription}
+            movie={movie}
             moviesList={moviesList}
             onTitleClick={handleTitleClick}
             onCardMouseHover={handleCardMouseHover}
@@ -30,7 +30,7 @@ const App = (appProps) => {
         </Route>
         <Route exact path="/dev-film">
           <MovieDetails
-            movieDescription={movieDescription}
+            movie={movie}
           />
         </Route>
       </Switch>

@@ -2,11 +2,10 @@ import React from "react";
 import MovieList from "./../movie-list/movies-list.jsx";
 import {appType} from "../../types/index";
 
-
 const Main = (appProps) => {
 
-  const {movieDescription, moviesList, onTitleClick, onCardMouseHover} = appProps;
-  const {movieTitle, genre, release} = movieDescription;
+  const {movie, moviesList, onTitleClick, onCardMouseHover} = appProps;
+  const {title, genre, year} = movie;
   return (
     <div>
       <section className="movie-card">
@@ -39,10 +38,10 @@ const Main = (appProps) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{movieTitle}</h2>
+              <h2 className="movie-card__title">{title}</h2>
               <p className="movie-card__meta">
                 <span className="movie-card__genre">{genre}</span>
-                <span className="movie-card__year">{release}</span>
+                <span className="movie-card__year">{year}</span>
               </p>
 
               <div className="movie-card__buttons">

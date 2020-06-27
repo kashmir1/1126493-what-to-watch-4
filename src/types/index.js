@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 const {shape, string, number, arrayOf, func} = PropTypes;
 
 export const appType = shape({
-  movieDescription: shape({
-    movieTitle: string.isRequired,
+  movie: shape({
+    title: string.isRequired,
     genre: string.isRequired,
-    release: number.isRequired,
+    year: number.isRequired,
   }).isRequired,
   moviesList: arrayOf(
       shape({
