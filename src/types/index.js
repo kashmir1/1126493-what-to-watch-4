@@ -7,6 +7,14 @@ export const appType = shape({
     title: string.isRequired,
     genre: string.isRequired,
     year: number.isRequired,
+    src: string.isRequired,
+    background: string.isRequired,
+    ratingScore: string.isRequired,
+    ratingLevel: string.isRequired,
+    ratingCount: number.isRequired,
+    movieDescription: string.isRequired,
+    movieDirector: string.isRequired,
+    movieStarring: string.isRequired,
   }).isRequired,
   moviesList: arrayOf(
       shape({
