@@ -28,13 +28,12 @@ export const appType = shape({
 });
 
 export const moviesListType = shape({
-  moviesList: arrayOf(
-      shape({
-        id: number.isRequired,
-        title: string.isRequired,
-        image: string.isRequired,
-      })
-  ),
+  movie: shape({
+    id: number.isRequired,
+    title: string.isRequired,
+    src: string.isRequired,
+  }),
   onTitleClick: func.isRequired,
+  onPosterClick: PropTypes.func.isRequired,
   onCardMouseHover: func.isRequired,
 });

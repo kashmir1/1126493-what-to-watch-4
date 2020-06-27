@@ -22,8 +22,9 @@ class MoviesList extends PureComponent {
             return (
               <MovieCard
                 key={movie.id}
+                movie = {movie}
                 title={movie.title}
-                image={movie.image}
+                src={movie.src}
                 onCardMouseHover = {() => {
                   this.setState({
                     activeMovie: movie,
