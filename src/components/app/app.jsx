@@ -30,7 +30,7 @@ const App = (appProps) => {
         </Route>
         <Route exact path="/dev-film">
           <MovieDetails
-
+            movieDescription={movieDescription}
           />
         </Route>
       </Switch>

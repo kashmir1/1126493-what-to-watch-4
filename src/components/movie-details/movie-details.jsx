@@ -1,6 +1,9 @@
 import React from "react";
+import {appType} from "../../types/index";
 
-const MovieDetails = () => {
+const MovieDetails = (appProps) => {
+  const {movieDescription} = appProps;
+  const {movieTitle, genre, release} = movieDescription;
   return (
     <div>
       <section className="movie-card movie-card--full">
@@ -29,10 +32,10 @@ const MovieDetails = () => {
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="movie-card__title">{movieTitle}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">Drama</span>
-                <span className="movie-card__year">2014</span>
+                <span className="movie-card__genre">{genre}</span>
+                <span className="movie-card__year">{release}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -158,10 +161,14 @@ const MovieDetails = () => {
           <div className="copyright">
             <p>© 2019 What to watch Ltd.</p>
           </div>
-        </footer>
+        </footer>§
       </div>
     </div>
   );
+};
+
+MovieDetails.propTypes = {
+  appProps: appType,
 };
 
 export default MovieDetails;
