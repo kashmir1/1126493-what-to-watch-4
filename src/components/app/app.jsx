@@ -10,6 +10,8 @@ class App extends PureComponent {
   constructor(appProps) {
     super(appProps);
     this.appProps = appProps;
+    this._handleTitleClick = this._handleTitleClick.bind(this);
+
 
     this.state = {
       activePage: UrlPage.MAIN,
@@ -57,9 +59,9 @@ class App extends PureComponent {
             {this._renderMain()}
           </Route>
           <Route exact path="/dev-film">
-            <MoviePage>
+            <MoviePage
               movie = {activeFilm}
-            </MoviePage>
+            />
           </Route>
         </Switch>
       </BrowserRouter>

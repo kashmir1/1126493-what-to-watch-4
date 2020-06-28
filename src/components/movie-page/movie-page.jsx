@@ -1,5 +1,5 @@
 import React from "react";
-import {appType} from "../../types/index";
+import {appType} from "../../types/index.js";
 
 const MoviePage = (appProps) => {
   const {movie} = appProps;
