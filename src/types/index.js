@@ -24,7 +24,8 @@ export const appType = shape({
       })
   ).isRequired,
   onTitleClick: func.isRequired,
-  onCardMouseHover: func.isRequired
+  onCardMouseHover: func.isRequired,
+  onPosterClick: PropTypes.func.isRequired,
 });
 
 export const moviesListType = shape({
