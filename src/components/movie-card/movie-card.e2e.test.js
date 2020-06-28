@@ -2,41 +2,34 @@ import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import MovieCard from "./movie-card.jsx";
+import moviesList from "../../mocks/testing.js";
 
 Enzyme.configure({
   adapter: new Adapter(),
 });
-
-const movie = {
-  id: 1,
-  title: `Fantastic Beasts: The Crimes of Grindelwald`,
-  image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`
-};
 
 it(`When you hover over a card movie, information about movie enters the handler`, () => {
   const onCardMouseHover = jest.fn();
   const onTitleClick = jest.fn();
   const main = shallow(
       <MovieCard
-        title={movie.title}
-        image={movie.image}
+        movie = {moviesList[0]}
         onCardMouseHover={onCardMouseHover}
         onTitleClick={onTitleClick}
       />
   );
 
-  const movieCard = main.find(`.small-movie-card`).first();
+  const mockEvent = {
+    preventDefault() {}
+  };
 
-  expect(movieCard).toHaveLength(1);
-
-  movieCard.props().onMouseEnter();
+  const movieTitle = main.find(`.small-movie-card__link`);
+  const movieImage = main.find(`.small-movie-card__image`);
+  movieTitle.simulate(`click`, mockEvent);
+  movieImage.simulate(`mouseenter`);
+  movieImage.simulate(`click`);
+  expect(onTitleClick.mock.calls.length).toBe(2);
+  expect(onTitleClick.mock.calls[0][0]).toMatchObject(moviesList[0]);
   expect(onCardMouseHover.mock.calls.length).toBe(1);
-
-  const movieCardTitle = main.find(`.small-movie-card__title`);
-
-  // проверяем что movieCardTitle найдена
-  expect(movieCardTitle).toHaveLength(1);
-
-  movieCardTitle.simulate(`click`);
-  expect(onTitleClick).toHaveBeenCalledTimes(0);
+  expect(onCardMouseHover).toHaveBeenCalledWith(moviesList[0]);
 });

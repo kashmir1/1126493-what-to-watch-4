@@ -2,44 +2,18 @@ import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Main from "./main.jsx";
+import moviesList from "../../mocks/testing";
 
 Enzyme.configure({
   adapter: new Adapter(),
 });
 
-const mockData = {
-  movieDescription: {
-    title: `The Grand Budapest Hotel`,
-    genre: `Comedy`,
-    year: 2014
-  },
-
-  moviesList: [
-    {
-      id: 1,
-      title: `Fantastic Beasts: The Crimes of Grindelwald`,
-      image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`
-    },
-    {
-      id: 2,
-      title: `Bohemian Rhapsody`,
-      image: `img/bohemian-rhapsody.jpg`
-    },
-    {
-      id: 3,
-      title: `Macbeth`,
-      image: `img/macbeth.jpg`
-    },
-  ],
-};
-
 it(`Should main title link be pressed`, () => {
-  const {movieDescription, moviesList} = mockData;
   const handleTitleClick = jest.fn();
   const handleCardMouseHover = jest.fn();
   const main = shallow(
       <Main
-        movieDescription={movieDescription}
+        movie = {moviesList[0]}
         moviesList={moviesList}
         onCardMouseHover={handleCardMouseHover}
         onTitleClick={handleTitleClick}

@@ -1,20 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import MovieCard from "./movie-card.jsx";
-
-const movie = {
-  id: 0,
-  title: `Fantastic Beasts: The Crimes of Grindelwald`,
-  image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
-};
+import moviesList from "../../mocks/testing.js";
 
 it(`MovieCard is rendered correctly`, () => {
   const onCardMouseHover = jest.fn();
   const onTitleClick = jest.fn();
   const tree = renderer.create(
       <MovieCard
-        title={movie.title}
-        image={movie.image}
+        movie={moviesList[0]}
         onCardMouseHover={onCardMouseHover}
         onTitleClick={onTitleClick}
       />

@@ -10,11 +10,12 @@ exports[`MovieList is rendered correctly 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
     >
       <img
         alt="Fantastic Beasts: The Crimes of Grindelwald"
         height="175"
-        src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
         width="280"
       />
     </div>
@@ -24,7 +25,7 @@ exports[`MovieList is rendered correctly 1`] = `
       <a
         className="small-movie-card__link"
         href="movie-page.html"
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         Fantastic Beasts: The Crimes of Grindelwald
       </a>
@@ -36,11 +37,12 @@ exports[`MovieList is rendered correctly 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
     >
       <img
         alt="Bohemian Rhapsody"
         height="175"
-        src="img/bohemian-rhapsody.jpg"
         width="280"
       />
     </div>
@@ -50,7 +52,7 @@ exports[`MovieList is rendered correctly 1`] = `
       <a
         className="small-movie-card__link"
         href="movie-page.html"
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         Bohemian Rhapsody
       </a>
@@ -62,11 +64,12 @@ exports[`MovieList is rendered correctly 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
     >
       <img
         alt="Macbeth"
         height="175"
-        src="img/macbeth.jpg"
         width="280"
       />
     </div>
@@ -76,7 +79,7 @@ exports[`MovieList is rendered correctly 1`] = `
       <a
         className="small-movie-card__link"
         href="movie-page.html"
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         Macbeth
       </a>

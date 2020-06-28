@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MoviePage is rendered correctly 1`] = `
+exports[`MovieDetails is rendered correctly 1`] = `
 <div>
   <section
     className="movie-card movie-card--full"
@@ -12,7 +12,7 @@ exports[`MoviePage is rendered correctly 1`] = `
         className="movie-card__bg"
       >
         <img
-          alt="The Grand Budapest Hotel"
+          alt="Fantastic Beasts: The Crimes of Grindelwald"
           src="img/bg-the-grand-budapest-hotel.jpg"
         />
       </div>
@@ -72,7 +72,7 @@ exports[`MoviePage is rendered correctly 1`] = `
           <h2
             className="movie-card__title"
           >
-            The Grand Budapest Hotel
+            Fantastic Beasts: The Crimes of Grindelwald
           </h2>
           <p
             className="movie-card__meta"
@@ -80,12 +80,12 @@ exports[`MoviePage is rendered correctly 1`] = `
             <span
               className="movie-card__genre"
             >
-              Drama
+              drama
             </span>
             <span
               className="movie-card__year"
             >
-              2014
+              2013
             </span>
           </p>
           <div
@@ -145,9 +145,9 @@ exports[`MoviePage is rendered correctly 1`] = `
           className="movie-card__poster movie-card__poster--big"
         >
           <img
-            alt="The Grand Budapest Hotel poster"
+            alt="Fantastic Beasts: The Crimes of Grindelwaldposter"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
             width="218"
           />
         </div>
@@ -198,7 +198,7 @@ exports[`MoviePage is rendered correctly 1`] = `
             <div
               className="movie-rating__score"
             >
-              8,9
+              9.1
             </div>
             <p
               className="movie-rating__meta"
@@ -206,12 +206,13 @@ exports[`MoviePage is rendered correctly 1`] = `
               <span
                 className="movie-rating__level"
               >
-                Very good
+                Very good +
               </span>
               <span
                 className="movie-rating__count"
               >
-                240 ratings
+                146
+                 ratings
               </span>
             </p>
           </div>
@@ -219,10 +220,7 @@ exports[`MoviePage is rendered correctly 1`] = `
             className="movie-card__text"
           >
             <p>
-              In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.
-            </p>
-            <p>
-              Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.
+              Fantastic Beasts: The Crimes of Grindelwald movie description text. Fantastic Beasts: The Crimes of Grindelwald movie description text. Fantastic Beasts: The Crimes of Grindelwald movie description text. 
             </p>
             <p
               className="movie-card__director"
@@ -235,7 +233,7 @@ exports[`MoviePage is rendered correctly 1`] = `
               className="movie-card__starring"
             >
               <strong>
-                Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other
+                Starring: Bill Murray, Willem Dafoe and other
               </strong>
             </p>
           </div>
@@ -390,6 +388,7 @@ exports[`MoviePage is rendered correctly 1`] = `
         </p>
       </div>
     </footer>
+    §
   </div>
 </div>
 `;

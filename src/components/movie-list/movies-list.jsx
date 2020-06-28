@@ -17,26 +17,19 @@ class MoviesList extends PureComponent {
 
     return (
       <div className="catalog__movies-list">
-        {
-          moviesList.map((movie) => {
-            return (
-              <MovieCard
-                key={movie.id}
-                movie = {movie}
-                title={movie.title}
-                src={movie.src}
-                onCardMouseHover = {() => {
-                  this.setState({
-                    activeMovie: movie,
-                  });
-                }}
-                onTitleClick={onTitleClick}
-              />
-            );
-          })
-        }
-      </div>
-    );
+        {moviesList.map((movie) => (
+          <MovieCard
+            key={movie.title}
+            movie = {movie}
+            onTitleClick={onTitleClick}
+            onCardMouseHover = {() => {
+              this.setState({
+                activeMovie: movie,
+              });
+            }}
+          />)
+        )}
+      </div>);
   }
 }
 
