@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import MovieDetails from "./movie-details.jsx";
+import MoviePage from "./movie-page.jsx";
 
 it(`MovieDetails is rendered correctly`, () => {
   const tree = renderer.create(
-      <MovieDetails/>
+      <MoviePage/>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

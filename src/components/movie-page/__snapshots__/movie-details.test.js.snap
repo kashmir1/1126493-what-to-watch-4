@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieDetails is rendered correctly 1`] = `
+exports[`MoviePage is rendered correctly 1`] = `
 <div>
   <section
     className="movie-card movie-card--full"

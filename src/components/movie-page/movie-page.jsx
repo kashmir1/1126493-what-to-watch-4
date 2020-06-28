@@ -1,7 +1,7 @@
 import React from "react";
 import {appType} from "../../types/index";
 
-const MovieDetails = (appProps) => {
+const MoviePage = (appProps) => {
   const {movie} = appProps;
   const {title, genre, year, background, src, ratingScore, ratingCount, ratingLevel, movieDescription, movieDirector, movieStarring} = movie;
   return (
@@ -160,8 +160,8 @@ const MovieDetails = (appProps) => {
   );
 };
 
-MovieDetails.propTypes = {
+MoviePage.propTypes = {
   appProps: appType,
 };
 
-export default MovieDetails;
+export default MoviePage;
