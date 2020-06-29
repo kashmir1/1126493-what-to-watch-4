@@ -54,7 +54,7 @@ export const moviesListType = shape({
 });
 
 export const AppProps = shape({
-  movie: MovieType.isRequired,
-  moviesList: arrayOf(MovieType).isRequired,
+  movie: appType.isRequired,
+  moviesList: arrayOf(appType).isRequired,
   onTitleClick: func.isRequired,
 });
