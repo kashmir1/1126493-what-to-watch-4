@@ -52,3 +52,9 @@ export const moviesListType = shape({
   onPosterClick: PropTypes.func.isRequired,
   onCardMouseHover: func.isRequired,
 });
+
+export const AppProps = shape({
+  movie: MovieType.isRequired,
+  moviesList: arrayOf(MovieType).isRequired,
+  onTitleClick: func.isRequired,
+});

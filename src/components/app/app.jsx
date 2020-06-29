@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import Main from "../main/main.jsx";
-import {appType} from "../../types/index";
+import {AppProps} from "../../types/index";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
 import MoviePage from "../movie-page/movie-page.jsx";
 import {UrlPage} from "../../consts.js";
@@ -71,7 +71,7 @@ class App extends PureComponent {
 
 
 App.propTypes = {
-  appProps: appType,
+  appProps: AppProps,
 };
 
 export default App;
