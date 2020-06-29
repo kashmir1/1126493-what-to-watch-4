@@ -5,7 +5,6 @@ import {Switch, Route, BrowserRouter} from "react-router-dom";
 import MoviePage from "../movie-page/movie-page.jsx";
 import {UrlPage} from "../../consts.js";
 
-
 class App extends PureComponent {
   constructor(appProps) {
     super(appProps);
