@@ -1,5 +1,6 @@
 const moviesList = [
   {
+    id: 1,
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
     src: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
     genre: `drama`,
@@ -12,6 +13,7 @@ const moviesList = [
     movieDirector: `Director: Wes Andreson`,
     movieStarring: `Starring: Bill Murray, Willem Dafoe and other`,
   }, {
+    id: 2,
     title: `Bohemian Rhapsody`,
     src: `img/bohemian-rhapsody.jpg`,
     genre: `comedy`,
@@ -24,6 +26,7 @@ const moviesList = [
     movieDirector: `Director: Bill Murray`,
     movieStarring: `Starring: Edward Norton, Willem Dafoe and other`,
   }, {
+    id: 3,
     title: `Macbeth`,
     src: `img/macbeth.jpg`,
     genre: `drama`,
@@ -36,6 +39,7 @@ const moviesList = [
     movieDirector: `Director: Macbeth`,
     movieStarring: `Starring: Macbeth, Willem Dafoe and other`,
   }, {
+    id: 4,
     title: `Aviator`,
     src: `img/aviator.jpg`,
     genre: `documentary`,
@@ -48,6 +52,7 @@ const moviesList = [
     movieDirector: `Director: Aviator`,
     movieStarring: `Starring: Aviator, Willem Dafoe and other`,
   }, {
+    id: 5,
     title: `Moonrise Kingdom`,
     src: `img/moonrise-kingdom.jpg`,
     genre: `romance`,
@@ -60,6 +65,7 @@ const moviesList = [
     movieDirector: `Director: Moonrise Kingdom`,
     movieStarring: `Starring: Moonrise Kingdom, Willem Dafoe and other`,
   }, {
+    id: 6,
     title: `Midnight Special`,
     src: `img/midnight-special.jpg`,
     genre: `crime`,
@@ -72,6 +78,7 @@ const moviesList = [
     movieDirector: `Director: Midnight Special`,
     movieStarring: `Starring: Midnight Special, Willem Dafoe and other`,
   }, {
+    id: 7,
     title: `War of the Worlds`,
     src: `img/war-of-the-worlds.jpg`,
     genre: `drama`,
@@ -84,6 +91,7 @@ const moviesList = [
     movieDirector: `Director: War of the Worlds`,
     movieStarring: `Starring: War of the Worlds, Willem Dafoe and other`,
   }, {
+    id: 8,
     title: `Shutter Island`,
     src: `img/shutter-island.jpg`,
     genre: `drama`,

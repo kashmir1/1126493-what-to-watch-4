@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import Main from "../main/main.jsx";
-import {appType} from "../../types/index";
+import PropTypes from "prop-types";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
 import MoviePage from "../movie-page/movie-page.jsx";
 import {UrlPage} from "../../consts.js";
@@ -68,7 +68,18 @@ class App extends PureComponent {
 
 
 App.propTypes = {
-  appProps: appType,
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+  }).isRequired,
+  moviesList: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        src: PropTypes.string.isRequired
+      })
+  ).isRequired,
 };
 
 export default App;
