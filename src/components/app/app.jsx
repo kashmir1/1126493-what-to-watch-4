@@ -7,15 +7,13 @@ import {UrlPage} from "../../consts.js";
 
 
 class App extends PureComponent {
-  constructor(appProps) {
-    super(appProps);
-    this.appProps = appProps;
+  constructor(props) {
+    super(props);
     this._handleTitleClick = this._handleTitleClick.bind(this);
-
 
     this.state = {
       activePage: UrlPage.MAIN,
-      activeFilm: this.appProps.movie,
+      activeFilm: props.movie,
     };
   }
 
@@ -27,7 +25,7 @@ class App extends PureComponent {
   }
 
   _renderMain() {
-    const {movie, moviesList} = this.appProps;
+    const {movie, moviesList} = this.props;
     const {activePage, activeFilm} = this.state;
     switch (activePage) {
       case UrlPage.MAIN:
