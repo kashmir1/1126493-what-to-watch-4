@@ -10,6 +10,14 @@ class MoviesList extends PureComponent {
     this.state = {
       avtiveMovie: {},
     };
+
+    this._handleOnCardMouseHover = this._handleOnCardMouseHover.bind(this);
+  }
+
+  _handleOnCardMouseHover(movie) {
+    this.setState({
+      activeMovie: movie,
+    });
   }
 
   render() {
@@ -22,11 +30,7 @@ class MoviesList extends PureComponent {
             key={movie.title}
             movie = {movie}
             onTitleClick={onTitleClick}
-            onCardMouseHover = {() => {
-              this.setState({
-                activeMovie: movie,
-              });
-            }}
+            onCardMouseHover = {this._handleOnCardMouseHover}
           />)
         )}
       </div>);
