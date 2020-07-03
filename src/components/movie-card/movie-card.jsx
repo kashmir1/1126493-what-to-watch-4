@@ -1,14 +1,13 @@
 import React, {PureComponent} from "react";
-import {moviesListType} from '../../types/index';
+import PropTypes from "prop-types";
 
 class MovieCard extends PureComponent {
-  constructor(moviesListProps) {
-    super(moviesListProps);
-    this.moviesListProps = moviesListProps;
+  constructor(props) {
+    super(props);
   }
 
   render() {
-    const {movie, onCardMouseHover, onTitleClick} = this.moviesListProps;
+    const {movie, onCardMouseHover, onTitleClick} = this.props;
     const {title, src} = movie;
     return (
       <article className="small-movie-card catalog__movies-card" onMouseEnter={onCardMouseHover}>
@@ -30,7 +29,13 @@ class MovieCard extends PureComponent {
 }
 
 MovieCard.propTypes = {
-  moviesListProps: moviesListType,
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+  }),
+  onTitleClick: PropTypes.func.isRequired,
+  onCardMouseHover: PropTypes.func.isRequired,
 };
 
 export default MovieCard;
