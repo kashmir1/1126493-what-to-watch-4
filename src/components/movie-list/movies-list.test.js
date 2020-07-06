@@ -25,7 +25,7 @@ it(`MovieList is rendered correctly`, () => {
   const tree = renderer.create(
       <MoviesList
         moviesList={moviesList}
-        onCardMouseHover={() => {}}
+        onCardMouseEnter={() => {}}
         onTitleClick={onTitleClick}
       />
   ).toJSON();

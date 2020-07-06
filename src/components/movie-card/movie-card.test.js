@@ -4,12 +4,12 @@ import MovieCard from "./movie-card.jsx";
 import moviesList from "../../mocks/testing.js";
 
 it(`MovieCard is rendered correctly`, () => {
-  const onCardMouseHover = jest.fn();
+  const onCardMouseEnter = jest.fn();
   const onTitleClick = jest.fn();
   const tree = renderer.create(
       <MovieCard
         movie={moviesList[0]}
-        onCardMouseHover={onCardMouseHover}
+        onCardMouseEnter={onCardMouseEnter}
         onTitleClick={onTitleClick}
       />
   ).toJSON();

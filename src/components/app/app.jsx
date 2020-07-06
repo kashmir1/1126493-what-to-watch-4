@@ -33,6 +33,7 @@ class App extends PureComponent {
             movie={movie}
             moviesList={moviesList}
             onTitleClick={this._handleTitleClick}
+            onPosterClick={this._handleTitleClick}
           />
         );
       case UrlPage.MOVIE_PAGE:

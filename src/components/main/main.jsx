@@ -4,7 +4,7 @@ import {appType} from "../../types/index";
 
 const Main = (appProps) => {
 
-  const {movie, moviesList, onTitleClick, onCardMouseHover} = appProps;
+  const {movie, moviesList, onTitleClick, onCardMouseEnter, onPosterClick} = appProps;
   const {title, genre, year} = movie;
   return (
     <div>
@@ -100,7 +100,8 @@ const Main = (appProps) => {
             </li>
           </ul>
 
-          <MovieList moviesList={moviesList} onTitleClick={onTitleClick} onCardMouseHover={onCardMouseHover} />
+          <MovieList moviesList={moviesList} onTitleClick={onTitleClick} onCardMouseEnter={onCardMouseEnter}
+                     onPosterClick={onPosterClick}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

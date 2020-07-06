@@ -38,8 +38,8 @@ export const appType = shape({
       })
   ).isRequired,
   onTitleClick: func.isRequired,
-  onCardMouseHover: func.isRequired,
-  onPosterClick: PropTypes.func.isRequired,
+  onPosterClick: func.isRequired,
+  onCardMouseEnter: func.isRequired,
 });
 
 export const moviesListType = shape({
@@ -49,8 +49,8 @@ export const moviesListType = shape({
     src: string.isRequired,
   }),
   onTitleClick: func.isRequired,
-  onPosterClick: PropTypes.func.isRequired,
-  onCardMouseHover: func.isRequired,
+  onPosterClick: func.isRequired,
+  onCardMouseEnter: func.isRequired,
 });
 
 export const AppProps = shape({
