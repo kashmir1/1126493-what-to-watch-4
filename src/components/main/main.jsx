@@ -101,7 +101,7 @@ const Main = (appProps) => {
           </ul>
 
           <MovieList moviesList={moviesList} onTitleClick={onTitleClick} onCardMouseEnter={onCardMouseEnter}
-                     onPosterClick={onPosterClick}/>
+            onPosterClick={onPosterClick} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
