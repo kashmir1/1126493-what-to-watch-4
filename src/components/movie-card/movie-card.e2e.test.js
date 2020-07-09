@@ -1,35 +1,48 @@
-import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import MovieCard from "./movie-card.jsx";
+import React from 'react';
+import Enzyme, {shallow} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
 import moviesList from "../../mocks/testing.js";
+import MovieCard from "./movie-card.jsx";
+
+const movie = moviesList[0];
 
 Enzyme.configure({
   adapter: new Adapter(),
 });
 
-it(`When you hover over a card movie, information about movie enters the handler`, () => {
+describe(`SmallMovieCard`, () => {
   const onCardMouseEnter = jest.fn();
   const onTitleClick = jest.fn();
+  const onPosterClick = jest.fn();
+
   const main = shallow(
       <MovieCard
-        movie = {moviesList[0]}
+        movie={movie}
         onCardMouseEnter={onCardMouseEnter}
         onTitleClick={onTitleClick}
+        onPosterClick={onPosterClick}
       />
   );
+
+  it(`Should MovieCard hovered`, () => {
+    const movieCard = main.find(`.small-movie-card`);
+    movieCard.simulate(`mouseenter`, movie);
+    expect(onCardMouseEnter).toHaveBeenCalledWith(movie);
+  });
+
+  it(`Should MoviePoster clicked`, () => {
+    const moviePoster = main.find(`.small-movie-card__image`);
+    moviePoster.parent().simulate(`click`, movie);
+    expect(onPosterClick).toHaveBeenCalledWith(movie);
+  });
 
   const mockEvent = {
     preventDefault() {}
   };
 
   const movieTitle = main.find(`.small-movie-card__link`);
-  const movieImage = main.find(`.small-movie-card__image`);
   movieTitle.simulate(`click`, mockEvent);
-  movieImage.simulate(`mouseenter`);
-  movieImage.simulate(`click`);
-  expect(onTitleClick.mock.calls.length).toBe(2);
+  expect(onTitleClick.mock.calls.length).toBe(1);
   expect(onTitleClick.mock.calls[0][0]).toMatchObject(moviesList[0]);
-  expect(onCardMouseEnter.mock.calls.length).toBe(1);
-  expect(onCardMouseEnter).toHaveBeenCalledWith(moviesList[0]);
 });

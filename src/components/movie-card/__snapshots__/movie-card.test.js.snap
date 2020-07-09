@@ -1,21 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieCard is rendered correctly 1`] = `
+exports[`MovieCard Render MovieCard 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
-  onMouseEnter={[MockFunction]}
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <div
     className="small-movie-card__image"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
   >
-    <img
-      alt="Fantastic Beasts: The Crimes of Grindelwald"
+    <video
       height="175"
-      src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+      poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+      type="video/webm"
       width="280"
-    />
+    >
+      your browser doesn\`t support embedded videos
+    </video>
   </div>
   <h3
     className="small-movie-card__title"

@@ -2,7 +2,7 @@ const moviesList = [
   {
     id: 1,
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
-    src: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
+    poster: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
     genre: `drama`,
     year: 2013,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -12,10 +12,12 @@ const moviesList = [
     movieDescription: `Fantastic Beasts: The Crimes of Grindelwald movie description text. Fantastic Beasts: The Crimes of Grindelwald movie description text. Fantastic Beasts: The Crimes of Grindelwald movie description text. `,
     movieDirector: `Director: Wes Andreson`,
     movieStarring: `Starring: Bill Murray, Willem Dafoe and other`,
-  }, {
+    src: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+  },
+  {
     id: 2,
     title: `Bohemian Rhapsody`,
-    src: `img/bohemian-rhapsody.jpg`,
+    poster: `img/bohemian-rhapsody.jpg`,
     genre: `comedy`,
     year: 2015,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -25,10 +27,12 @@ const moviesList = [
     movieDescription: `Bohemian Rhapsody movie description text. Bohemian Rhapsody movie description text. Bohemian Rhapsody movie description text. `,
     movieDirector: `Director: Bill Murray`,
     movieStarring: `Starring: Edward Norton, Willem Dafoe and other`,
-  }, {
+    src: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+  },
+  {
     id: 3,
     title: `Macbeth`,
-    src: `img/macbeth.jpg`,
+    poster: `img/macbeth.jpg`,
     genre: `drama`,
     year: 2014,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -38,10 +42,12 @@ const moviesList = [
     movieDescription: `Macbeth movie description text. Macbeth movie description text. Macbeth movie description text. Macbeth movie description text. `,
     movieDirector: `Director: Macbeth`,
     movieStarring: `Starring: Macbeth, Willem Dafoe and other`,
-  }, {
+    src: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+  },
+  {
     id: 4,
     title: `Aviator`,
-    src: `img/aviator.jpg`,
+    poster: `img/aviator.jpg`,
     genre: `documentary`,
     year: 2013,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -51,10 +57,12 @@ const moviesList = [
     movieDescription: `Aviator movie description text. Aviator movie description text. Aviator movie description text. Aviator movie description text.`,
     movieDirector: `Director: Aviator`,
     movieStarring: `Starring: Aviator, Willem Dafoe and other`,
-  }, {
+    src: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+  },
+  {
     id: 5,
     title: `Moonrise Kingdom`,
-    src: `img/moonrise-kingdom.jpg`,
+    poster: `img/moonrise-kingdom.jpg`,
     genre: `romance`,
     year: 2011,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -64,10 +72,12 @@ const moviesList = [
     movieDescription: `Moonrise Kingdom movie description text. Moonrise Kingdom movie description text. Moonrise Kingdom movie description text. Moonrise Kingdom movie description text.`,
     movieDirector: `Director: Moonrise Kingdom`,
     movieStarring: `Starring: Moonrise Kingdom, Willem Dafoe and other`,
-  }, {
+    src: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+  },
+  {
     id: 6,
     title: `Midnight Special`,
-    src: `img/midnight-special.jpg`,
+    poster: `img/midnight-special.jpg`,
     genre: `crime`,
     year: 2016,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -77,10 +87,12 @@ const moviesList = [
     movieDescription: `Midnight Special movie description text. Midnight Special movie description text. Midnight Special movie description text. Midnight Special movie description text.`,
     movieDirector: `Director: Midnight Special`,
     movieStarring: `Starring: Midnight Special, Willem Dafoe and other`,
-  }, {
+    src: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+  },
+  {
     id: 7,
     title: `War of the Worlds`,
-    src: `img/war-of-the-worlds.jpg`,
+    poster: `img/war-of-the-worlds.jpg`,
     genre: `drama`,
     year: 2013,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -90,10 +102,12 @@ const moviesList = [
     movieDescription: `War of the Worlds movie description text. War of the Worlds movie description text. War of the Worlds movie description text. War of the Worlds movie description text. War of the Worlds movie description text. `,
     movieDirector: `Director: War of the Worlds`,
     movieStarring: `Starring: War of the Worlds, Willem Dafoe and other`,
-  }, {
+    src: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+  },
+  {
     id: 8,
     title: `Shutter Island`,
-    src: `img/shutter-island.jpg`,
+    poster: `img/shutter-island.jpg`,
     genre: `drama`,
     year: 2017,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -103,6 +117,7 @@ const moviesList = [
     movieDescription: `Shutter Island movie description text. Shutter Island movie description text. Shutter Island movie description text. Shutter Island movie description text. `,
     movieDirector: `Director: Shutter Island`,
     movieStarring: `Starring: Shutter Island, Willem Dafoe and other`,
+    src: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }
 ];
 

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoPlayer Render VideoPlayer 1`] = `
+<video
+  height="175"
+  poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+  type="video/webm"
+  width="280"
+>
+  your browser doesn\`t support embedded videos
+</video>
+`;

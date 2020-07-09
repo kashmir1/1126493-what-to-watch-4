@@ -3,15 +3,23 @@ import renderer from 'react-test-renderer';
 import MovieCard from "./movie-card.jsx";
 import moviesList from "../../mocks/testing.js";
 
-it(`MovieCard is rendered correctly`, () => {
-  const onCardMouseEnter = jest.fn();
-  const onTitleClick = jest.fn();
-  const tree = renderer.create(
-      <MovieCard
-        movie={moviesList[0]}
-        onCardMouseEnter={onCardMouseEnter}
-        onTitleClick={onTitleClick}
-      />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+const movie = moviesList[0];
+
+describe(`MovieCard`, () => {
+  it(`Render MovieCard`, () => {
+    const tree = renderer.create(
+        <MovieCard
+          movie = {movie}
+          onCardMouseEnter = {() => {}}
+          onPosterClick = {() => {}}
+          onTitleClick={() => {}}
+        />, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });
