@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import VideoPlayer from "../player/player.jsx";
+import VideoPlayer from "../player/video-player.jsx";
 
 class MovieCard extends PureComponent {
   constructor(props) {
@@ -13,7 +13,8 @@ class MovieCard extends PureComponent {
 
   render() {
     const {movie, onCardMouseEnter, onTitleClick, onPosterClick} = this.props;
-    const {title} = movie;
+    const {isPlaying} = this.state;
+
     return (
       <article className="small-movie-card catalog__movies-card"
         onClick={() => onPosterClick(movie)}
@@ -24,15 +25,15 @@ class MovieCard extends PureComponent {
           });
         }}
         onMouseLeave = {() => {
-          onCardMouseEnter(null);
           this.setState({
             isPlaying: false
           });
         }}
       >
         <div className="small-movie-card__image">
-          <VideoPlayer
-            preview = {movie.preview}
+          <VideoPlayer muted
+            isPlaying={isPlaying}
+            src = {movie.src}
             poster = {movie.poster}
           />
         </div>
@@ -44,7 +45,7 @@ class MovieCard extends PureComponent {
             }}
             className="small-movie-card__link"
             href="movie-page.html"
-          >{title}</a>
+          >{movie.title}</a>
         </h3>
       </article>
     );
@@ -56,7 +57,7 @@ MovieCard.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
-    preview: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
   }),
   onTitleClick: PropTypes.func.isRequired,
   onCardMouseEnter: PropTypes.func.isRequired,

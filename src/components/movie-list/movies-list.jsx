@@ -10,22 +10,8 @@ class MoviesList extends PureComponent {
     this.state = {
       avtiveMovie: {},
     };
-
-    this._handleOnCardMouseEnter = this._handleOnCardMouseEnter.bind(this);
-    this._handleMovieCardMouseLeave = this._handleMovieCardMouseLeave.bind(this);
   }
 
-  _handleOnCardMouseEnter(movie) {
-    this.setState({
-      activeMovie: movie,
-    });
-  }
-
-  _handleMovieCardMouseLeave() {
-    this.setState({
-      activeCard: null
-    });
-  }
 
   render() {
     const {moviesList, onTitleClick, onPosterClick} = this.moviesListProps;
@@ -38,8 +24,11 @@ class MoviesList extends PureComponent {
             movie = {movie}
             onTitleClick={onTitleClick}
             onPosterClick={onPosterClick}
-            onCardMouseEnter = {this._handleOnCardMouseEnter}
-            onMouseLeave={this._handleMovieCardMouseLeave}
+            onCardMouseEnter = {(currentMovie) => {
+              this.setState({
+                activeMovie: currentMovie,
+              });
+            }}
           />)
         )}
       </div>);
