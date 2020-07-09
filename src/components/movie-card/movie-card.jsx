@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-// import Player from "../player/player";
+import VideoPlayer from "../player/player.jsx";
 
 class MovieCard extends PureComponent {
   constructor(props) {
@@ -13,7 +13,7 @@ class MovieCard extends PureComponent {
 
   render() {
     const {movie, onCardMouseEnter, onTitleClick, onPosterClick} = this.props;
-    const {title, src} = movie;
+    const {title} = movie;
     return (
       <article className="small-movie-card catalog__movies-card"
         onClick={() => onPosterClick(movie)}
@@ -31,7 +31,10 @@ class MovieCard extends PureComponent {
         }}
       >
         <div className="small-movie-card__image">
-          <img src={src} alt={title} width="280" height="175" />
+          <VideoPlayer
+            preview = {movie.preview}
+            poster = {movie.poster}
+          />
         </div>
         <h3 className="small-movie-card__title">
           <a
@@ -52,7 +55,8 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    preview: PropTypes.string.isRequired,
   }),
   onTitleClick: PropTypes.func.isRequired,
   onCardMouseEnter: PropTypes.func.isRequired,

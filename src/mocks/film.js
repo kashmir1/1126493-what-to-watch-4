@@ -2,7 +2,7 @@ export default {
   title: `The Grand Budapest Hotel`,
   genre: `Comedy`,
   year: 1996,
-  src: `img/the-grand-budapest-hotel-poster.jpg`,
+  poster: `img/the-grand-budapest-hotel-poster.jpg`,
   background: `img/bg-the-grand-budapest-hotel.jpg`,
   ratingScore: `9.9`,
   ratingLevel: `Very very good`,

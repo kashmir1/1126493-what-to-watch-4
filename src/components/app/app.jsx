@@ -78,7 +78,7 @@ App.propTypes = {
       PropTypes.shape({
         title: PropTypes.string.isRequired,
         id: PropTypes.number.isRequired,
-        src: PropTypes.string.isRequired
+        poster: PropTypes.string.isRequired
       })
   ).isRequired,
 };

@@ -3,7 +3,7 @@ import {appType} from "../../types/index.js";
 
 const MoviePage = (appProps) => {
   const {movie} = appProps;
-  const {title, genre, year, background, src, ratingScore, ratingCount, ratingLevel, movieDescription, movieDirector, movieStarring} = movie;
+  const {title, genre, year, background, poster, ratingScore, ratingCount, ratingLevel, movieDescription, movieDirector, movieStarring} = movie;
   return (
     <div>
       <section className="movie-card movie-card--full">
@@ -60,7 +60,7 @@ const MoviePage = (appProps) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={src} alt={title + `poster`} width="218" height="327" />
+              <img src={poster} alt={title + `poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
