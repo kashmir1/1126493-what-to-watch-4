@@ -1,4 +1,4 @@
-const moviesList = [
+const films = [
   {
     id: 1,
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
@@ -121,4 +121,4 @@ const moviesList = [
   }
 ];
 
-export default moviesList;
+export default films;

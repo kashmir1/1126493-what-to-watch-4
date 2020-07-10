@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import App from './app.jsx';
-import moviesList from "../../mocks/testing.js";
+import films from "../../mocks/testing.js";
 
 const onTitleClick = () => {};
 
@@ -9,8 +9,8 @@ it(`Render App`, () => {
   const tree = renderer
     .create(
         <App
-          movie = {moviesList[0]}
-          moviesList={moviesList}
+          movie = {films[0]}
+          moviesList={films}
           onTitleClick = {onTitleClick}
         />)
     .toJSON();

@@ -67,7 +67,6 @@ class App extends PureComponent {
   }
 }
 
-
 App.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -78,7 +77,8 @@ App.propTypes = {
       PropTypes.shape({
         title: PropTypes.string.isRequired,
         id: PropTypes.number.isRequired,
-        poster: PropTypes.string.isRequired
+        poster: PropTypes.string.isRequired,
+        src: PropTypes.string.isRequired,
       })
   ).isRequired,
 };

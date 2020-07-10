@@ -1,15 +1,13 @@
-// npm run test.jest -- -u
-
 import React from 'react';
-import TestRenderer from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 import VideoPlayer from './video-player.jsx';
-import moviesList from "../../mocks/testing.js";
+import films from "../../mocks/testing.js";
 
-const movie = moviesList[0];
+const movie = films[0];
 
 describe(`VideoPlayer`, () => {
   it(`Render VideoPlayer`, () => {
-    const tree = TestRenderer.create(
+    const tree = renderer.create(
         <VideoPlayer muted
           isPlaying = {false}
           src = {movie.src}

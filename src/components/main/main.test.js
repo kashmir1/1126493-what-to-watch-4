@@ -1,18 +1,42 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Main from './main.jsx';
-import moviesList from "../../mocks/testing.js";
+import films from "../../mocks/testing.js";
 
-const onTitleClick = () => {};
+describe(`Main`, () => {
+  it(`Render Main`, () => {
+    const tree = renderer.create(
+        <Main
+          movie = {films}
+          moviesList={films}
+          onTitleClick = {() => {}}
+          onPosterClick = {() => {}}
+          onCardMouseEnter = {() => {}}
+        />, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
+    ).toJSON();
 
-it(`Render Main`, () => {
-  const tree = renderer
-    .create(<Main
-      movie = {moviesList[0]}
-      moviesList={moviesList}
-      onTitleClick = {onTitleClick}
-    />)
-    .toJSON();
-
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
 });
+
+// const onTitleClick = () => {};
+// const onPosterClick = () => {};
+// describe(`Main`, () => {
+//   it(`Render Main`, () => {
+//     const tree = renderer
+//       .create(<Main
+//         movie = {films}
+//         moviesList={films}
+//         onTitleClick = {onTitleClick}
+//         onPosterClick = {onPosterClick}
+//       />)
+//       .toJSON();
+//
+//     expect(tree).toMatchSnapshot();
+//   });
+// });
+//

@@ -47,11 +47,29 @@ export const moviesListType = shape({
     id: number.isRequired,
     title: string.isRequired,
     src: string.isRequired,
+    poster: string.isRequired,
   }),
   onTitleClick: func.isRequired,
   onPosterClick: func.isRequired,
   onCardMouseEnter: func.isRequired,
 });
+
+export const CustomPropTypes = {
+  FILM: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    bg: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    rating: PropTypes.string.isRequired,
+    votes: PropTypes.string.isRequired,
+    director: PropTypes.string.isRequired,
+    starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  }).isRequired,
+};
 
 export const AppProps = shape({
   movie: appType.isRequired,

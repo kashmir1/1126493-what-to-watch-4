@@ -1,33 +1,26 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import MoviesList from './movies-list.jsx';
+import films from "../../mocks/testing.js";
 
-const moviesList = [
-  {
-    id: 0,
-    title: `Fantastic Beasts: The Crimes of Grindelwald`,
-    image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`
-  },
-  {
-    id: 1,
-    title: `Bohemian Rhapsody`,
-    image: `img/bohemian-rhapsody.jpg`
-  },
-  {
-    id: 2,
-    title: `Macbeth`,
-    image: `img/macbeth.jpg`
-  },
-];
+const movies = films;
 
-it(`MovieList is rendered correctly`, () => {
-  const onTitleClick = jest.fn();
-  const tree = renderer.create(
-      <MoviesList
-        moviesList={moviesList}
-        onCardMouseEnter={() => {}}
-        onTitleClick={onTitleClick}
-      />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+describe(`MoviesList`, () => {
+  it(`Render MoviesList`, () => {
+    const tree = renderer.create(
+        <MoviesList
+          movies = {movies}
+          onTitleClick = {() => {}}
+          onPosterClick = {() => {}}
+          moviesList = {films}
+        />, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });
+

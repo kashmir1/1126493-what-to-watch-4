@@ -2,10 +2,10 @@ import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import moviesList from "../../mocks/testing.js";
+import films from "../../mocks/testing.js";
 import MovieCard from "./movie-card.jsx";
 
-const movie = moviesList[0];
+const movie = films[0];
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -44,5 +44,5 @@ describe(`SmallMovieCard`, () => {
   const movieTitle = main.find(`.small-movie-card__link`);
   movieTitle.simulate(`click`, mockEvent);
   expect(onTitleClick.mock.calls.length).toBe(1);
-  expect(onTitleClick.mock.calls[0][0]).toMatchObject(moviesList[0]);
+  expect(onTitleClick.mock.calls[0][0]).toMatchObject(films[0]);
 });

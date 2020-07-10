@@ -2,7 +2,7 @@ import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Main from "./main.jsx";
-import moviesList from "../../mocks/testing";
+import films from "../../mocks/testing";
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -13,8 +13,8 @@ it(`Should main title link be pressed`, () => {
   const handleCardMouseEnter = jest.fn();
   const main = shallow(
       <Main
-        movie = {moviesList[0]}
-        moviesList={moviesList}
+        movie = {films[0]}
+        moviesList={films}
         onCardMouseEnter={handleCardMouseEnter}
         onTitleClick={handleTitleClick}
       />

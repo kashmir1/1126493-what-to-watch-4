@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render Main 1`] = `
+exports[`Main Render Main 1`] = `
 <div>
   <section
     className="movie-card"
@@ -80,22 +80,16 @@ exports[`Render Main 1`] = `
         >
           <h2
             className="movie-card__title"
-          >
-            Fantastic Beasts: The Crimes of Grindelwald
-          </h2>
+          />
           <p
             className="movie-card__meta"
           >
             <span
               className="movie-card__genre"
-            >
-              drama
-            </span>
+            />
             <span
               className="movie-card__year"
-            >
-              2013
-            </span>
+            />
           </p>
           <div
             className="movie-card__buttons"
@@ -259,19 +253,21 @@ exports[`Render Main 1`] = `
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
           >
-            <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+            <video
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
@@ -287,19 +283,21 @@ exports[`Render Main 1`] = `
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
           >
-            <img
-              alt="Bohemian Rhapsody"
+            <video
               height="175"
-              src="img/bohemian-rhapsody.jpg"
+              poster="img/bohemian-rhapsody.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
@@ -315,19 +313,21 @@ exports[`Render Main 1`] = `
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
           >
-            <img
-              alt="Macbeth"
+            <video
               height="175"
-              src="img/macbeth.jpg"
+              poster="img/macbeth.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
@@ -343,19 +343,21 @@ exports[`Render Main 1`] = `
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
           >
-            <img
-              alt="Aviator"
+            <video
               height="175"
-              src="img/aviator.jpg"
+              poster="img/aviator.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
@@ -371,19 +373,21 @@ exports[`Render Main 1`] = `
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
           >
-            <img
-              alt="Moonrise Kingdom"
+            <video
               height="175"
-              src="img/moonrise-kingdom.jpg"
+              poster="img/moonrise-kingdom.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
@@ -399,19 +403,21 @@ exports[`Render Main 1`] = `
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
           >
-            <img
-              alt="Midnight Special"
+            <video
               height="175"
-              src="img/midnight-special.jpg"
+              poster="img/midnight-special.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
@@ -427,19 +433,21 @@ exports[`Render Main 1`] = `
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
           >
-            <img
-              alt="War of the Worlds"
+            <video
               height="175"
-              src="img/war-of-the-worlds.jpg"
+              poster="img/war-of-the-worlds.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
@@ -455,19 +463,21 @@ exports[`Render Main 1`] = `
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
           >
-            <img
-              alt="Shutter Island"
+            <video
               height="175"
-              src="img/shutter-island.jpg"
+              poster="img/shutter-island.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"

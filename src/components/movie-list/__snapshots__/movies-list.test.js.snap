@@ -1,23 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieList is rendered correctly 1`] = `
+exports[`MoviesList Render MoviesList 1`] = `
 <div
   className="catalog__movies-list"
 >
   <article
     className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
-      onClick={[Function]}
-      onMouseEnter={[Function]}
     >
-      <img
-        alt="Fantastic Beasts: The Crimes of Grindelwald"
+      <video
         height="175"
+        poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+        type="video/webm"
         width="280"
-      />
+      >
+        your browser doesn\`t support embedded videos
+      </video>
     </div>
     <h3
       className="small-movie-card__title"
@@ -33,18 +36,21 @@ exports[`MovieList is rendered correctly 1`] = `
   </article>
   <article
     className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
-      onClick={[Function]}
-      onMouseEnter={[Function]}
     >
-      <img
-        alt="Bohemian Rhapsody"
+      <video
         height="175"
+        poster="img/bohemian-rhapsody.jpg"
+        type="video/webm"
         width="280"
-      />
+      >
+        your browser doesn\`t support embedded videos
+      </video>
     </div>
     <h3
       className="small-movie-card__title"
@@ -60,18 +66,21 @@ exports[`MovieList is rendered correctly 1`] = `
   </article>
   <article
     className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
-      onClick={[Function]}
-      onMouseEnter={[Function]}
     >
-      <img
-        alt="Macbeth"
+      <video
         height="175"
+        poster="img/macbeth.jpg"
+        type="video/webm"
         width="280"
-      />
+      >
+        your browser doesn\`t support embedded videos
+      </video>
     </div>
     <h3
       className="small-movie-card__title"
@@ -82,6 +91,156 @@ exports[`MovieList is rendered correctly 1`] = `
         onClick={[Function]}
       >
         Macbeth
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        poster="img/aviator.jpg"
+        type="video/webm"
+        width="280"
+      >
+        your browser doesn\`t support embedded videos
+      </video>
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+        onClick={[Function]}
+      >
+        Aviator
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        poster="img/moonrise-kingdom.jpg"
+        type="video/webm"
+        width="280"
+      >
+        your browser doesn\`t support embedded videos
+      </video>
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+        onClick={[Function]}
+      >
+        Moonrise Kingdom
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        poster="img/midnight-special.jpg"
+        type="video/webm"
+        width="280"
+      >
+        your browser doesn\`t support embedded videos
+      </video>
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+        onClick={[Function]}
+      >
+        Midnight Special
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        poster="img/war-of-the-worlds.jpg"
+        type="video/webm"
+        width="280"
+      >
+        your browser doesn\`t support embedded videos
+      </video>
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+        onClick={[Function]}
+      >
+        War of the Worlds
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        poster="img/shutter-island.jpg"
+        type="video/webm"
+        width="280"
+      >
+        your browser doesn\`t support embedded videos
+      </video>
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+        onClick={[Function]}
+      >
+        Shutter Island
       </a>
     </h3>
   </article>
