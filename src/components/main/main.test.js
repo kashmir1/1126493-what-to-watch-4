@@ -22,21 +22,3 @@ describe(`Main`, () => {
     expect(tree).toMatchSnapshot();
   });
 });
-
-// const onTitleClick = () => {};
-// const onPosterClick = () => {};
-// describe(`Main`, () => {
-//   it(`Render Main`, () => {
-//     const tree = renderer
-//       .create(<Main
-//         movie = {films}
-//         moviesList={films}
-//         onTitleClick = {onTitleClick}
-//         onPosterClick = {onPosterClick}
-//       />)
-//       .toJSON();
-//
-//     expect(tree).toMatchSnapshot();
-//   });
-// });
-//
