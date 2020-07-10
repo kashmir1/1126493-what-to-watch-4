@@ -5,15 +5,22 @@ import films from "../../mocks/testing.js";
 
 const onTitleClick = () => {};
 
-it(`Render App`, () => {
-  const tree = renderer
-    .create(
-        <App
-          movie = {films[0]}
-          moviesList={films}
-          onTitleClick = {onTitleClick}
-        />)
-    .toJSON();
+describe(`App`, () => {
+  it(`Render App`, () => {
+    const tree = renderer
+      .create(
+          <App
+            movie = {films[0]}
+            moviesList={films}
+            onTitleClick = {onTitleClick}
+          />, {
+            createNodeMock: () => {
+              return {};
+            }
+          })
+      .toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
 });
+
