@@ -56,13 +56,13 @@ export const moviesListType = shape({
 
 export const CustomPropTypes = {
   FILM: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    bg: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    background: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
+    // src: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     rating: PropTypes.string.isRequired,
     votes: PropTypes.string.isRequired,

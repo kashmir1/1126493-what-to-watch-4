@@ -20,7 +20,7 @@ const MovieNavTabs = (props) => {
 
   return (<React.Fragment>
     <div className="movie-rating">
-      <div className="movie-rating__score">{movie.rating}</div>
+      <div className="movie-rating__score">{movie.ratingScore}</div>
       <p className="movie-rating__meta">
         <span className="movie-rating__level">{getRating(movie.rating)}</span>
         <span className="movie-rating__count">{movie.votes} ratings</span>
