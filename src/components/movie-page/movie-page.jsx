@@ -26,6 +26,32 @@ class MoviePage extends PureComponent {
     });
   }
 
+  _renderCurrentTab(currentTab) {
+    const {movie} = this.props;
+
+    switch (currentTab) {
+      case MovieNavList.OVERVIEW:
+        return (
+          <MovieNavOverview
+            movie={movie}
+          />
+        );
+      case MovieNavList.DETAILS:
+        return (
+          <MovieNavDetails
+            movie={movie}
+          />
+        );
+      case MovieNavList.REVIEWS:
+        return (
+          <MovieNavReviews
+            movie={movie}
+          />
+        );
+      default: return ``;
+    }
+  }
+
   render() {
     const {movie} = this.props;
     const {currentTab} = this.state;
@@ -95,10 +121,8 @@ class MoviePage extends PureComponent {
                   currentTab={currentTab}
                   onTabClick={this._handleTabClick}
                 />
+                {this._renderCurrentTab(currentTab)}
 
-                <MovieNavOverview
-                  movie={movie}
-                />
               </div>
             </div>
           </div>
