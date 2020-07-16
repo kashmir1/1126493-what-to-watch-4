@@ -17,10 +17,18 @@ class MoviePage extends PureComponent {
     this.state = {
       currentTab: MovieNavList.OVERVIEW,
     };
+    this._handleTabClick = this._handleTabClick.bind(this);
+  }
+
+  _handleTabClick(tab) {
+    this.setState({
+      currentTab: tab,
+    });
   }
 
   render() {
     const {movie} = this.props;
+    const {currentTab} = this.state;
     const {title, genre, year, background, poster} = movie;
     return (
       <div>
@@ -84,7 +92,8 @@ class MoviePage extends PureComponent {
               <div className="movie-card__desc">
                 <MovieNavTabs
                   tabs={MovieNavList}
-                  currentTab={this.state.currentTab}
+                  currentTab={currentTab}
+                  onTabClick={this._handleTabClick}
                 />
 
                 <MovieNavOverview
