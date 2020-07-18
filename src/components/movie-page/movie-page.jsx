@@ -33,19 +33,27 @@ class MoviePage extends PureComponent {
       case MovieNavList.OVERVIEW:
         return (
           <MovieNavOverview
-            movie={movie}
+            rating={movie.rating}
+            votes={movie.votes}
+            description={movie.description}
+            director={movie.director}
+            starring={movie.starring}
           />
         );
       case MovieNavList.DETAILS:
         return (
           <MovieNavDetails
-            movie={movie}
+            director={movie.director}
+            starring={movie.starring}
+            time={movie.time}
+            genre={movie.genre}
+            year={movie.year}
           />
         );
       case MovieNavList.REVIEWS:
         return (
           <MovieNavReviews
-            movie={movie}
+            reviews={movie.reviews}
           />
         );
       default: return ``;
