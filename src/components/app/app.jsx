@@ -5,6 +5,8 @@ import {Switch, Route, BrowserRouter} from "react-router-dom";
 import MoviePage from "../movie-page/movie-page.jsx";
 import {UrlPage} from "../../consts.js";
 
+const COUNT_OF_SAME_FILMS = 4;
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -25,7 +27,7 @@ class App extends PureComponent {
 
   _renderMain() {
     const {movie, moviesList} = this.props;
-    const {activePage, activeFilm} = this.state;
+    const {activePage} = this.state;
     switch (activePage) {
       case UrlPage.MAIN:
         return (
@@ -37,14 +39,27 @@ class App extends PureComponent {
           />
         );
       case UrlPage.MOVIE_PAGE:
-        return (
-          <MoviePage
-            movie={activeFilm}
-          />
-        );
+        return this._renderMoviePage();
       default:
         return null;
     }
+  }
+
+  _renderMoviePage() {
+    const {moviesList} = this.props;
+    const moviePoster = this.state.activeFilm;
+
+    const sameFilms = moviesList
+      .filter((movie) => movie.genre === moviePoster.genre && movie.title !== moviePoster.title)
+      .slice(0, COUNT_OF_SAME_FILMS);
+
+    return (
+      <MoviePage
+        movie={moviePoster}
+        sameFilms={sameFilms}
+        onPosterClick={this._handleTitleClick}
+      />
+    );
   }
 
   render() {

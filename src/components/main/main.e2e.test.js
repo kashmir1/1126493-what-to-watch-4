@@ -11,11 +11,13 @@ Enzyme.configure({
 it(`Should main title link be pressed`, () => {
   const handleTitleClick = jest.fn();
   const handleCardMouseEnter = jest.fn();
+  const handlePosterClick = jest.fn();
   const main = shallow(
       <Main
-        movie = {films[0]}
+        movie = {films}
         moviesList={films}
         onCardMouseEnter={handleCardMouseEnter}
+        onPosterClick={handlePosterClick}
         onTitleClick={handleTitleClick}
       />
   );

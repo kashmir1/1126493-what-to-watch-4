@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Main from './main.jsx';
-import films from "../../mocks/testing.js";
+import films from "../../mocks/testing";
 
 describe(`Main`, () => {
   it(`Render Main`, () => {
@@ -11,7 +11,6 @@ describe(`Main`, () => {
           moviesList={films}
           onTitleClick = {() => {}}
           onPosterClick = {() => {}}
-          onCardMouseEnter = {() => {}}
         />, {
           createNodeMock: () => {
             return {};

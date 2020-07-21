@@ -16,11 +16,11 @@ const getRating = (rating) => {
 };
 
 const MovieNavOverview = (props) => {
-  const {rating, votes, description, director, starring, ratingScore} = props;
+  const {rating, votes, description, director, starring} = props;
 
   return (<React.Fragment>
     <div className="movie-rating">
-      <div className="movie-rating__score">{ratingScore}</div>
+      <div className="movie-rating__score">{rating}</div>
       <p className="movie-rating__meta">
         <span className="movie-rating__level">{getRating(rating)}</span>
         <span className="movie-rating__count">{votes} ratings</span>

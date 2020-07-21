@@ -59,6 +59,7 @@ export const CustomPropTypes = {
     id: PropTypes.number.isRequired,
     background: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
+    ratingScore: PropTypes.string.isRequired,
     // src: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
