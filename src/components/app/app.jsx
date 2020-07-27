@@ -1,101 +1,102 @@
-import React, {PureComponent} from "react";
-import Main from "../main/main.jsx";
-import PropTypes from "prop-types";
-import {Switch, Route, BrowserRouter} from "react-router-dom";
-import MoviePage from "../movie-page/movie-page.jsx";
-import {UrlPage} from "../../consts.js";
+import React, {PureComponent} from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import {CustomPropTypes} from "../../types";
+
+import Main from '../main/main.jsx';
+import MovieCard from "../movie-page/movie-page.jsx";
+
+const Pages = {
+  MAIN: `/`,
+  MOVIE_CARD: `/movie-card`,
+};
 
 const COUNT_OF_SAME_FILMS = 4;
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
-    this._handleTitleClick = this._handleTitleClick.bind(this);
 
     this.state = {
-      activePage: UrlPage.MAIN,
-      activeFilm: props.movie,
+      currentPage: Pages.MAIN,
+      selectedMovie: null,
     };
-  }
 
-  _handleTitleClick(movie) {
-    this.setState({
-      activePage: UrlPage.MOVIE_PAGE,
-      activeFilm: movie,
-    });
-  }
-
-  _renderMain() {
-    const {movie, moviesList} = this.props;
-    const {activePage} = this.state;
-    switch (activePage) {
-      case UrlPage.MAIN:
-        return (
-          <Main
-            movie={movie}
-            moviesList={moviesList}
-            onTitleClick={this._handleTitleClick}
-            onPosterClick={this._handleTitleClick}
-          />
-        );
-      case UrlPage.MOVIE_PAGE:
-        return this._renderMoviePage();
-      default:
-        return null;
-    }
-  }
-
-  _renderMoviePage() {
-    const {moviesList} = this.props;
-    const moviePoster = this.state.activeFilm;
-
-    const sameFilms = moviesList
-      .filter((movie) => movie.genre === moviePoster.genre && movie.title !== moviePoster.title)
-      .slice(0, COUNT_OF_SAME_FILMS);
-
-    return (
-      <MoviePage
-        movie={moviePoster}
-        sameFilms={sameFilms}
-        onPosterClick={this._handleTitleClick}
-      />
-    );
+    this._handleSmallMovieCardClick = this._handleSmallMovieCardClick.bind(this);
   }
 
   render() {
-    const {activeFilm} = this.state;
-
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
-            {this._renderMain()}
-          </Route>
-          <Route exact path="/dev-film">
-            <MoviePage
-              movie = {activeFilm}
+          <Route exact path={Pages.MAIN}>
+            {this._renderApp()}
+          </Route>/
+          <Route exact path={Pages.MOVIE_CARD}>
+            <MovieCard
+              film={this.props.moviePoster}
+              sameFilms={this.props.films}
+              onSmallMovieCardClick={this._handleSmallMovieCardClick}
             />
           </Route>
         </Switch>
       </BrowserRouter>
     );
   }
+
+  _renderApp() {
+    const {currentPage} = this.state;
+
+    switch (currentPage) {
+      case Pages.MAIN:
+        return this._renderMain();
+      case Pages.MOVIE_CARD:
+        return this._renderMovieCard();
+    }
+
+    return null;
+  }
+
+  _renderMain() {
+    const {films, moviePoster} = this.props;
+
+    return (
+      <Main
+        films={films}
+        moviePoster={moviePoster}
+        onSmallMovieCardClick={this._handleSmallMovieCardClick}
+      />
+    );
+  }
+
+  _renderMovieCard() {
+    const {films} = this.props;
+    const moviePoster = this.state.selectedMovie;
+
+    const sameFilms = films
+      .filter((film) => film.genre === moviePoster.genre && film.title !== moviePoster.title)
+      .slice(0, COUNT_OF_SAME_FILMS);
+
+    return (
+      <MovieCard
+        film={moviePoster}
+        sameFilms={sameFilms}
+        onSmallMovieCardClick={this._handleSmallMovieCardClick}
+      />
+    );
+  }
+
+  _handleSmallMovieCardClick(film) {
+    this.setState({
+      currentPage: Pages.MOVIE_CARD,
+      selectedMovie: film,
+    });
+  }
 }
 
-App.propTypes = {
-  movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired,
-  }).isRequired,
-  moviesList: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-        poster: PropTypes.string.isRequired,
-        src: PropTypes.string.isRequired,
-      })
-  ).isRequired,
-};
-
 export default App;
+
+App.propTypes = {
+  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
+  moviePoster: CustomPropTypes.FILM,
+};

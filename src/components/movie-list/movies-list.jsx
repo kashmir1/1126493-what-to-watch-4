@@ -1,42 +1,43 @@
 import React, {PureComponent} from 'react';
-import MovieCard from '../movie-card/movie-card.jsx';
-import {moviesListType} from "../../types/index";
+import PropTypes from 'prop-types';
+import {CustomPropTypes} from "../../types";
+
+import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
 
 class MoviesList extends PureComponent {
-  constructor(moviesListProps) {
-    super(moviesListProps);
-    this.moviesListProps = moviesListProps;
+  constructor(props) {
+    super(props);
 
     this.state = {
-      avtiveMovie: {},
+      onFilm: {},
     };
   }
 
-
   render() {
-    const {moviesList, onTitleClick, onPosterClick} = this.moviesListProps;
+    const {films, onSmallMovieCardClick} = this.props;
 
     return (
       <div className="catalog__movies-list">
-        {moviesList.map((movie) => (
-          <MovieCard
-            key={movie.title}
-            movie = {movie}
-            onTitleClick={onTitleClick}
-            onPosterClick={onPosterClick}
-            onCardMouseEnter = {(currentMovie) => {
+        {films.map((film) => (
+          <SmallMovieCard
+            key={film.id}
+            film={film}
+            onMouseHover={(currentFilm) => {
               this.setState({
-                activeMovie: currentMovie,
+                onFilm: currentFilm,
               });
             }}
-          />)
-        )}
-      </div>);
+            onSmallMovieCardClick={onSmallMovieCardClick}
+          />
+        ))}
+      </div>
+    );
   }
 }
 
-MoviesList.propTypes = {
-  moviesListProps: moviesListType,
-};
-
 export default MoviesList;
+
+MoviesList.propTypes = {
+  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
+  onSmallMovieCardClick: PropTypes.func.isRequired,
+};

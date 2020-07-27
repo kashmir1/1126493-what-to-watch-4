@@ -46,5 +46,5 @@ MovieNavDetails.propTypes = {
   starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   time: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired,
+  year: PropTypes.string.isRequired,
 };

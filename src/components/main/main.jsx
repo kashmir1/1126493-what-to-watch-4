@@ -1,8 +1,9 @@
-import React, {PureComponent} from "react";
-import MovieList from "./../movie-list/movies-list.jsx";
-import {CustomPropTypes} from "../../types";
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import {CustomPropTypes} from "../../types";
+
 import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
+import MoviesList from "../movie-list/movies-list.jsx";
 
 const MovieGenreList = {
   ALL: `All genres`,
@@ -35,119 +36,113 @@ class Main extends PureComponent {
   }
 
   render() {
-    const {movie, moviesList, onTitleClick, onPosterClick} = this.props;
-    const {title, genre, year} = movie;
+    const {films, moviePoster, onSmallMovieCardClick} = this.props;
     const {currentGenre} = this.state;
-    let filmsByGenre = moviesList;
+
+    let filmsByGenre = films;
 
     if (currentGenre !== MovieGenreList.ALL) {
-      filmsByGenre = moviesList
+      filmsByGenre = films
         .filter((film) => film.genre === currentGenre);
     }
 
-    return (
-      <div>
-        <section className="movie-card">
-          <div className="movie-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+    return (<React.Fragment>
+      <section className="movie-card">
+        <div className="movie-card__bg">
+          <img src={moviePoster.bg} alt={moviePoster.title} />
+        </div>
+
+        <h1 className="visually-hidden">WTW</h1>
+
+        <header className="page-header movie-card__head">
+          <div className="logo">
+            <a className="logo__link">
+              <span className="logo__letter logo__letter--1">W</span>
+              <span className="logo__letter logo__letter--2">T</span>
+              <span className="logo__letter logo__letter--3">W</span>
+            </a>
           </div>
 
-          <h1 className="visually-hidden">WTW</h1>
+          <div className="user-block">
+            <div className="user-block__avatar">
+              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+            </div>
+          </div>
+        </header>
 
-          <header className="page-header movie-card__head">
-            <div className="logo">
-              <a className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </a>
+        <div className="movie-card__wrap">
+          <div className="movie-card__info">
+            <div className="movie-card__poster">
+              <img src={moviePoster.poster} alt={moviePoster.title} width="218" height="327" />
             </div>
 
-            <div className="user-block">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
+            <div className="movie-card__desc">
+              <h2 className="movie-card__title">{moviePoster.title}</h2>
+              <p className="movie-card__meta">
+                <span className="movie-card__genre">{moviePoster.genre}</span>
+                <span className="movie-card__year">{moviePoster.year}</span>
+              </p>
+
+              <div className="movie-card__buttons">
+                <button className="btn btn--play movie-card__button" type="button">
+                  <svg viewBox="0 0 19 19" width="19" height="19">
+                    <use xlinkHref="#play-s"></use>
+                  </svg>
+                  <span>Play</span>
+                </button>
+                <button className="btn btn--list movie-card__button" type="button">
+                  <svg viewBox="0 0 19 20" width="19" height="20">
+                    <use xlinkHref="#add"></use>
+                  </svg>
+                  <span>My list</span>
+                </button>
               </div>
             </div>
-          </header>
+          </div>
+        </div>
+      </section>
 
-          <div className="movie-card__wrap">
-            <div className="movie-card__info">
-              <div className="movie-card__poster">
-                <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327"/>
-              </div>
+      <div className="page-content">
+        <section className="catalog">
+          <h2 className="catalog__title visually-hidden">Catalog</h2>
+          <MovieNavGenre
+            genres={MovieGenreList}
+            currentGenre={currentGenre}
+            onGenreClick={this._handleGenreClick}
+          />
 
-              <div className="movie-card__desc">
-                <h2 className="movie-card__title">{title}</h2>
-                <p className="movie-card__meta">
-                  <span className="movie-card__genre">{genre}</span>
-                  <span className="movie-card__year">{year}</span>
-                </p>
+          <MoviesList
+            films={filmsByGenre}
+            onSmallMovieCardClick={onSmallMovieCardClick}
+          />
 
-                <div className="movie-card__buttons">
-                  <button className="btn btn--play movie-card__button" type="button">
-                    <svg viewBox="0 0 19 19" width="19" height="19">
-                      <use xlinkHref="#play-s"></use>
-                    </svg>
-                    <span>Play</span>
-                  </button>
-                  <button className="btn btn--list movie-card__button" type="button">
-                    <svg viewBox="0 0 19 20" width="19" height="20">
-                      <use xlinkHref="#add"></use>
-                    </svg>
-                    <span>My list</span>
-                  </button>
-                </div>
-              </div>
-            </div>
+          <div className="catalog__more">
+            <button className="catalog__button" type="button">Show more</button>
           </div>
         </section>
 
-        <div className="page-content">
-          <section className="catalog">
-            <h2 className="catalog__title visually-hidden">Catalog</h2>
+        <footer className="page-footer">
+          <div className="logo">
+            <a className="logo__link logo__link--light">
+              <span className="logo__letter logo__letter--1">W</span>
+              <span className="logo__letter logo__letter--2">T</span>
+              <span className="logo__letter logo__letter--3">W</span>
+            </a>
+          </div>
 
-            <MovieNavGenre
-              genres={MovieGenreList}
-              currentGenre={currentGenre}
-              onGenreClick={this._handleGenreClick}
-            />
-
-            <MovieList
-              moviesList={filmsByGenre}
-              onTitleClick={onTitleClick}
-              onPosterClick={onPosterClick}
-            />
-
-            <div className="catalog__more">
-              <button className="catalog__button" type="button">Show more</button>
-            </div>
-          </section>
-
-          <footer className="page-footer">
-            <div className="logo">
-              <a className="logo__link logo__link--light">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </a>
-            </div>
-
-            <div className="copyright">
-              <p>© 2019 What to watch Ltd.</p>
-            </div>
-          </footer>
-        </div>
+          <div className="copyright">
+            <p>© 2019 What to watch Ltd.</p>
+          </div>
+        </footer>
       </div>
-    );
+    </React.Fragment>);
   }
 }
 
+export default Main;
 
 Main.propTypes = {
-  movie: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  moviesList: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  onTitleClick: PropTypes.func.isRequired,
-  onPosterClick: PropTypes.func.isRequired,
+  films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
+  moviePoster: CustomPropTypes.FILM,
+  onSmallMovieCardClick: PropTypes.func.isRequired,
 };
-
-export default Main;
