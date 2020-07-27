@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {CustomPropTypes} from "../../types";
 
 import Main from '../main/main.jsx';
-import MovieCard from "../movie-page/movie-page.jsx";
+import MovieCard from "../movie-card/movie-card.jsx";
 
 const Pages = {
   MAIN: `/`,

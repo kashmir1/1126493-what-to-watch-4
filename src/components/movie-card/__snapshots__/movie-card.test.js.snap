@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieDetails is rendered correctly 1`] = `
-<div>
+exports[`MovieCard Render MovieCard 1`] = `
+Array [
   <section
     className="movie-card movie-card--full"
   >
@@ -12,8 +12,8 @@ exports[`MovieDetails is rendered correctly 1`] = `
         className="movie-card__bg"
       >
         <img
-          alt="Fantastic Beasts: The Crimes of Grindelwald"
-          src="img/bg-the-grand-budapest-hotel.jpg"
+          alt="We need to talk about Kevin"
+          src="img/the-grand-budapest-hotel-poster.jpg"
         />
       </div>
       <h1
@@ -29,7 +29,7 @@ exports[`MovieDetails is rendered correctly 1`] = `
         >
           <a
             className="logo__link"
-            href="main.html"
+            href="/"
           >
             <span
               className="logo__letter logo__letter--1"
@@ -72,7 +72,7 @@ exports[`MovieDetails is rendered correctly 1`] = `
           <h2
             className="movie-card__title"
           >
-            Fantastic Beasts: The Crimes of Grindelwald
+            We need to talk about Kevin
           </h2>
           <p
             className="movie-card__meta"
@@ -80,12 +80,12 @@ exports[`MovieDetails is rendered correctly 1`] = `
             <span
               className="movie-card__genre"
             >
-              drama
+              Drame
             </span>
             <span
               className="movie-card__year"
             >
-              2013
+              2011
             </span>
           </p>
           <div
@@ -145,9 +145,9 @@ exports[`MovieDetails is rendered correctly 1`] = `
           className="movie-card__poster movie-card__poster--big"
         >
           <img
-            alt="Fantastic Beasts: The Crimes of Grindelwaldposter"
+            alt="We need to talk about Kevin"
             height="327"
-            src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+            src="img/we-need-to-talk-about-kevin.jpg"
             width="218"
           />
         </div>
@@ -201,7 +201,7 @@ exports[`MovieDetails is rendered correctly 1`] = `
             <div
               className="movie-rating__score"
             >
-              Very good +
+              10
             </div>
             <p
               className="movie-rating__meta"
@@ -214,7 +214,7 @@ exports[`MovieDetails is rendered correctly 1`] = `
               <span
                 className="movie-rating__count"
               >
-                146
+                773
                  ratings
               </span>
             </p>
@@ -223,14 +223,14 @@ exports[`MovieDetails is rendered correctly 1`] = `
             className="movie-card__text"
           >
             <p>
-              Fantastic Beasts: The Crimes of Grindelwald movie description text. Fantastic Beasts: The Crimes of Grindelwald movie description text. Fantastic Beasts: The Crimes of Grindelwald movie description text. 
+              Kevin's mother struggles to love her strange child, despite the increasingly dangerous things he says and does as he grows up. But Kevin is just getting started, and his final act will be beyond anything anyone imagined.
             </p>
             <p
               className="movie-card__director"
             >
               <strong>
                 Director: 
-                Director: Wes Andreson
+                Lynne Ramsay
               </strong>
             </p>
             <p
@@ -238,7 +238,7 @@ exports[`MovieDetails is rendered correctly 1`] = `
             >
               <strong>
                 Starring: 
-                Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other
+                Tilda Swinton, John C. Reilly, Ezra Miller
                  and other
               </strong>
             </p>
@@ -247,7 +247,7 @@ exports[`MovieDetails is rendered correctly 1`] = `
         </div>
       </div>
     </div>
-  </section>
+  </section>,
   <div
     className="page-content"
   >
@@ -264,97 +264,121 @@ exports[`MovieDetails is rendered correctly 1`] = `
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+            <video
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              poster="img/we-need-to-talk-about-kevin.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="movie-page"
+              onClick={[Function]}
             >
-              Fantastic Beasts: The Crimes of Grindelwald
+              We need to talk about Kevin
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Bohemian Rhapsody"
+            <video
               height="175"
-              src="img/bohemian-rhapsody.jpg"
+              poster="img/what-we-do-in-the-shadows.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="movie-page"
+              onClick={[Function]}
             >
-              Bohemian Rhapsody
+              What We Do in the Shadows
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Macbeth"
+            <video
               height="175"
-              src="img/macbeth.jpg"
+              poster="img/revenant.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="movie-page"
+              onClick={[Function]}
             >
-              Macbeth
+              Revenant
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Aviator"
+            <video
               height="175"
-              src="img/aviator.jpg"
+              poster="img/johnny-english.jpg"
+              type="video/webm"
               width="280"
-            />
+            >
+              your browser doesn\`t support embedded videos
+            </video>
           </div>
           <h3
             className="small-movie-card__title"
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="movie-page"
+              onClick={[Function]}
             >
-              Aviator
+              Johnny English
             </a>
           </h3>
         </article>
@@ -395,7 +419,6 @@ exports[`MovieDetails is rendered correctly 1`] = `
         </p>
       </div>
     </footer>
-    §
-  </div>
-</div>
+  </div>,
+]
 `;

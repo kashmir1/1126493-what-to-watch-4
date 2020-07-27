@@ -18,7 +18,7 @@ exports[`MovieNavDetails Render MovieNavDetails 1`] = `
       <span
         className="movie-card__details-value"
       >
-        Director: Wes Andreson
+        Lynne Ramsay
       </span>
     </p>
     <p
@@ -32,10 +32,9 @@ exports[`MovieNavDetails Render MovieNavDetails 1`] = `
       <span
         className="movie-card__details-value"
       >
-        Starring: Bill Murray, 
-Edward Norton, 
-Jude Law, 
-Willem Dafoe and other
+        Tilda Swinton, 
+John C. Reilly, 
+Ezra Miller
       </span>
     </p>
   </div>
@@ -53,7 +52,7 @@ Willem Dafoe and other
       <span
         className="movie-card__details-value"
       >
-        2h 25min
+        1h 52min
       </span>
     </p>
     <p
@@ -67,7 +66,7 @@ Willem Dafoe and other
       <span
         className="movie-card__details-value"
       >
-        drama
+        Drame
       </span>
     </p>
     <p
@@ -81,7 +80,7 @@ Willem Dafoe and other
       <span
         className="movie-card__details-value"
       >
-        2013
+        2011
       </span>
     </p>
   </div>

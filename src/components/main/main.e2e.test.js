@@ -1,32 +1,28 @@
-import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import Main from "./main.jsx";
-import films from "../../mocks/testing";
+import React from 'react';
+import Enzyme, {mount} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Main from './main.jsx';
+import {films, moviePoster} from '../data-for-test.js';
+
 
 Enzyme.configure({
   adapter: new Adapter(),
 });
 
-it(`Should main title link be pressed`, () => {
-  const handleTitleClick = jest.fn();
-  const handleCardMouseEnter = jest.fn();
-  const handlePosterClick = jest.fn();
-  const main = shallow(
-      <Main
-        movie = {films}
-        moviesList={films}
-        onCardMouseEnter={handleCardMouseEnter}
-        onPosterClick={handlePosterClick}
-        onTitleClick={handleTitleClick}
-      />
-  );
+describe(`Main`, () => {
+  it(`Should movieCardTitle clicked`, () => {
+    const handleSmallMovieCardClick = jest.fn();
 
-  const mainTitleLink = main.find(`.small-movie-card__link`);
+    const main = mount(
+        <Main
+          films={films}
+          moviePoster={moviePoster}
+          onSmallMovieCardClick={handleSmallMovieCardClick}
+        />
+    );
 
-  mainTitleLink.forEach((link) => {
-    link.simulate(`click`);
+    const smallMovieCardTitles = main.find(`.small-movie-card__title`);
+    smallMovieCardTitles.forEach((cardTitle) => cardTitle.simulate(`click`));
+    expect(handleSmallMovieCardClick.mock.calls.length).toBe(films.length);
   });
-
-  expect(handleTitleClick).toHaveBeenCalledTimes(mainTitleLink.length);
 });

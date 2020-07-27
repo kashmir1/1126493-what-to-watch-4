@@ -1,19 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import MovieNavDetails from './movie-nav-details.jsx';
-import films from "../../mocks/testing";
+import {films} from '../data-for-test.js';
 
-const movie = films[0];
+const film = films[0];
 
 describe(`MovieNavDetails`, () => {
   it(`Render MovieNavDetails`, () => {
     const tree = renderer.create(
         <MovieNavDetails
-          director={movie.director}
-          starring={movie.starring}
-          time={movie.time}
-          genre={movie.genre}
-          year={movie.year}
+          director={film.director}
+          starring={film.starring}
+          time={film.time}
+          genre={film.genre}
+          year={film.year}
         />
     ).toJSON();
 

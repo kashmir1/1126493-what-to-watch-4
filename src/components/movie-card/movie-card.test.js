@@ -1,18 +1,17 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import MovieCard from "./small-movie-card.jsx";
-import films from "../../mocks/testing.js";
+import MovieCard from './movie-card.jsx';
+import {films} from '../data-for-test.js';
 
-const movie = films[0];
+const moviePoster = films[0];
 
 describe(`MovieCard`, () => {
   it(`Render MovieCard`, () => {
     const tree = renderer.create(
         <MovieCard
-          movie = {movie}
-          onCardMouseEnter = {() => {}}
-          onPosterClick = {() => {}}
-          onTitleClick={() => {}}
+          film={moviePoster}
+          sameFilms={films}
+          onSmallMovieCardClick={() => {}}
         />, {
           createNodeMock: () => {
             return {};

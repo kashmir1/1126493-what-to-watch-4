@@ -15,7 +15,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <video
         height="175"
-        poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+        poster="img/we-need-to-talk-about-kevin.jpg"
         type="video/webm"
         width="280"
       >
@@ -27,10 +27,10 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="movie-page"
         onClick={[Function]}
       >
-        Fantastic Beasts: The Crimes of Grindelwald
+        We need to talk about Kevin
       </a>
     </h3>
   </article>
@@ -45,7 +45,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <video
         height="175"
-        poster="img/bohemian-rhapsody.jpg"
+        poster="img/what-we-do-in-the-shadows.jpg"
         type="video/webm"
         width="280"
       >
@@ -57,10 +57,10 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="movie-page"
         onClick={[Function]}
       >
-        Bohemian Rhapsody
+        What We Do in the Shadows
       </a>
     </h3>
   </article>
@@ -75,7 +75,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <video
         height="175"
-        poster="img/macbeth.jpg"
+        poster="img/revenant.jpg"
         type="video/webm"
         width="280"
       >
@@ -87,10 +87,10 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="movie-page"
         onClick={[Function]}
       >
-        Macbeth
+        Revenant
       </a>
     </h3>
   </article>
@@ -105,7 +105,7 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <video
         height="175"
-        poster="img/aviator.jpg"
+        poster="img/johnny-english.jpg"
         type="video/webm"
         width="280"
       >
@@ -117,130 +117,10 @@ exports[`MoviesList Render MoviesList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="movie-page"
         onClick={[Function]}
       >
-        Aviator
-      </a>
-    </h3>
-  </article>
-  <article
-    className="small-movie-card catalog__movies-card"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  >
-    <div
-      className="small-movie-card__image"
-    >
-      <video
-        height="175"
-        poster="img/moonrise-kingdom.jpg"
-        type="video/webm"
-        width="280"
-      >
-        your browser doesn\`t support embedded videos
-      </video>
-    </div>
-    <h3
-      className="small-movie-card__title"
-    >
-      <a
-        className="small-movie-card__link"
-        href="movie-page.html"
-        onClick={[Function]}
-      >
-        Moonrise Kingdom
-      </a>
-    </h3>
-  </article>
-  <article
-    className="small-movie-card catalog__movies-card"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  >
-    <div
-      className="small-movie-card__image"
-    >
-      <video
-        height="175"
-        poster="img/midnight-special.jpg"
-        type="video/webm"
-        width="280"
-      >
-        your browser doesn\`t support embedded videos
-      </video>
-    </div>
-    <h3
-      className="small-movie-card__title"
-    >
-      <a
-        className="small-movie-card__link"
-        href="movie-page.html"
-        onClick={[Function]}
-      >
-        Midnight Special
-      </a>
-    </h3>
-  </article>
-  <article
-    className="small-movie-card catalog__movies-card"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  >
-    <div
-      className="small-movie-card__image"
-    >
-      <video
-        height="175"
-        poster="img/war-of-the-worlds.jpg"
-        type="video/webm"
-        width="280"
-      >
-        your browser doesn\`t support embedded videos
-      </video>
-    </div>
-    <h3
-      className="small-movie-card__title"
-    >
-      <a
-        className="small-movie-card__link"
-        href="movie-page.html"
-        onClick={[Function]}
-      >
-        War of the Worlds
-      </a>
-    </h3>
-  </article>
-  <article
-    className="small-movie-card catalog__movies-card"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  >
-    <div
-      className="small-movie-card__image"
-    >
-      <video
-        height="175"
-        poster="img/shutter-island.jpg"
-        type="video/webm"
-        width="280"
-      >
-        your browser doesn\`t support embedded videos
-      </video>
-    </div>
-    <h3
-      className="small-movie-card__title"
-    >
-      <a
-        className="small-movie-card__link"
-        href="movie-page.html"
-        onClick={[Function]}
-      >
-        Shutter Island
+        Johnny English
       </a>
     </h3>
   </article>
