@@ -1,23 +1,12 @@
-import {getAvailableGenres} from '../utils.js';
-import films from '../mocks/films.js';
-import moviePoster from '../mocks/movie-poster.js';
 import {ActionType, reducer} from './reducer.js';
+import {films} from '../components/data-for-test.js';
+
 
 const getFilmsByGenre = (selectedGenre) => {
   return films.filter((film) => film.genre === selectedGenre);
 };
 
 describe(`Reducer`, () => {
-  it(`Return initial state`, () => {
-    expect(reducer(void 0, {})).toEqual({
-      films,
-      moviePoster,
-      availableGenres: getAvailableGenres(films),
-      currentGenre: `All genres`,
-      filmsByGenre: films,
-    });
-  });
-
   it(`Return genre after choise`, () => {
     expect(reducer({
       currentGenre: `All genres`,
