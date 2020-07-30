@@ -1,20 +1,33 @@
-import {ActionType, reducer} from './reducer.js';
 import {films} from '../components/data-for-test.js';
-
+import {ActionType, reducer} from './reducer.js';
 
 const getFilmsByGenre = (selectedGenre) => {
   return films.filter((film) => film.genre === selectedGenre);
 };
+
+const getAllFilms = (filmsList) => filmsList;
 
 describe(`Reducer`, () => {
   it(`Return genre after choise`, () => {
     expect(reducer({
       currentGenre: `All genres`,
     }, {
-      type: ActionType.CHOISE_GENRE,
+      type: ActionType.CHOOSE_GENRE,
       payload: `Drame`,
     })).toEqual({
       currentGenre: `Drame`,
+    });
+  });
+
+  it(`Return all films`, () => {
+    expect(reducer({
+      currentGenre: `All genres`,
+    }, {
+      type: ActionType.GET_ALL_FILMS,
+      payload: getAllFilms(films),
+    })).toEqual({
+      currentGenre: `All genres`,
+      filmsByGenre: getAllFilms(films),
     });
   });
 

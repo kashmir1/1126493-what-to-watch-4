@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {ActionCreator} from '../../store/reducer.js';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from "../../types";
+import {ALL_GENRES} from "../../const";
 
 import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
 import MoviesList from "../movie-list/movies-list.jsx";
@@ -155,7 +156,11 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onGenreClick(genre, films) {
     dispatch(ActionCreator.choiseGenre(genre));
-    dispatch(ActionCreator.getFilmsByGenre(genre, films));
+    if (genre !== ALL_GENRES) {
+      dispatch(ActionCreator.getFilmsByGenre(genre, films));
+    } else {
+      dispatch(ActionCreator.getAllFilms(films));
+    }
   },
 });
 
