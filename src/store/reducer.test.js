@@ -6,6 +6,8 @@ const getFilmsByGenre = (selectedGenre) => {
 };
 
 const getAllFilms = (filmsList) => filmsList;
+const setCurrentPage = (page) => page;
+
 
 describe(`Reducer`, () => {
   it(`Return genre after choise`, () => {
@@ -41,6 +43,17 @@ describe(`Reducer`, () => {
     })).toEqual({
       currentGenre: `Drame`,
       filmsByGenre: getFilmsByGenre(`Drame`),
+    });
+  });
+
+  it(`Return page after change`, () => {
+    expect(reducer({
+      currentPage: `/`,
+    }, {
+      type: ActionType.SET_CURRENT_PAGE,
+      payload: setCurrentPage(`/movie-card`),
+    })).toEqual({
+      currentPage: `/movie-card`,
     });
   });
 });

@@ -155,7 +155,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreClick(genre, films) {
-    dispatch(ActionCreator.choiseGenre(genre));
+    dispatch(ActionCreator.chooseGenre(genre));
+
     if (genre !== ALL_GENRES) {
       dispatch(ActionCreator.getFilmsByGenre(genre, films));
     } else {
