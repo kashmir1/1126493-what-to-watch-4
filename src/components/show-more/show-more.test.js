@@ -5,7 +5,9 @@ import ShowMore from "./show-more.jsx";
 describe(`ShowMore`, () => {
   it(`Render`, () => {
     const tree = renderer.create(
-        <ShowMore />
+        <ShowMore
+          onShowMoreClick={() => {}}
+        />
     ).toJSON();
 
     expect(tree).toMatchSnapshot();
