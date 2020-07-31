@@ -8,6 +8,9 @@ import {Pages} from '../../const.js';
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
 import {ActionCreator} from '../../store/reducer.js';
+import withActiveTab from "../../hoc/with-active-tab/with-active-tab.jsx";
+
+const MovieCardWrapped = withActiveTab(MovieCard);
 
 const COUNT_OF_SAME_FILMS = 4;
 
@@ -52,7 +55,8 @@ class App extends PureComponent {
       .slice(0, COUNT_OF_SAME_FILMS);
 
     return (
-      <MovieCard
+      <MovieCardWrapped
+        {...this.props}
         film={moviePoster}
         sameFilms={sameFilms}
         onSmallMovieCardClick={this._handleSmallMovieCardClick}
@@ -78,7 +82,7 @@ class App extends PureComponent {
             {this._renderApp()}
           </Route>/
           <Route exact path={Pages.MOVIE_CARD}>
-            <MovieCard
+            <MovieCardWrapped
               film={this.props.moviePoster}
               sameFilms={this.props.films}
               onSmallMovieCardClick={this._handleSmallMovieCardClick}
