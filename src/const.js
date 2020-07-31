@@ -10,3 +10,5 @@ export const MovieNavList = {
   DETAILS: `Details`,
   REVIEWS: `Reviews`,
 };
+
+export const COUNT_OF_SHOW_FILMS = 8;

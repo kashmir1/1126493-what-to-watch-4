@@ -7,9 +7,11 @@ import {CustomPropTypes} from "../../types";
 import {Pages} from '../../const.js';
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
+import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
 import {ActionCreator} from '../../store/reducer.js';
 import withActiveTab from "../../hoc/with-active-tab/with-active-tab.jsx";
 
+const MainWrapped = withCountFilms(Main);
 const MovieCardWrapped = withActiveTab(MovieCard);
 
 const COUNT_OF_SAME_FILMS = 4;
@@ -17,10 +19,6 @@ const COUNT_OF_SAME_FILMS = 4;
 class App extends PureComponent {
   constructor() {
     super();
-
-    this.state = {
-      selectedMovie: null,
-    };
 
     this._handleSmallMovieCardClick = this._handleSmallMovieCardClick.bind(this);
   }
@@ -40,15 +38,14 @@ class App extends PureComponent {
 
   _renderMain() {
     return (
-      <Main
+      <MainWrapped
         onSmallMovieCardClick={this._handleSmallMovieCardClick}
       />
     );
   }
 
   _renderMovieCard() {
-    const {films} = this.props;
-    const moviePoster = this.state.selectedMovie;
+    const {films, selectedFilm: moviePoster} = this.props;
 
     const sameFilms = films
       .filter((film) => film.genre === moviePoster.genre && film.title !== moviePoster.title)
@@ -65,13 +62,9 @@ class App extends PureComponent {
   }
 
   _handleSmallMovieCardClick(film) {
-    const {handlePageChange} = this.props;
+    const {handlePageChange, onFilmSelect} = this.props;
     handlePageChange(Pages.MOVIE_CARD);
-
-    this.setState({
-      selectedMovie: film,
-    });
-
+    onFilmSelect(film);
   }
 
   render() {
@@ -99,6 +92,11 @@ App.propTypes = {
   moviePoster: CustomPropTypes.FILM,
   currentPage: PropTypes.string.isRequired,
   handlePageChange: PropTypes.func.isRequired,
+  selectedFilm: PropTypes.oneOfType([
+    CustomPropTypes.FILM,
+    PropTypes.bool,
+  ]),
+  onFilmSelect: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
