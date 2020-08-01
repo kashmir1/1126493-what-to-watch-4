@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {formatRuntime} from "../../utils";
 
 const MovieNavDetails = (props) => {
-  const {director, starring, time, genre, year} = props;
+  const {director, genre, starring, time, year} = props;
+
+  const runTime = formatRuntime(time);
+
 
   return (<React.Fragment>
     <div className="movie-card__text movie-card__row">
@@ -24,7 +28,7 @@ const MovieNavDetails = (props) => {
       <div className="movie-card__text-col">
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Run Time</strong>
-          <span className="movie-card__details-value">{time}</span>
+          <span className="movie-card__details-value">{runTime}</span>
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Genre</strong>
