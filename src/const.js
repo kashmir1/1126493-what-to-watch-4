@@ -11,4 +11,9 @@ export const MovieNavList = {
   REVIEWS: `Reviews`,
 };
 
+export const Time = {
+  MINUTES_IN_HOUR: 60,
+  SECONDS_IN_MINUTE: 60,
+};
+
 export const COUNT_OF_SHOW_FILMS = 8;
