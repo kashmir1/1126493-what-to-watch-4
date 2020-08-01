@@ -15,7 +15,8 @@ const MovieCard = (props) => {
     onSmallMovieCardClick,
     activeTab,
     onActiveTabChange,
-    onActiveTabRender
+    onActiveTabRender,
+    onPlayClick,
   } = props;
 
   return (<React.Fragment>
@@ -38,7 +39,8 @@ const MovieCard = (props) => {
             </p>
 
             <div className="movie-card__buttons">
-              <button className="btn btn--play movie-card__button" type="button">
+              <button className="btn btn--play movie-card__button" type="button"
+                onClick={() => onPlayClick(film)}>
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"></use>
                 </svg>
@@ -96,6 +98,7 @@ MovieCard.propTypes = {
   activeTab: PropTypes.string.isRequired,
   onActiveTabChange: PropTypes.func.isRequired,
   onActiveTabRender: PropTypes.func.isRequired,
+  onPlayClick: PropTypes.func.isRequired,
 };
 
 export default MovieCard;
