@@ -27,6 +27,7 @@ describe(`Main`, () => {
             numberOfFilms={8}
             onCountShowFilmReset={() => {}}
             onCountShowFilmAdd={() => {}}
+            onPlayClick={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {

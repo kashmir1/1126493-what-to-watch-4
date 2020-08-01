@@ -24,6 +24,7 @@ describe(`MovieCard`, () => {
             activeTab={`Overview`}
             onActiveTabChange={() => {}}
             onActiveTabRender={() => {}}
+            onPlayClick={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {
