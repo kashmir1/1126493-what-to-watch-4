@@ -9,7 +9,7 @@ import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
 import VideoPlayerFull from '../video-player-full/video-player-full.jsx';
 import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
-import {ActionCreator} from '../../store/reducer.js';
+import {ActionCreator} from '../../reducer/reducer.js';
 import withActiveTab from "../../hoc/with-active-tab/with-active-tab.jsx";
 import withVideoControls from '../../hoc/with-video-controls/with-video-controls.jsx';
 

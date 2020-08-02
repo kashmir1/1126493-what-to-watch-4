@@ -40,8 +40,8 @@ const MovieNavOverview = (props) => {
 export default MovieNavOverview;
 
 MovieNavOverview.propTypes = {
-  rating: PropTypes.string.isRequired,
-  votes: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  votes: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
   director: PropTypes.string.isRequired,
   starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
