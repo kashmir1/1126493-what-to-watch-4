@@ -1,10 +1,10 @@
 import React from 'react';
 import {CustomPropTypes} from "../../types";
-import {FullMonth} from "../../const";
+import {FullMonth} from '../../const.js';
 
 const getDateTime = (time) => {
   const date = new Date(time);
-  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() - 1}`;
 };
 
 const getDateTimeString = (time) => {
@@ -31,8 +31,8 @@ const MovieReview = (props) => {
   </React.Fragment>);
 };
 
-export default MovieReview;
-
 MovieReview.propTypes = {
   review: CustomPropTypes.COMMENT,
 };
+
+export default MovieReview;
