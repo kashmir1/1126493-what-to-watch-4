@@ -9,7 +9,9 @@ import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
 import VideoPlayerFull from '../video-player-full/video-player-full.jsx';
 import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
-import {ActionCreator} from '../../reducer/reducer.js';
+import {ActionCreator} from '../../reducer/app/app.js';
+import {getCurrentPage} from '../../reducer/app/selectors.js';
+import {getFilms, getPromo} from '../../reducer/data/selectors.js';
 import withActiveTab from "../../hoc/with-active-tab/with-active-tab.jsx";
 import withVideoControls from '../../hoc/with-video-controls/with-video-controls.jsx';
 
@@ -132,7 +134,10 @@ class App extends PureComponent {
 
 App.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  moviePoster: CustomPropTypes.FILM,
+  moviePoster: PropTypes.oneOfType([
+    CustomPropTypes.FILM,
+    PropTypes.bool,
+  ]),
   currentPage: PropTypes.string.isRequired,
   handlePageChange: PropTypes.func.isRequired,
   selectedFilm: PropTypes.oneOfType([
@@ -143,9 +148,9 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  films: state.films,
-  moviePoster: state.moviePoster,
-  currentPage: state.currentPage,
+  currentPage: getCurrentPage(state),
+  films: getFilms(state),
+  moviePoster: getPromo(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

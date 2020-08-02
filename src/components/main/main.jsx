@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer/reducer.js';
+import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from "../../types";
-import {ALL_GENRES} from "../../const";
+import {getGenres, getFilms, getPromo} from '../../reducer/data/selectors.js';
+import {getCurrentGenre, getFilmsByGenre} from '../../reducer/show-films/selectors.js';
 
 import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
 import MoviesList from "../movie-list/movies-list.jsx";
@@ -102,7 +103,10 @@ const Main = (props) => {
 
 Main.propTypes = {
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  moviePoster: CustomPropTypes.FILM,
+  moviePoster: PropTypes.oneOfType([
+    CustomPropTypes.FILM,
+    PropTypes.bool,
+  ]),
   availableGenres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   currentGenre: PropTypes.string.isRequired,
   filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
@@ -115,23 +119,17 @@ Main.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  films: state.films,
-  moviePoster: state.moviePoster,
-  availableGenres: state.availableGenres,
-  currentGenre: state.currentGenre,
-  filmsByGenre: state.filmsByGenre,
+  availableGenres: getGenres(state),
+  currentGenre: getCurrentGenre(state),
+  films: getFilms(state),
+  filmsByGenre: getFilmsByGenre(state),
+  moviePoster: getPromo(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleGenreChoose(genre, films) {
+  handleGenreChoose(genre) {
     dispatch(ActionCreator.chooseGenre(genre));
-
-    if (genre !== ALL_GENRES) {
-      dispatch(ActionCreator.getFilmsByGenre(genre, films));
-    } else {
-      dispatch(ActionCreator.getAllFilms(films));
-    }
-  },
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

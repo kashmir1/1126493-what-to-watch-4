@@ -11,3 +11,5 @@ export const formatRuntime = (runtime) => {
   const minutes = moment.duration(runtime, `minutes`).minutes();
   return hours ? `${hours}h ${minutes}m` : `${minutes}m`;
 };
+
+export const extend = (a, b) => Object.assign({}, a, b);

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Pages} from "../../const";
+import {getCurrentPage} from '../../reducer/app/selectors.js';
 
 const Footer = (props) => {
   const {currentPage} = props;
@@ -30,7 +31,7 @@ Footer.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  currentPage: state.currentPage,
+  currentPage: getCurrentPage(state),
 });
 
 export default connect(mapStateToProps)(Footer);
