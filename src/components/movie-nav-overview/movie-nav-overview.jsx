@@ -1,22 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const Ratings = {
+  BAD: `Bad`,
+  NORMAL: `Normal`,
+  GOOD: `Good`,
+  VERY_GOOD: `Very good`,
+  AWESOME: `Awesome`,
+};
+
 const getRating = (rating) => {
   if (rating < 3) {
-    return `Bad`;
+    return Ratings.BAD;
   } else if (rating < 5) {
-    return `Normal`;
+    return Ratings.NORMAL;
   } else if (rating < 8) {
-    return `Good`;
+    return Ratings.GOOD;
   } else if (rating < 10) {
-    return `Very good`;
+    return Ratings.VERY_GOOD;
   } else {
-    return `Awesome`;
+    return Ratings.AWESOME;
   }
 };
 
 const MovieNavOverview = (props) => {
-  const {rating, votes, description, director, starring} = props;
+  const {description, director, rating, starring, votes} = props;
 
   return (<React.Fragment>
     <div className="movie-rating">
@@ -30,19 +38,22 @@ const MovieNavOverview = (props) => {
     <div className="movie-card__text">
       <p>{description}</p>
 
-      <p className="movie-card__director"><strong>Director: {director}</strong></p>
+      <p className="movie-card__director">
+        <strong>Director: {director}</strong>
+      </p>
       <p className="movie-card__starring">
         <strong>Starring: {starring.map((star) => star).join(`, `)} and other</strong>
-      </p>    </div>
+      </p>
+    </div>
   </React.Fragment>);
 };
 
-export default MovieNavOverview;
-
 MovieNavOverview.propTypes = {
-  rating: PropTypes.number.isRequired,
-  votes: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
   director: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
   starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  votes: PropTypes.number.isRequired,
 };
+
+export default MovieNavOverview;

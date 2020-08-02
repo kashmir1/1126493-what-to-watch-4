@@ -43,7 +43,6 @@ class VideoPlayer extends PureComponent {
 
     return (
       <video width="280" height="175"
-        type="video/webm"
         poster={poster}
         ref={this._videoRef}
       >your browser doesn`t support embedded videos</video>

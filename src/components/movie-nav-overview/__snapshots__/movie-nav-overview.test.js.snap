@@ -8,7 +8,7 @@ Array [
     <div
       className="movie-rating__score"
     >
-      Very good +
+      9.8
     </div>
     <p
       className="movie-rating__meta"
@@ -16,12 +16,12 @@ Array [
       <span
         className="movie-rating__level"
       >
-        Awesome
+        Very good
       </span>
       <span
         className="movie-rating__count"
       >
-        146
+        842
          ratings
       </span>
     </p>
@@ -30,14 +30,14 @@ Array [
     className="movie-card__text"
   >
     <p>
-      Fantastic Beasts: The Crimes of Grindelwald movie description text. Fantastic Beasts: The Crimes of Grindelwald movie description text. Fantastic Beasts: The Crimes of Grindelwald movie description text. 
+      Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond.
     </p>
     <p
       className="movie-card__director"
     >
       <strong>
         Director: 
-        Director: Wes Andreson
+        Guy Ritchie
       </strong>
     </p>
     <p
@@ -45,11 +45,10 @@ Array [
     >
       <strong>
         Starring: 
-        Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other
+        Jason Statham, Brad Pitt, Benicio Del Toro
          and other
       </strong>
     </p>
-        
   </div>,
 ]
 `;
