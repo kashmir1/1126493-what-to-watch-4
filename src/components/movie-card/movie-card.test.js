@@ -5,13 +5,16 @@ import {films} from '../data-for-test.js';
 
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
+import NameSpace from '../../reducer/name-space.js';
 
 const moviePoster = films[0];
 const mockStore = configureStore([]);
 
 describe(`MovieCard`, () => {
   const store = mockStore({
-    currentPage: `/movie-card`,
+    [NameSpace.APP]: {
+      currentPage: `/`,
+    }
   });
 
   it(`Render MovieCard`, () => {

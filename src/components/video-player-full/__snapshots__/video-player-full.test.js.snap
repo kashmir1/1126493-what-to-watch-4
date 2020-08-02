@@ -67,7 +67,7 @@ exports[`VideoPlayerFull Render VideoPlayerFull 1`] = `
       <div
         className="player__name"
       >
-        We need to talk about Kevin
+        Snatch
       </div>
       <button
         className="player__full-screen"

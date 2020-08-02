@@ -12,15 +12,15 @@ const MovieReview = (props) => {
   return (<React.Fragment>
     <div className="review">
       <blockquote className="review__quote">
-        <p className="review__text">{review.text}</p>
+        <p className="review__text">{review && review.text}</p>
 
         <footer className="review__details">
-          <cite className="review__author">{review.author}</cite>
-          <time className="review__date" dateTime={getDateTime(review.date)}>{review.date}</time>
+          <cite className="review__author">{review && review.author}</cite>
+          <time className="review__date" dateTime={review && getDateTime(review.date)}>{review && review.date}</time>
         </footer>
       </blockquote>
 
-      <div className="review__rating">{review.rating}</div>
+      <div className="review__rating">{review && review.rating}</div>
     </div>
   </React.Fragment>);
 };
@@ -28,5 +28,5 @@ const MovieReview = (props) => {
 export default MovieReview;
 
 MovieReview.propTypes = {
-  review: CustomPropTypes.REVIEW,
+  review: CustomPropTypes.COMMENT,
 };

@@ -20,4 +20,14 @@ export const CustomPropTypes = {
     year: PropTypes.number.isRequired,
     isFavorite: PropTypes.bool.isRequired,
   }).isRequired,
+  COMMENT: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    user: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+    rating: PropTypes.number.isRequired,
+    comment: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+  })
 };

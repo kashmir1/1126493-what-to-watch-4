@@ -32,7 +32,6 @@ class App extends PureComponent {
     this._renderMoviePlayer = this._renderMoviePlayer.bind(this);
     this._handleClosePlayerClick = this._handleClosePlayerClick.bind(this);
     this._handlePlayClick = this._handlePlayClick.bind(this);
-
     this._handleSmallMovieCardClick = this._handleSmallMovieCardClick.bind(this);
   }
 
@@ -74,9 +73,9 @@ class App extends PureComponent {
       <MovieCardWrapped
         {...this.props}
         film={moviePoster}
-        sameFilms={sameFilms}
-        onSmallMovieCardClick={this._handleSmallMovieCardClick}
         onPlayClick={this._handlePlayClick}
+        onSmallMovieCardClick={this._handleSmallMovieCardClick}
+        sameFilms={sameFilms}
       />
     );
   }
@@ -122,8 +121,8 @@ class App extends PureComponent {
           <Route exact path={Pages.MOVIE_CARD}>
             <MovieCardWrapped
               film={this.props.moviePoster}
-              sameFilms={this.props.films}
               onSmallMovieCardClick={this._handleSmallMovieCardClick}
+              sameFilms={this.props.films}
             />
           </Route>
         </Switch>
@@ -133,18 +132,18 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
+  currentPage: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
+  handlePageChange: PropTypes.func.isRequired,
   moviePoster: PropTypes.oneOfType([
     CustomPropTypes.FILM,
     PropTypes.bool,
   ]),
-  currentPage: PropTypes.string.isRequired,
-  handlePageChange: PropTypes.func.isRequired,
+  onFilmSelect: PropTypes.func.isRequired,
   selectedFilm: PropTypes.oneOfType([
     CustomPropTypes.FILM,
     PropTypes.bool,
   ]),
-  onFilmSelect: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
