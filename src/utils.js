@@ -12,4 +12,3 @@ export const formatRuntime = (runtime) => {
   return hours ? `${hours}h ${minutes}m` : `${minutes}m`;
 };
 
-export const extend = (a, b) => Object.assign({}, a, b);

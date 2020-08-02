@@ -34,5 +34,8 @@ const MovieNavReviews = (props) => {
 export default MovieNavReviews;
 
 MovieNavReviews.propTypes = {
-  reviews: PropTypes.arrayOf(CustomPropTypes.COMMENT),
+  reviews: PropTypes.PropTypes.oneOfType([
+    PropTypes.arrayOf(CustomPropTypes.COMMENT),
+    PropTypes.bool,
+  ]),
 };

@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from "../../types";
 
-import {MovieNavList} from "../../const";
+import {MovieNavList} from '../../const.js';
 import MovieNavOverview from '../../components/movie-nav-overview/movie-nav-overview.jsx';
 import MovieNavDetails from '../../components/movie-nav-details/movie-nav-details.jsx';
 import MovieNavReviews from '../../components/movie-nav-reviews/movie-nav-reviews.jsx';
@@ -27,34 +27,34 @@ const withActiveTab = (Component) => {
     }
 
     _handleActiveTabRender() {
-      const {film} = this.props;
+      const {comments, film} = this.props;
       const {activeTab} = this.state;
 
       switch (activeTab) {
         case MovieNavList.OVERVIEW:
           return (
             <MovieNavOverview
-              rating={film.rating}
-              votes={film.votes}
               description={film.description}
               director={film.director}
+              rating={film.rating}
               starring={film.starring}
+              votes={film.votes}
             />
           );
         case MovieNavList.DETAILS:
           return (
             <MovieNavDetails
               director={film.director}
+              genre={film.genre}
               starring={film.starring}
               time={film.time}
-              genre={film.genre}
               year={film.year}
             />
           );
         case MovieNavList.REVIEWS:
           return (
             <MovieNavReviews
-              reviews={film.reviews}
+              reviews={comments}
             />
           );
         default: return ``;
@@ -76,6 +76,10 @@ const withActiveTab = (Component) => {
   WithActiveTab.propTypes = {
     film: PropTypes.oneOfType([
       CustomPropTypes.FILM,
+      PropTypes.bool,
+    ]),
+    comments: PropTypes.PropTypes.oneOfType([
+      PropTypes.arrayOf(CustomPropTypes.COMMENT),
       PropTypes.bool,
     ]),
   };

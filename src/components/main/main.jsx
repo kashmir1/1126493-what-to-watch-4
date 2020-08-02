@@ -27,6 +27,7 @@ const Main = (props) => {
     onPlayClick,
   } = props;
 
+
   const showFilms = filmsByGenre.slice(0, numberOfFilms);
 
   return (<React.Fragment>
@@ -76,8 +77,8 @@ const Main = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
         <MovieNavGenre
-          films={films}
           genres={availableGenres}
+          films={films}
           currentGenre={currentGenre}
           onGenreClick={handleGenreChoose}
           onResetShowClick={onCountShowFilmReset}
@@ -102,20 +103,20 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
+  availableGenres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  currentGenre: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
+  filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
+  handleGenreChoose: PropTypes.func.isRequired,
   moviePoster: PropTypes.oneOfType([
     CustomPropTypes.FILM,
     PropTypes.bool,
   ]),
-  availableGenres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  currentGenre: PropTypes.string.isRequired,
-  filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
-  onSmallMovieCardClick: PropTypes.func.isRequired,
-  handleGenreChoose: PropTypes.func.isRequired,
   numberOfFilms: PropTypes.number.isRequired,
+  onCountShowFilmAdd: PropTypes.func.isRequired,
   onCountShowFilmReset: PropTypes.func.isRequired,
   onPlayClick: PropTypes.func.isRequired,
-  onCountShowFilmAdd: PropTypes.func.isRequired,
+  onSmallMovieCardClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
