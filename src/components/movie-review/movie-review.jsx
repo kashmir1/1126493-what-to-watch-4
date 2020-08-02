@@ -4,7 +4,7 @@ import {FullMonth} from '../../const.js';
 
 const getDateTime = (time) => {
   const date = new Date(time);
-  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() - 1}`;
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 };
 
 const getDateTimeString = (time) => {
