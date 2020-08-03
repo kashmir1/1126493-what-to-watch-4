@@ -28,9 +28,9 @@ exports[`MovieNavReviews Render MovieNavReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime={"2019-05-08T14:13:56.569Z"}
+            dateTime={"2016-12-23T14:00:00.000Z"}
           >
-            May 09, 2019
+            December 24, 2016
           </time>
         </footer>
       </blockquote>
@@ -65,9 +65,9 @@ exports[`MovieNavReviews Render MovieNavReviews 1`] = `
           </cite>
           <time
             className="review__date"
-            dateTime={"2019-05-08T14:13:56.569Z"}
+            dateTime={"2016-12-23T14:00:00.000Z"}
           >
-            May 09, 2019
+            December 24, 2016
           </time>
         </footer>
       </blockquote>
