@@ -5,6 +5,7 @@ export const COUNT_OF_SHOW_FILMS = 8;
 export const Pages = {
   MAIN: `/`,
   MOVIE_CARD: `/movie-card`,
+  SIGN_IN: `/sign-in`,
 };
 
 export const MovieNavList = {
@@ -31,4 +32,9 @@ export const FullMonth = {
   9: `October`,
   10: `November`,
   11: `December`,
+};
+
+export const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`,
 };

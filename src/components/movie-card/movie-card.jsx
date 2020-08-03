@@ -17,6 +17,7 @@ const MovieCard = (props) => {
     onActiveTabChange,
     onActiveTabRender,
     onPlayClick,
+    onSignInClick,
   } = props;
 
   return (<React.Fragment>
@@ -28,7 +29,9 @@ const MovieCard = (props) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <Header />
+        <Header
+          onSignInClick={onSignInClick}
+        />
 
         <div className="movie-card__wrap">
           <div className="movie-card__desc">
@@ -99,6 +102,7 @@ MovieCard.propTypes = {
   onActiveTabChange: PropTypes.func.isRequired,
   onActiveTabRender: PropTypes.func.isRequired,
   onPlayClick: PropTypes.func.isRequired,
+  onSignInClick: PropTypes.func.isRequired,
 };
 
 export default MovieCard;

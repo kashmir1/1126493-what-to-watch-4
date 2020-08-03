@@ -22,6 +22,10 @@ describe(`Main`, () => {
     [NameSpace.SHOW]: {
       currentGenre: ALL_GENRES,
     },
+    [NameSpace.USER]: {
+      authorizationStatus: `NO_AUTH`,
+      authorizationError: false,
+    },
   });
 
   it(`Render Main`, () => {
@@ -33,6 +37,7 @@ describe(`Main`, () => {
             onCountShowFilmReset={() => {}}
             onCountShowFilmAdd={() => {}}
             onPlayClick={() => {}}
+            onSignInClick={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {

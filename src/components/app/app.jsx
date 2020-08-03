@@ -4,11 +4,12 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from "../../types";
 
-import {Pages} from '../../const.js';
+import {AuthorizationStatus, Pages} from '../../const.js';
 import {ActionCreator as AppActionCreator} from '../../reducer/app/app.js';
 import {getCurrentPage} from '../../reducer/app/selectors.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import {getFilms, getPromo, getFilmComments} from '../../reducer/data/selectors.js';
+import {getAuthStatus} from '../../reducer/user/selector.js';
 
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
@@ -16,6 +17,8 @@ import VideoPlayerFull from '../video-player-full/video-player-full.jsx';
 import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
 import withActiveTab from '../../hoc/with-active-tab/with-active-tab.jsx';
 import withVideoControls from '../../hoc/with-video-controls/with-video-controls.jsx';
+import SignIn from '../sign-in/sign-in.jsx';
+
 
 const MainWrapped = withCountFilms(Main);
 const MovieCardWrapped = withActiveTab(MovieCard);
@@ -35,6 +38,7 @@ class App extends PureComponent {
     this._handleClosePlayerClick = this._handleClosePlayerClick.bind(this);
     this._handlePlayClick = this._handlePlayClick.bind(this);
     this._handleSmallMovieCardClick = this._handleSmallMovieCardClick.bind(this);
+    this._handleSignInClick = this._handleSignInClick.bind(this);
   }
 
   _renderApp() {
@@ -50,14 +54,17 @@ class App extends PureComponent {
         return this._renderMain();
       case Pages.MOVIE_CARD:
         return this._renderMovieCard();
+      case Pages.SIGN_IN:
+        return this._renderSingIn();
     }
 
-    return null;
+    return this._renderMain();
   }
 
   _renderMain() {
     return (
       <MainWrapped
+        onSignInClick={this._handleSignInClick}
         onSmallMovieCardClick={this._handleSmallMovieCardClick}
         onPlayClick={this._handlePlayClick}
       />
@@ -76,6 +83,7 @@ class App extends PureComponent {
         {...this.props}
         film={moviePoster}
         onPlayClick={this._handlePlayClick}
+        onSignInClick={this._handleSignInClick}
         onSmallMovieCardClick={this._handleSmallMovieCardClick}
         sameFilms={sameFilms}
       />
@@ -90,6 +98,17 @@ class App extends PureComponent {
         onClosePlayerClick={this._handleClosePlayerClick}
       />
     );
+  }
+
+  _renderSingIn() {
+    const {authorizationStatus} = this.props;
+    if (authorizationStatus === AuthorizationStatus.NO_AUTH) {
+      return (
+        <SignIn />
+      );
+    }
+
+    return this._renderMain();
   }
 
   _handleClosePlayerClick() {
@@ -114,6 +133,12 @@ class App extends PureComponent {
     getComments(film.id);
   }
 
+  _handleSignInClick() {
+    const {handlePageChange} = this.props;
+    handlePageChange(Pages.SIGN_IN);
+  }
+
+
   render() {
     return (
       <BrowserRouter>
@@ -128,6 +153,9 @@ class App extends PureComponent {
               sameFilms={this.props.films}
             />
           </Route>
+          <Route exact path={Pages.SIGN_IN}>
+            {this._renderSingIn()}
+          </Route>
         </Switch>
       </BrowserRouter>
     );
@@ -135,6 +163,7 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
+  authorizationStatus: PropTypes.string.isRequired,
   currentPage: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   getComments: PropTypes.func.isRequired,
@@ -155,6 +184,7 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+  authorizationStatus: getAuthStatus(state),
   currentPage: getCurrentPage(state),
   films: getFilms(state),
   moviePoster: getPromo(state),

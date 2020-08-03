@@ -1,13 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {Pages} from "../../const";
+import {AuthorizationStatus, Pages} from '../../const.js';
 import {getCurrentPage} from '../../reducer/app/selectors.js';
+import {CustomPropTypes} from "../../types";
+import {getAuthStatus, getUserData} from '../../reducer/user/selector.js';
 
 
 const Header = (props) => {
-  const {currentPage} = props;
+  const {authorizationStatus, currentPage, onSignInClick, user} = props;
   const linkOnMain = currentPage !== Pages.MAIN ? `/` : null;
+
+  const isSignIn = authorizationStatus === AuthorizationStatus.AUTH ?
+    <React.Fragment>
+      <div className="user-block">
+        <div className="user-block__avatar">
+          <img src={user.avatarSrc} alt={user.name} width="63" height="63" />
+        </div>
+      </div>
+    </React.Fragment> :
+    <React.Fragment>
+      <div className="user-block">
+        <a href="/sign-in" className="user-block__link"
+          onClick={(evt) => {
+            evt.preventDefault();
+            onSignInClick();
+          }}
+        >Sign in</a>
+      </div>
+    </React.Fragment>;
 
   return (
     <header className="page-header movie-card__head">
@@ -19,21 +40,22 @@ const Header = (props) => {
         </a>
       </div>
 
-      <div className="user-block">
-        <div className="user-block__avatar">
-          <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-        </div>
-      </div>
+      {isSignIn}
     </header>
   );
 };
 
 Header.propTypes = {
   currentPage: PropTypes.string.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
+  onSignInClick: PropTypes.func.isRequired,
+  user: CustomPropTypes.USER,
 };
 
 const mapStateToProps = (state) => ({
   currentPage: getCurrentPage(state),
+  authorizationStatus: getAuthStatus(state),
+  user: getUserData(state),
 });
 
 export default connect(mapStateToProps)(Header);

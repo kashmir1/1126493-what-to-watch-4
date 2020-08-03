@@ -25,6 +25,7 @@ const Main = (props) => {
     onCountShowFilmReset,
     onCountShowFilmAdd,
     onPlayClick,
+    onSignInClick,
   } = props;
 
 
@@ -38,8 +39,9 @@ const Main = (props) => {
 
       <h1 className="visually-hidden">WTW</h1>
 
-      <Header />
-
+      <Header
+        onSignInClick={onSignInClick}
+      />
       <div className="movie-card__wrap">
         <div className="movie-card__info">
           <div className="movie-card__poster">
@@ -117,6 +119,7 @@ Main.propTypes = {
   onCountShowFilmReset: PropTypes.func.isRequired,
   onPlayClick: PropTypes.func.isRequired,
   onSmallMovieCardClick: PropTypes.func.isRequired,
+  onSignInClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
