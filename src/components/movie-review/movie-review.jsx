@@ -1,17 +1,7 @@
 import React from 'react';
 import {CustomPropTypes} from "../../types";
-import {FullMonth} from '../../const.js';
 import moment from "moment";
 
-// const getDateTime = (time) => {
-//   const date = new Date(time);
-//   return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
-// };
-//
-// const getDateTimeString = (time) => {
-//   const date = new Date(time);
-//   return `${FullMonth[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-// };
 
 const MovieReview = (props) => {
   const {review} = props;
