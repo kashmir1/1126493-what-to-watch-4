@@ -30,7 +30,7 @@ exports[`MovieNavReviews Render MovieNavReviews 1`] = `
             className="review__date"
             dateTime="2019-5-9"
           >
-            May 8, 2019
+            May 9, 2019
           </time>
         </footer>
       </blockquote>
@@ -67,7 +67,7 @@ exports[`MovieNavReviews Render MovieNavReviews 1`] = `
             className="review__date"
             dateTime="2019-5-9"
           >
-            May 8, 2019
+            May 9, 2019
           </time>
         </footer>
       </blockquote>
