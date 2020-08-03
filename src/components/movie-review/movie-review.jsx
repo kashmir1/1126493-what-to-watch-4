@@ -1,17 +1,17 @@
 import React from 'react';
 import {CustomPropTypes} from "../../types";
-// import moment from "moment";
-import {FullMonth} from '../../const.js';
+import moment from "moment";
+// import {FullMonth} from '../../const.js';
 
-const getDateTime = (time) => {
-  const date = new Date(time);
-  return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
-};
-
-const getDateTimeString = (time) => {
-  const date = new Date(time);
-  return `${FullMonth[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-};
+// const getDateTime = (time) => {
+//   const date = new Date(time);
+//   return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+// };
+//
+// const getDateTimeString = (time) => {
+//   const date = new Date(time);
+//   return `${FullMonth[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+// };
 
 
 const MovieReview = (props) => {
@@ -24,8 +24,11 @@ const MovieReview = (props) => {
 
         <footer className="review__details">
           <cite className="review__author">{review && review.user.name}</cite>
-          <time className="review__date" dateTime={review && getDateTime(review.date)}>{review && getDateTimeString(review.date)}</time>
-
+          <time className="review__date" dateTime={moment(review.date).format(`YYYY-MM-DD`)}>
+            {
+              moment(review.date).format(`MMMM DD, YYYY`)
+            }
+          </time>
         </footer>
       </blockquote>
 

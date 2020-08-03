@@ -160,7 +160,7 @@ export const comments = [{
   },
   rating: 8.9,
   comment: `Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.`,
-  date: `2016-12-23T14:00:00Z`,
+  date: `2020-07-07`,
 }, {
   id: 1,
   user: {
@@ -169,5 +169,5 @@ export const comments = [{
   },
   rating: 8.9,
   comment: `Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.`,
-  date: `2016-12-23T14:00:00Z`,
+  date: `2020-07-07`,
 }];
