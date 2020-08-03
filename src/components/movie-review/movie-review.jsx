@@ -9,7 +9,7 @@ const getDateTime = (time) => {
 
 const getDateTimeString = (time) => {
   const date = new Date(time);
-  return `${FullMonth[date.getMonth()]} ${date.getUTCDate()}, ${date.getFullYear()}`;
+  return `${FullMonth[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 };
 
 const MovieReview = (props) => {
