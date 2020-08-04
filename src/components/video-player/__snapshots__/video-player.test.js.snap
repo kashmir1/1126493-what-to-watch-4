@@ -3,7 +3,7 @@
 exports[`VideoPlayer Render VideoPlayer 1`] = `
 <video
   height="175"
-  poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+  poster="img/snatch.jpg"
   width="280"
 >
   your browser doesn\`t support embedded videos

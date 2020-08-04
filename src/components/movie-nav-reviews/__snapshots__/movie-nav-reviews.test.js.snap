@@ -1,96 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieNavReviews Render MovieNavReviews 1`] = `
-<div
-  className="movie-card__reviews movie-card__row"
->
-  <div
-    className="movie-card__reviews-col"
-  >
-    <div
-      className="review"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
-          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-          >
-            Kate Muir
-          </cite>
-          <time
-            className="review__date"
-            dateTime="2020-07-07"
-          >
-            July 07, 2020
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        8.9
-      </div>
-    </div>
-  </div>
-  <div
-    className="movie-card__reviews-col"
-  >
-    <div
-      className="review"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
-          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-          >
-            Kate Muir
-          </cite>
-          <time
-            className="review__date"
-            dateTime="2020-07-07"
-          >
-            July 07, 2020
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        8.9
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`MovieNavReviews Render MovieNavReviews with comments 1`] = `
 <div
   className="movie-card__reviews movie-card__row"
 >
   <div
     className="movie-card__reviews-col"
-  />
+  >
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            Kate Muir
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2020-07-07"
+          >
+            July 07, 2020
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        8.9
+      </div>
+    </div>
+  </div>
   <div
     className="movie-card__reviews-col"
-  />
+  >
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            Kate Muir
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2020-07-07"
+          >
+            July 07, 2020
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        8.9
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -98,12 +85,7 @@ exports[`MovieNavReviews Render MovieNavReviews with comments loading 1`] = `
 <div
   className="movie-card__reviews movie-card__row"
 >
-  <div
-    className="movie-card__reviews-col"
-  />
-  <div
-    className="movie-card__reviews-col"
-  />
+  films is loading...
 </div>
 `;
 
@@ -111,11 +93,6 @@ exports[`MovieNavReviews Render MovieNavReviews with comments loading error 1`] 
 <div
   className="movie-card__reviews movie-card__row"
 >
-  <div
-    className="movie-card__reviews-col"
-  />
-  <div
-    className="movie-card__reviews-col"
-  />
+  server error, try later...
 </div>
 `;
