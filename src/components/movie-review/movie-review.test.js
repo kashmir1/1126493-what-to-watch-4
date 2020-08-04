@@ -8,7 +8,7 @@ describe(`MovieReview`, () => {
   it(`Render MovieReview`, () => {
     const tree = renderer.create(
         <MovieReview
-          review={comments[0]}
+          comment={comments[0]}
         />
     ).toJSON();
 

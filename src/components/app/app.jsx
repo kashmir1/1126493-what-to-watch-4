@@ -8,7 +8,7 @@ import {AuthorizationStatus, Pages} from '../../const.js';
 import {ActionCreator as AppActionCreator} from '../../reducer/app/app.js';
 import {getCurrentPage} from '../../reducer/app/selectors.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
-import {getFilms, getPromo, getFilmComments} from '../../reducer/data/selectors.js';
+import {getFilms, getPromo} from '../../reducer/data/selectors.js';
 import {getAuthStatus} from '../../reducer/user/selector.js';
 
 import Main from '../main/main.jsx';
@@ -172,10 +172,6 @@ App.propTypes = {
     CustomPropTypes.FILM,
     PropTypes.bool,
   ]),
-  comments: PropTypes.PropTypes.oneOfType([
-    PropTypes.arrayOf(CustomPropTypes.COMMENT),
-    PropTypes.bool,
-  ]),
   onFilmSelect: PropTypes.func.isRequired,
   selectedFilm: PropTypes.oneOfType([
     CustomPropTypes.FILM,
@@ -188,7 +184,6 @@ const mapStateToProps = (state) => ({
   currentPage: getCurrentPage(state),
   films: getFilms(state),
   moviePoster: getPromo(state),
-  comments: getFilmComments(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
