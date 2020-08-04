@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from "../../types";
 
-import {MovieNavList} from "../../const";
+import {AuthorizationStatus, MovieNavList} from '../../const.js';
 import MovieNavTabs from '../movie-nav-tabs/movie-nav-tabs.jsx';
 import MoviesList from "../movie-list/movies-list.jsx";
 import Header from '../header/header.jsx';
@@ -18,7 +18,19 @@ const MovieCard = (props) => {
     onActiveTabRender,
     onPlayClick,
     onSignInClick,
+    authorizationStatus,
+    onReviewClick,
   } = props;
+
+  const isSignIn = authorizationStatus === AuthorizationStatus.AUTH ?
+    <React.Fragment>
+      <a href="review" className="btn btn--review movie-card__button"
+        onClick={(evt) => {
+          evt.preventDefault();
+          onReviewClick(film.id);
+        }}
+      >Add review</a>
+    </React.Fragment> : ``;
 
   return (<React.Fragment>
     <section className="movie-card movie-card--full">
@@ -55,7 +67,7 @@ const MovieCard = (props) => {
                 </svg>
                 <span>My list</span>
               </button>
-              <a href="add-review.html" className="btn movie-card__button">Add review</a>
+              {isSignIn}
             </div>
           </div>
         </div>
@@ -103,6 +115,8 @@ MovieCard.propTypes = {
   onActiveTabRender: PropTypes.func.isRequired,
   onPlayClick: PropTypes.func.isRequired,
   onSignInClick: PropTypes.func.isRequired,
+  onReviewClick: PropTypes.func.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
 };
 
 export default MovieCard;

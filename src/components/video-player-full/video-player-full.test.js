@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
-
+import {Pages} from '../../const.js';
 import {films} from "../data-for-test";
 import VideoPlayerFull from './video-player-full.jsx';
 import NameSpace from "../../reducer/name-space";
@@ -14,7 +14,7 @@ const mockStore = configureStore([]);
 describe(`VideoPlayerFull`, () => {
   const store = mockStore({
     [NameSpace.APP]: {
-      currentPage: `/`,
+      currentPage: Pages.MAIN,
     }
   });
 
