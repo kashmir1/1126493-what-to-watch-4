@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import SighIn from './sign-in.jsx';
+import {Pages} from '../../const.js';
 import NameSpace from '../../reducer/name-space.js';
 
 const mockStore = configureStore([]);
@@ -12,7 +13,7 @@ describe(`SignIn`, () => {
   it(`Render, no error autorization`, () => {
     const store = mockStore({
       [NameSpace.APP]: {
-        currentPage: `/sign-in`,
+        currentPage: Pages.SIGN_IN,
       },
       [NameSpace.USER]: {
         authorizationStatus: `NO_AUTH`,
