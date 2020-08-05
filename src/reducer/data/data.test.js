@@ -1,5 +1,6 @@
 import MockAdapter from 'axios-mock-adapter';
 import {createAPI} from '../../api.js';
+
 import {ActionType, Operations, reducer} from './data.js';
 import {films, moviePoster, comments} from '../../components/data-for-test.js';
 import filmAdapter from '../../adapter/film.js';
@@ -97,6 +98,7 @@ describe(`Reducer Data`, () => {
       loadFilmsError: false,
       loadPromoError: false,
       sendingComment: false,
+      sendCommentDone: false,
       sendCommentError: false
     });
   });
@@ -208,6 +210,17 @@ describe(`Reducer Data`, () => {
       payload: true
     })).toEqual({
       sendingComment: true,
+    });
+  });
+
+  it(`Should update comment send done`, () => {
+    expect(reducer({
+      sendCommentDone: false,
+    }, {
+      type: ActionType.SEND_COMMENT_DONE,
+      payload: true
+    })).toEqual({
+      sendCommentDone: true,
     });
   });
 

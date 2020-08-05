@@ -30,6 +30,7 @@ describe(`AddReview`, () => {
       },
       [NameSpace.DATA]: {
         sendingComment: false,
+        sendCommentDone: false,
         sendCommentError: false,
       },
     });
@@ -41,6 +42,7 @@ describe(`AddReview`, () => {
             onSubmitReview={() => {}}
             onChangeComment={() => {}}
             onChangeRating={() => {}}
+            onFilmClick={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {
@@ -68,6 +70,7 @@ describe(`AddReview`, () => {
       },
       [NameSpace.DATA]: {
         sendingComment: true,
+        sendCommentDone: false,
         sendCommentError: true,
       },
     });
@@ -79,6 +82,7 @@ describe(`AddReview`, () => {
             onSubmitReview={() => {}}
             onChangeComment={() => {}}
             onChangeRating={() => {}}
+            onFilmClick={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {
@@ -107,6 +111,7 @@ describe(`AddReview`, () => {
       },
       [NameSpace.DATA]: {
         sendingComment: true,
+        sendCommentDone: false,
         sendCommentError: false,
       },
     });
@@ -118,6 +123,7 @@ describe(`AddReview`, () => {
             onSubmitReview={() => {}}
             onChangeComment={() => {}}
             onChangeRating={() => {}}
+            onFilmClick={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {

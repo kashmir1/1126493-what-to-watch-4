@@ -7,25 +7,24 @@ import {CustomPropTypes} from "../../types";
 import {AuthorizationStatus, Pages} from '../../const.js';
 import {ActionCreator as AppActionCreator} from '../../reducer/app/app.js';
 import {getCurrentPage} from '../../reducer/app/selectors.js';
+import {getAuthStatus} from '../../reducer/user/selector.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import {getFilms, getPromo} from '../../reducer/data/selectors.js';
-import {getAuthStatus} from '../../reducer/user/selector.js';
 
 import Main from '../main/main.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
 import AddReview from '../add-review/add-review.jsx';
 import VideoPlayerFull from '../video-player-full/video-player-full.jsx';
-import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
+import SignIn from '../sign-in/sign-in.jsx';
 import withActiveTab from '../../hoc/with-active-tab/with-active-tab.jsx';
 import withComment from '../../hoc/with-comment/with-comment.jsx';
+import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
 import withVideoControls from '../../hoc/with-video-controls/with-video-controls.jsx';
-import SignIn from '../sign-in/sign-in.jsx';
-
 
 const MainWrapped = withCountFilms(Main);
 const MovieCardWrapped = withActiveTab(MovieCard);
-const VideoPlayerFullWrapped = withVideoControls(VideoPlayerFull);
 const AddReviewWrapped = withComment(AddReview);
+const VideoPlayerFullWrapped = withVideoControls(VideoPlayerFull);
 
 const COUNT_OF_SAME_FILMS = 4;
 
@@ -39,10 +38,11 @@ class App extends PureComponent {
 
     this._renderMoviePlayer = this._renderMoviePlayer.bind(this);
     this._handleClosePlayerClick = this._handleClosePlayerClick.bind(this);
+    this._handleFilmClick = this._handleFilmClick.bind(this);
     this._handlePlayClick = this._handlePlayClick.bind(this);
-    this._handleSmallMovieCardClick = this._handleSmallMovieCardClick.bind(this);
-    this._handleSignInClick = this._handleSignInClick.bind(this);
     this._handleReviewClick = this._handleReviewClick.bind(this);
+    this._handleSignInClick = this._handleSignInClick.bind(this);
+    this._handleSmallMovieCardClick = this._handleSmallMovieCardClick.bind(this);
   }
 
   _renderApp() {
@@ -79,7 +79,6 @@ class App extends PureComponent {
 
   _renderMovieCard() {
     const {authorizationStatus, films, selectedFilm: moviePoster} = this.props;
-
     const sameFilms = films
       .filter((film) => film.genre === moviePoster.genre && film.title !== moviePoster.title)
       .slice(0, COUNT_OF_SAME_FILMS);
@@ -90,8 +89,8 @@ class App extends PureComponent {
         authorizationStatus={authorizationStatus}
         film={moviePoster}
         onPlayClick={this._handlePlayClick}
-        onSignInClick={this._handleSignInClick}
         onReviewClick={this._handleReviewClick}
+        onSignInClick={this._handleSignInClick}
         onSmallMovieCardClick={this._handleSmallMovieCardClick}
         sameFilms={sameFilms}
       />
@@ -104,11 +103,11 @@ class App extends PureComponent {
     return (
       <AddReviewWrapped
         film={selectedFilm}
+        onFilmClick={this._handleFilmClick}
         onSubmitReview={handleSubmitReview}
       />
     );
   }
-
 
   _renderMoviePlayer() {
     const {selectedFilm} = this.props;
@@ -137,6 +136,12 @@ class App extends PureComponent {
     });
   }
 
+  _handleFilmClick() {
+    const {getComments, handlePageChange, selectedFilm} = this.props;
+    handlePageChange(Pages.MOVIE_CARD);
+    getComments(selectedFilm.id);
+  }
+
   _handlePlayClick(film) {
     const {onFilmSelect} = this.props;
     onFilmSelect(film);
@@ -163,7 +168,6 @@ class App extends PureComponent {
     handlePageChange(Pages.SIGN_IN);
   }
 
-
   render() {
     return (
       <BrowserRouter>
@@ -174,6 +178,7 @@ class App extends PureComponent {
           <Route exact path={Pages.MOVIE_CARD}>
             <MovieCardWrapped
               film={this.props.moviePoster}
+              onFilmClick={this._handleFilmClick}
               onSmallMovieCardClick={this._handleSmallMovieCardClick}
               sameFilms={this.props.films}
             />
