@@ -4,10 +4,11 @@ export const COUNT_OF_SHOW_FILMS = 8;
 
 export const Pages = {
   MAIN: `/`,
-  MOVIE_CARD: `/films`,
+  FILM: `/films`,
   MY_LIST: `/mylist`,
-  SIGN_IN: `/sign-in`,
-  REVIEW: `/review`,
+  SIGN_IN: `/login`,
+  ADD_REVIEW: `/review`,
+  PLAYER: `/player`
 };
 
 export const MovieNavList = {
