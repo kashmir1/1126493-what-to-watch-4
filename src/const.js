@@ -2,12 +2,17 @@ export const ALL_GENRES = `All genres`;
 
 export const COUNT_OF_SHOW_FILMS = 8;
 
+export const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`,
+};
+
 export const Pages = {
-  MAIN: `/`,
+  ADD_REVIEW: `/review`,
   FILM: `/films`,
+  MAIN: `/`,
   MY_LIST: `/mylist`,
   SIGN_IN: `/login`,
-  ADD_REVIEW: `/review`,
   PLAYER: `/player`
 };
 
@@ -35,9 +40,4 @@ export const FullMonth = {
   9: `October`,
   10: `November`,
   11: `December`,
-};
-
-export const AuthorizationStatus = {
-  AUTH: `AUTH`,
-  NO_AUTH: `NO_AUTH`,
 };

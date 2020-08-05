@@ -1,19 +1,23 @@
 import React from 'react';
+import {Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import SmallMovieCard from './small-movie-card.jsx';
 import {films} from '../data-for-test.js';
+import history from "../../history";
 
 const film = films[0];
 
 describe(`SmallMovieCard`, () => {
   it(`Render SmallMovieCard`, () => {
     const tree = renderer.create(
-        <SmallMovieCard
-          film={film}
-          isPlaying={false}
-          onIsPlayingChange={() => {}}
-          onSmallMovieCardClick={() => {}}
-        />, {
+        <Router history={history}>
+          <SmallMovieCard
+            film={film}
+            isPlaying={false}
+            onIsPlayingChange={() => {}}
+            onSmallMovieCardClick={() => {}}
+          />
+        </Router>, {
           createNodeMock: () => {
             return {};
           }

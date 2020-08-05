@@ -2,8 +2,9 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
+import {Router} from 'react-router-dom';
 
-import {Pages} from '../../const.js';
+import history from "../../history";
 import {films} from '../data-for-test.js';
 import AddReview from './add-review.jsx';
 import NameSpace from '../../reducer/name-space.js';
@@ -15,9 +16,6 @@ const mockStore = configureStore([]);
 describe(`AddReview`, () => {
   it(`Render send review ok`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.REVIEW,
-      },
       [NameSpace.USER]: {
         authorizationStatus: `AUTH`,
         authorizationError: false,
@@ -36,15 +34,17 @@ describe(`AddReview`, () => {
     });
 
     const tree = renderer.create(
-        <Provider store={store}>
-          <AddReview
-            film={film}
-            onSubmitReview={() => {}}
-            onChangeComment={() => {}}
-            onChangeRating={() => {}}
-            onFilmClick={() => {}}
-          />
-        </Provider>, {
+        <Router history={history}>
+          <Provider store={store}>
+            <AddReview
+              film={film}
+              onChangeComment={() => {}}
+              onChangeRating={() => {}}
+              onFilmClick={() => {}}
+              onSubmitReview={() => {}}
+            />
+          </Provider>
+        </Router>, {
           createNodeMock: () => {
             return {};
           }
@@ -55,9 +55,6 @@ describe(`AddReview`, () => {
   });
   it(`Render send review error`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.REVIEW,
-      },
       [NameSpace.USER]: {
         authorizationStatus: `AUTH`,
         authorizationError: false,
@@ -76,15 +73,17 @@ describe(`AddReview`, () => {
     });
 
     const tree = renderer.create(
-        <Provider store={store}>
-          <AddReview
-            film={film}
-            onSubmitReview={() => {}}
-            onChangeComment={() => {}}
-            onChangeRating={() => {}}
-            onFilmClick={() => {}}
-          />
-        </Provider>, {
+        <Router history={history}>
+          <Provider store={store}>
+            <AddReview
+              film={film}
+              onChangeComment={() => {}}
+              onChangeRating={() => {}}
+              onFilmClick={() => {}}
+              onSubmitReview={() => {}}
+            />
+          </Provider>
+        </Router>, {
           createNodeMock: () => {
             return {};
           }
@@ -96,9 +95,6 @@ describe(`AddReview`, () => {
 
   it(`Render sending review in process`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.REVIEW,
-      },
       [NameSpace.USER]: {
         authorizationStatus: `AUTH`,
         authorizationError: false,
@@ -117,15 +113,17 @@ describe(`AddReview`, () => {
     });
 
     const tree = renderer.create(
-        <Provider store={store}>
-          <AddReview
-            film={film}
-            onSubmitReview={() => {}}
-            onChangeComment={() => {}}
-            onChangeRating={() => {}}
-            onFilmClick={() => {}}
-          />
-        </Provider>, {
+        <Router history={history}>
+          <Provider store={store}>
+            <AddReview
+              film={film}
+              onChangeComment={() => {}}
+              onChangeRating={() => {}}
+              onFilmClick={() => {}}
+              onSubmitReview={() => {}}
+            />
+          </Provider>
+        </Router>, {
           createNodeMock: () => {
             return {};
           }
