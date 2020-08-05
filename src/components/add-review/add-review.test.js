@@ -39,6 +39,8 @@ describe(`AddReview`, () => {
           <AddReview
             film={film}
             onSubmitReview={() => {}}
+            onChangeComment={() => {}}
+            onChangeRating={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {
@@ -75,6 +77,8 @@ describe(`AddReview`, () => {
           <AddReview
             film={film}
             onSubmitReview={() => {}}
+            onChangeComment={() => {}}
+            onChangeRating={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {
@@ -112,6 +116,8 @@ describe(`AddReview`, () => {
           <AddReview
             film={film}
             onSubmitReview={() => {}}
+            onChangeComment={() => {}}
+            onChangeRating={() => {}}
           />
         </Provider>, {
           createNodeMock: () => {

@@ -17,6 +17,7 @@ import AddReview from '../add-review/add-review.jsx';
 import VideoPlayerFull from '../video-player-full/video-player-full.jsx';
 import withCountFilms from '../../hoc/with-count-films/with-count-films.jsx';
 import withActiveTab from '../../hoc/with-active-tab/with-active-tab.jsx';
+import withComment from '../../hoc/with-comment/with-comment.jsx';
 import withVideoControls from '../../hoc/with-video-controls/with-video-controls.jsx';
 import SignIn from '../sign-in/sign-in.jsx';
 
@@ -24,6 +25,7 @@ import SignIn from '../sign-in/sign-in.jsx';
 const MainWrapped = withCountFilms(Main);
 const MovieCardWrapped = withActiveTab(MovieCard);
 const VideoPlayerFullWrapped = withVideoControls(VideoPlayerFull);
+const AddReviewWrapped = withComment(AddReview);
 
 const COUNT_OF_SAME_FILMS = 4;
 
@@ -100,7 +102,7 @@ class App extends PureComponent {
     const {handleSubmitReview, selectedFilm} = this.props;
 
     return (
-      <AddReview
+      <AddReviewWrapped
         film={selectedFilm}
         onSubmitReview={handleSubmitReview}
       />
