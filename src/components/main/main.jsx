@@ -1,9 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer/show-films/show-films.js';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from "../../types";
-import {getGenres, getFilms, getFilmsStatus, getPromo, getPromoStatus} from '../../reducer/data/selectors.js';
+
+import {Pages} from '../../const.js';
+import {getGenres, getFilms, getFilmsStatus, getPromo, getPromoStatus, getFavoriteFilmSendStatus} from '../../reducer/data/selectors.js';
+import {Operations as DataOperations} from '../../reducer/data/data.js';
+import {ActionCreator} from '../../reducer/show-films/show-films.js';
 import {getCurrentGenre, getFilmsByGenre} from '../../reducer/show-films/selectors.js';
 
 import MovieNavGenre from '../movie-nav-genre/movie-nav-genre.jsx';
@@ -12,26 +16,31 @@ import ShowMore from "../show-more/show-more.jsx";
 import Header from '../header/header.jsx';
 import Footer from '../footer/footer.jsx';
 
+
 const Main = (props) => {
   const {
-    films,
-    moviePoster,
     availableGenres,
     currentGenre,
+    films,
     filmsByGenre,
-    onSmallMovieCardClick,
+    handleFilmChoose,
+    handleFilmFavorite,
     handleGenreChoose,
-    numberOfFilms,
-    onCountShowFilmReset,
-    onCountShowFilmAdd,
-    onPlayClick,
-    onSignInClick,
+    loadPromo,
     loadingFilms,
     loadingPromo,
+    moviePoster,
+    numberOfFilms,
+    onCountShowFilmAdd,
+    onCountShowFilmReset,
+    sendFavoriteFilm,
   } = props;
 
-
   const showFilms = filmsByGenre.slice(0, numberOfFilms);
+
+  if (sendFavoriteFilm.sendingIsDone) {
+    loadPromo();
+  }
 
   const isLoadingPromo = () => {
     if (loadingPromo.promoIsLoading && !loadingPromo.loadingIsError) {
@@ -53,6 +62,18 @@ const Main = (props) => {
     return false;
   };
 
+  const isInMyLyst = moviePoster.isFavorite ?
+    <React.Fragment>
+      <svg viewBox="0 0 18 14" width="18" height="14">
+        <use xlinkHref="#in-list"></use>
+      </svg>
+    </React.Fragment> :
+    <React.Fragment>
+      <svg viewBox="0 0 19 20" width="19" height="20">
+        <use xlinkHref="#add"></use>
+      </svg>
+    </React.Fragment>;
+
   return (<React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -61,16 +82,15 @@ const Main = (props) => {
 
       <h1 className="visually-hidden">WTW</h1>
 
-      <Header
-        onSignInClick={onSignInClick}
-      />
+      <Header />
+
       <div className="movie-card__wrap">
         <div className="movie-card__info">
           <div className="movie-card__poster">
             <img src={moviePoster.poster} alt={moviePoster.title} width="218" height="327" />
           </div>
-          {isLoadingPromo() ||
 
+          {isLoadingPromo() ||
           <div className="movie-card__desc">
             <h2 className="movie-card__title">{moviePoster.title}</h2>
             <p className="movie-card__meta">
@@ -79,17 +99,18 @@ const Main = (props) => {
             </p>
 
             <div className="movie-card__buttons">
-              <button className="btn btn--play movie-card__button" type="button"
-                onClick={() => onPlayClick(moviePoster)}>
+              <Link to={`${Pages.PLAYER}/${moviePoster.id}`} className="btn btn--play movie-card__button" type="button"
+                onClick={() => handleFilmChoose(moviePoster)}
+              >
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"></use>
                 </svg>
                 <span>Play</span>
-              </button>
-              <button className="btn btn--list movie-card__button" type="button">
-                <svg viewBox="0 0 19 20" width="19" height="20">
-                  <use xlinkHref="#add"></use>
-                </svg>
+              </Link>
+              <button className="btn btn--list movie-card__button" type="button"
+                onClick={() => handleFilmFavorite(moviePoster)}
+              >
+                {isInMyLyst}
                 <span>My list</span>
               </button>
             </div>
@@ -103,9 +124,9 @@ const Main = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
         <MovieNavGenre
-          genres={availableGenres}
-          films={films}
           currentGenre={currentGenre}
+          films={films}
+          genres={availableGenres}
           onGenreClick={handleGenreChoose}
           onResetShowClick={onCountShowFilmReset}
         />
@@ -113,9 +134,10 @@ const Main = (props) => {
         {isLoadingFilms() ||
         <MoviesList
           films={showFilms}
-          onSmallMovieCardClick={onSmallMovieCardClick}
+          onSmallMovieCardClick={handleFilmChoose}
         />
         }
+
 
         {numberOfFilms < filmsByGenre.length &&
         <ShowMore
@@ -127,7 +149,6 @@ const Main = (props) => {
       <Footer />
     </div>
   </React.Fragment>);
-
 };
 
 Main.propTypes = {
@@ -135,11 +156,14 @@ Main.propTypes = {
   currentGenre: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
+  handleFilmChoose: PropTypes.func.isRequired,
+  handleFilmFavorite: PropTypes.func.isRequired,
   handleGenreChoose: PropTypes.func.isRequired,
   loadingFilms: PropTypes.shape({
     filmsIsLoading: PropTypes.bool.isRequired,
     loadingIsError: PropTypes.bool.isRequired,
   }),
+  loadPromo: PropTypes.func.isRequired,
   loadingPromo: PropTypes.shape({
     promoIsLoading: PropTypes.bool.isRequired,
     loadingIsError: PropTypes.bool.isRequired,
@@ -151,9 +175,11 @@ Main.propTypes = {
   numberOfFilms: PropTypes.number.isRequired,
   onCountShowFilmAdd: PropTypes.func.isRequired,
   onCountShowFilmReset: PropTypes.func.isRequired,
-  onPlayClick: PropTypes.func.isRequired,
-  onSmallMovieCardClick: PropTypes.func.isRequired,
-  onSignInClick: PropTypes.func.isRequired,
+  sendFavoriteFilm: PropTypes.shape({
+    favoriteFilmIsSending: PropTypes.bool.isRequired,
+    sendingIsError: PropTypes.bool.isRequired,
+    sendingIsDone: PropTypes.bool.isRequired,
+  }),
 };
 
 const mapStateToProps = (state) => ({
@@ -164,12 +190,26 @@ const mapStateToProps = (state) => ({
   loadingPromo: getPromoStatus(state),
   loadingFilms: getFilmsStatus(state),
   moviePoster: getPromo(state),
+  sendFavoriteFilm: getFavoriteFilmSendStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   handleGenreChoose(genre) {
     dispatch(ActionCreator.chooseGenre(genre));
-  }
+  },
+
+  handleFilmChoose(film) {
+    dispatch(ActionCreator.chooseFilm(film));
+    dispatch(DataOperations.loadComments(film.id));
+  },
+
+  handleFilmFavorite(film) {
+    dispatch(DataOperations.sendFavoriteFilm(film.id, film.isFavorite));
+  },
+
+  loadPromo() {
+    dispatch(DataOperations.loadPromo());
+  },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Main));

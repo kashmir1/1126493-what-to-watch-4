@@ -1,10 +1,10 @@
 import React from 'react';
+import {Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
-
+import history from "../../history";
 import SighIn from './sign-in.jsx';
-import {Pages} from '../../const.js';
 import NameSpace from '../../reducer/name-space.js';
 
 const mockStore = configureStore([]);
@@ -12,9 +12,6 @@ const mockStore = configureStore([]);
 describe(`SignIn`, () => {
   it(`Render, no error autorization`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: Pages.SIGN_IN,
-      },
       [NameSpace.USER]: {
         authorizationStatus: `NO_AUTH`,
         authorizationError: false,
@@ -22,9 +19,11 @@ describe(`SignIn`, () => {
     });
 
     const tree = renderer.create(
-        <Provider store={store}>
-          <SighIn />
-        </Provider>, {
+        <Router history={history}>
+          <Provider store={store}>
+            <SighIn />
+          </Provider>
+        </Router>, {
           createNodeMock: () => {
             return {};
           }
@@ -36,9 +35,6 @@ describe(`SignIn`, () => {
 
   it(`Render, is error autorization`, () => {
     const store = mockStore({
-      [NameSpace.APP]: {
-        currentPage: `/sign-in`,
-      },
       [NameSpace.USER]: {
         authorizationStatus: `NO_AUTH`,
         authorizationError: true,
@@ -46,9 +42,11 @@ describe(`SignIn`, () => {
     });
 
     const tree = renderer.create(
-        <Provider store={store}>
-          <SighIn />
-        </Provider>, {
+        <Router history={history}>
+          <Provider store={store}>
+            <SighIn />
+          </Provider>
+        </Router>, {
           createNodeMock: () => {
             return {};
           }

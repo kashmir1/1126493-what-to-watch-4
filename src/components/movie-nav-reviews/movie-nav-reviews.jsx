@@ -1,10 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from "../../types";
-import MovieReview from '../movie-review/movie-review.jsx';
-import {connect} from 'react-redux';
-import {getCommetsStatus, getFilmComments} from '../../reducer/data/selectors.js';
 
+import {getCommetsStatus, getFilmComments} from '../../reducer/data/selectors.js';
+import MovieReview from '../movie-review/movie-review.jsx';
 
 const MovieNavReviews = (props) => {
   const {comments, loadingComments} = props;

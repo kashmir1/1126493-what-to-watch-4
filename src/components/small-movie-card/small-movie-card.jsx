@@ -1,8 +1,10 @@
 import React, {PureComponent} from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from "../../types";
 
 import VideoPlayer from '../video-player/video-player.jsx';
+import {Pages} from '../../const.js';
 
 class SmallMovieCard extends PureComponent {
   constructor(props) {
@@ -16,11 +18,10 @@ class SmallMovieCard extends PureComponent {
   }
 
   render() {
-    const {film, onSmallMovieCardClick, isPlaying, onIsPlayingChange} = this.props;
+    const {film, isPlaying, onIsPlayingChange, onSmallMovieCardClick} = this.props;
 
     return (
       <article className="small-movie-card catalog__movies-card"
-        onClick={() => onSmallMovieCardClick(film)}
         onMouseEnter={() => {
           this._timeout = setTimeout(() => onIsPlayingChange(true), 1000);
         }}
@@ -28,6 +29,7 @@ class SmallMovieCard extends PureComponent {
           clearTimeout(this._timeout);
           onIsPlayingChange(false);
         }}
+        onClick={() => onSmallMovieCardClick(film)}
       >
         <div className="small-movie-card__image">
           <VideoPlayer
@@ -40,9 +42,7 @@ class SmallMovieCard extends PureComponent {
         <h3
           className="small-movie-card__title"
         >
-          <a className="small-movie-card__link" href="movie-page"
-            onClick={(evt) => evt.preventDefault()}
-          >{film.title}</a>
+          <Link to={`${Pages.FILM}/${film.id}`} className="small-movie-card__link">{film.title}</Link>
         </h3>
       </article>
     );
@@ -51,9 +51,9 @@ class SmallMovieCard extends PureComponent {
 
 SmallMovieCard.propTypes = {
   film: CustomPropTypes.FILM,
-  onSmallMovieCardClick: PropTypes.func.isRequired,
   isPlaying: PropTypes.bool.isRequired,
   onIsPlayingChange: PropTypes.func.isRequired,
+  onSmallMovieCardClick: PropTypes.func.isRequired,
 };
 
 export default SmallMovieCard;

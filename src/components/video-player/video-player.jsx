@@ -10,10 +10,9 @@ class VideoPlayer extends PureComponent {
   }
 
   componentDidMount() {
-    const {src, muted} = this.props;
+    const {muted} = this.props;
     const video = this._videoRef.current;
 
-    video.src = src;
     video.muted = muted;
   }
 
@@ -28,7 +27,9 @@ class VideoPlayer extends PureComponent {
   }
 
   componentDidUpdate() {
+    const {src} = this.props;
     const video = this._videoRef.current;
+    video.src = src;
 
     if (this.props.isPlaying) {
       this._timeout = setTimeout(() => video.play(), 1000);
