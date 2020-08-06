@@ -40,9 +40,6 @@ describe(`Main`, () => {
               numberOfFilms={8}
               onCountShowFilmAdd={() => {}}
               onCountShowFilmReset={() => {}}
-              onPlayClick={() => {}}
-              onSignInClick={() => {}}
-              onSmallMovieCardClick={() => {}}
             />
           </Provider>
         </Router>, {
@@ -81,9 +78,6 @@ describe(`Main`, () => {
               numberOfFilms={8}
               onCountShowFilmAdd={() => {}}
               onCountShowFilmReset={() => {}}
-              onPlayClick={() => {}}
-              onSignInClick={() => {}}
-              onSmallMovieCardClick={() => {}}
             />
           </Provider>
         </Router>, {
@@ -122,9 +116,6 @@ describe(`Main`, () => {
               numberOfFilms={8}
               onCountShowFilmAdd={() => {}}
               onCountShowFilmReset={() => {}}
-              onPlayClick={() => {}}
-              onSignInClick={() => {}}
-              onSmallMovieCardClick={() => {}}
             />
           </Provider>
         </Router>, {

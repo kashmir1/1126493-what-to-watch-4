@@ -8,11 +8,11 @@ const VideoPlayerFull = (props) => {
     children,
     currentTime,
     duration,
-    film,
     isPlaying,
     leftTime,
     onIsPlayingChange,
     onSetFullScreen,
+    selectedFilm,
   } = props;
 
   const playerToggler = ((currentTime * 100) / duration) + `%`;
@@ -54,7 +54,7 @@ const VideoPlayerFull = (props) => {
           >
             {btnIsPlaying}
           </button>
-          <div className="player__name">{film.title}</div>
+          <div className="player__name">{selectedFilm.title}</div>
 
           <button type="button" className="player__full-screen"
             onClick={() => onSetFullScreen()}
@@ -74,7 +74,7 @@ VideoPlayerFull.propTypes = {
   children: PropTypes.element.isRequired,
   currentTime: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
-  film: CustomPropTypes.FILM,
+  selectedFilm: CustomPropTypes.FILM,
   isPlaying: PropTypes.bool.isRequired,
   leftTime: PropTypes.string.isRequired,
   onIsPlayingChange: PropTypes.func.isRequired,

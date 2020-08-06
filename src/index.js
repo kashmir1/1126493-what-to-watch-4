@@ -12,9 +12,6 @@ import {ActionCreator, Operations as UserOperations} from './reducer/user/user.j
 
 
 import App from './components/app/app.jsx';
-import withSelectedFilm from './hoc/with-selected-film/with-selected-film.jsx';
-
-const AppWrapped = withSelectedFilm(App);
 
 const ENTRY_POINT = document.querySelector(`#root`);
 
@@ -37,7 +34,7 @@ store.dispatch(UserOperations.checkAuth());
 
 ReactDom.render(
     <Provider store={store}>
-      <AppWrapped />
+      <App />
     </Provider>,
     ENTRY_POINT
 );

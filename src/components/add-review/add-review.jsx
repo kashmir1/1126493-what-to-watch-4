@@ -1,10 +1,11 @@
+
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from "../../types";
 
 import history from '../../history.js';
-import {getReviewStatus} from '../../reducer/data/selectors.js';
+import {sendCommentStatus} from '../../reducer/data/selectors.js';
 import Header from '../header/header.jsx';
 
 const ReviewLength = {
@@ -13,14 +14,24 @@ const ReviewLength = {
 };
 
 const AddReview = (props) => {
-  const {comment, film, onChangeComment, onChangeRating, onSubmitReview, sendingComment, rating} = props;
+  const {
+    comment,
+    onChangeComment,
+    onChangeRating,
+    onSubmitReview,
+    selectedFilm,
+    sendingComment,
+    rating
+  } = props;
 
   const isValidReview = (rating && comment) ? false : true;
 
   const isSendingReview = () => {
     if (sendingComment.sendingIsDone) {
       history.goBack();
-    } else if (sendingComment.commentsIsSending && !sendingComment.sendingIsError) {
+    }
+
+    if (sendingComment.commentsIsSending && !sendingComment.sendingIsError) {
       return ``;
     } else if (sendingComment.commentsIsSending && sendingComment.sendingIsError) {
       return `sending review error, try again...`;
@@ -32,20 +43,20 @@ const AddReview = (props) => {
   const isBlocked = (sendingComment.commentsIsSending && !sendingComment.sendingIsError) ? true : false;
 
   return (
-    <section className="movie-card movie-card--full">
+    <section className="movie-card movie-card--full" style={{backgroundColor: selectedFilm.bgc}}>
       <div className="movie-card__header">
         <div className="movie-card__bg">
-          <img src={film.bg} alt={film.title} />
+          <img src={selectedFilm.bg} alt={selectedFilm.title} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
 
         <Header
-          film={film}
+          film={selectedFilm}
         />
 
         <div className="movie-card__poster movie-card__poster--small">
-          <img src={film.poster} alt={film.title} width="218" height="327" />
+          <img src={selectedFilm.poster} alt={selectedFilm.title} width="218" height="327" />
         </div>
       </div>
 
@@ -99,10 +110,10 @@ AddReview.propTypes = {
     PropTypes.bool,
     PropTypes.string,
   ]),
-  film: CustomPropTypes.FILM,
   onChangeComment: PropTypes.func.isRequired,
   onChangeRating: PropTypes.func.isRequired,
   onSubmitReview: PropTypes.func.isRequired,
+  selectedFilm: CustomPropTypes.FILM,
   sendingComment: PropTypes.shape({
     commentsIsSending: PropTypes.bool.isRequired,
     sendingIsDone: PropTypes.bool.isRequired,
@@ -115,7 +126,7 @@ AddReview.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  sendingComment: getReviewStatus(state),
+  sendingComment: sendCommentStatus(state),
 });
 
 export default connect(mapStateToProps)(AddReview);
