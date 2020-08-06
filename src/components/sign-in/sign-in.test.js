@@ -5,7 +5,6 @@ import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 import history from "../../history";
 import SighIn from './sign-in.jsx';
-import {Pages} from '../../const.js';
 import NameSpace from '../../reducer/name-space.js';
 
 const mockStore = configureStore([]);

@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import history from "../../history";
+import history from '../../history.js';
 import MovieCard from './movie-card.jsx';
 import {films, moviePoster} from '../data-for-test.js';
 import NameSpace from '../../reducer/name-space.js';
@@ -19,6 +19,9 @@ describe(`MovieCard`, () => {
     },
     [NameSpace.DATA]: {
       films,
+      sendingFavoriteFilm: false,
+      sendFavoriteFilmDone: false,
+      sendFavoriteFilmError: false,
     },
     [NameSpace.SHOW]: {
       selectedFilm: films[2],
