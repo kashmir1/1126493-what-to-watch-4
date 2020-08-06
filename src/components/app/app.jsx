@@ -28,6 +28,8 @@ const VideoPlayerFullWrapped = withVideoControls(VideoPlayerFull);
 const App = (props) => {
   const {authorizationStatus, loadFilmsStatus} = props;
 
+  const isAuth = authorizationStatus === AuthorizationStatus.AUTH ? true : false;
+
   return (
     <Router history={history}>
       <Switch>
@@ -35,9 +37,9 @@ const App = (props) => {
           render={() => <MainWrapped />}
         />
         <Route exact path={Pages.SIGN_IN}
-          render={() => authorizationStatus === AuthorizationStatus.NO_AUTH ?
-            <SignIn /> :
-            <Redirect to={Pages.MAIN} />
+          render={() => isAuth ?
+            <Redirect to={Pages.MAIN} /> :
+            <SignIn />
           }
         />
 
@@ -51,16 +53,19 @@ const App = (props) => {
           }}
         />
 
-        <Route exact path={Pages.SIGN_IN}
-          render={() => authorizationStatus === AuthorizationStatus.NO_AUTH ?
-            <SignIn /> :
-            <Redirect to={Pages.MAIN} />
-          }>
-        </Route>
+        <Route exact path={`${Pages.FILM}/:id?/review`}
+          render={(routeProps) => {
+            if (isAuth) {
+              const selectedID = +routeProps.match.params.id;
+              return (loadFilmsStatus.filmsIsLoading ||
+                     <AddReviewWrapped
+                       selectedID={selectedID}
+                     />);
+            }
 
-        <Route exact path={`${Pages.FILM}/:id?/review`}>
-          <AddReviewWrapped />
-        </Route>
+            return <SignIn />;
+          }}
+        />
 
         <Route exact path={`${Pages.PLAYER}/:id?`}
           render={(routeProps) => {
@@ -73,10 +78,11 @@ const App = (props) => {
         />
 
         <Route exact path={Pages.MY_LIST}
-          render={() => authorizationStatus === AuthorizationStatus.AUTH ?
-            <MyList/> :
+          render={() => isAuth ?
+            <MyList /> :
             <Redirect to={Pages.SIGN_IN}/>
-          }/>
+          }
+        />
       </Switch>
     </Router>
   );

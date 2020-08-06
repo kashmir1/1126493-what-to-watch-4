@@ -2,7 +2,6 @@ import React, {PureComponent, createRef} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import history from "../../history";
 import {getAuthError} from '../../reducer/user/selector.js';
 import {Operations as UserOperations} from '../../reducer/user/user.js';
 import {Pages} from "../../const";
@@ -44,11 +43,11 @@ class SignIn extends PureComponent {
           <form action="#" className="sign-in__form"
             onSubmit={(evt) => {
               evt.preventDefault();
-              history.goBack();
               handleAuthSubmit({
                 email: this.emailRef.current.value,
                 password: this.passwordRef.current.value,
               });
+              history.goBack();
             }}
           >
             {isInvalidRequest}
