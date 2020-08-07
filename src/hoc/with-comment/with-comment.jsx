@@ -87,6 +87,10 @@ const withComment = (Component) => {
     handleSubmitReview(review, id) {
       dispatch(DataOperations.sendComment(review, id));
     },
+
+    loadFilms() {
+      dispatch(DataOperations.loadFilms());
+    },
   });
 
   return connect(mapStateToProps, mapDispatchToProps)(WithComment);

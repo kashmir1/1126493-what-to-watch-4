@@ -19,9 +19,9 @@ const MovieCard = (props) => {
   const {
     activeTab,
     auth,
-    onActiveTabChange,
     handleFilmFavorite,
     loadFilms,
+    onActiveTabChange,
     onActiveTabRender,
     sameFilms,
     selectedFilm,
