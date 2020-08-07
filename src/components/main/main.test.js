@@ -1,13 +1,12 @@
 import React from 'react';
-
 import {Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';
-import history from '../../history.js';
 
-import {ALL_GENRES} from "../../const";
+import history from '../../history.js';
 import {films, moviePoster} from '../data-for-test.js';
+import {ALL_GENRES} from '../../const.js';
 import Main from './main.jsx';
 import NameSpace from '../../reducer/name-space.js';
 
@@ -41,6 +40,7 @@ describe(`Main`, () => {
         <Router history={history}>
           <Provider store={store}>
             <Main
+              isAuth={true}
               numberOfFilms={8}
               onCountShowFilmAdd={() => {}}
               onCountShowFilmReset={() => {}}
@@ -83,6 +83,7 @@ describe(`Main`, () => {
         <Router history={history}>
           <Provider store={store}>
             <Main
+              isAuth={true}
               numberOfFilms={8}
               onCountShowFilmAdd={() => {}}
               onCountShowFilmReset={() => {}}
@@ -125,6 +126,7 @@ describe(`Main`, () => {
         <Router history={history}>
           <Provider store={store}>
             <Main
+              isAuth={true}
               numberOfFilms={8}
               onCountShowFilmAdd={() => {}}
               onCountShowFilmReset={() => {}}

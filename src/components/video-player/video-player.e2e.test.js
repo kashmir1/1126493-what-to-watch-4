@@ -2,9 +2,9 @@ import React from 'react';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import VideoPlayer from './video-player.jsx';
-import films from "../../mocks/testing.js";
+import {films} from '../data-for-test.js';
 
-const movie = films[0];
+const film = films[0];
 
 Enzyme.configure({
   adapter: new Adapter()
@@ -16,8 +16,8 @@ describe(`VideoPlayer`, () => {
         <VideoPlayer
           muted
           isPlaying={true}
-          src={movie.src}
-          poster={movie.poster}
+          poster={film.poster}
+          src={film.src}
         />
     );
 
@@ -30,8 +30,8 @@ describe(`VideoPlayer`, () => {
         <VideoPlayer
           muted
           isPlaying={false}
-          src={movie.src}
-          poster={movie.poster}
+          poster={film.poster}
+          src={film.src}
         />
     );
 
