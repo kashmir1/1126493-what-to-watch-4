@@ -220,7 +220,6 @@ const Operations = {
 
   sendFavoriteFilm: (filmID, isFavorite) => (dispatch, getState, api) => {
     const status = isFavorite ? 0 : 1;
-
     dispatch(ActionCreator.isSendingFavoriteFilm(true));
     return api.post(`${EntryPoints.FAVORITE}/${filmID}/${status}`, {
       [`is_favorite`]: isFavorite,

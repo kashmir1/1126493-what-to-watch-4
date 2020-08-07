@@ -7,7 +7,7 @@ import {CustomPropTypes} from "../../types";
 import {Pages} from '../../const.js';
 import {getFavoriteFilms, getFavoriteFilmsStatus} from '../../reducer/data/selectors.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
-import {getUserData} from '../../reducer/user/selector.js';
+import {getUserData} from '../../reducer/user/selectors.js';
 import MoviesList from "../movie-list/movies-list.jsx";
 import Footer from '../footer/footer.jsx';
 
@@ -91,7 +91,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
   loadFavoriteFilms() {
     dispatch(DataOperations.loadFavoriteFilms());
   },

@@ -9,8 +9,8 @@ const initialState = {
 };
 
 const ActionType = {
-  CHOOSE_GENRE: `CHOOSE_GENRE`,
   CHOOSE_FILM: `CHOOSE_FILM`,
+  CHOOSE_GENRE: `CHOOSE_GENRE`,
 };
 
 const ActionCreator = {

@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import history from '../../history.js';
 import PropTypes from 'prop-types';
 import {CustomPropTypes} from "../../types";
 
@@ -25,6 +26,7 @@ const Main = (props) => {
     filmsByGenre,
     handleFilmFavorite,
     handleGenreChoose,
+    isAuth,
     loadPromo,
     loadingFilms,
     loadingPromo,
@@ -110,7 +112,7 @@ const Main = (props) => {
                 <span>Play</span>
               </Link>
               <button className="btn btn--list movie-card__button" type="button"
-                onClick={() => handleFilmFavorite(moviePoster)}
+                onClick={() => isAuth ? handleFilmFavorite(moviePoster) : history.push(`${Pages.SIGN_IN}`)}
               >
                 {isInMyLyst}
                 <span>My list</span>
@@ -159,6 +161,7 @@ Main.propTypes = {
   filmsByGenre: PropTypes.arrayOf(CustomPropTypes.FILM).isRequired,
   handleFilmFavorite: PropTypes.func.isRequired,
   handleGenreChoose: PropTypes.func.isRequired,
+  isAuth: PropTypes.bool.isRequired,
   loadingFilms: PropTypes.shape({
     filmsIsLoading: PropTypes.bool.isRequired,
     loadingIsError: PropTypes.bool.isRequired,

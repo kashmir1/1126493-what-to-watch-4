@@ -4,6 +4,7 @@ import {ALL_GENRES} from '../../const.js';
 const COUNT_OF_SAME_FILMS = 4;
 
 export const getCurrentGenre = (state) => state[NameSpace.SHOW].currentGenre;
+
 export const getSelectedFilm = (state) => state[NameSpace.SHOW].selectedFilm;
 
 export const getFilmsByGenre = (state) => {

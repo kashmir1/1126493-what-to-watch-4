@@ -2,9 +2,11 @@ import React, {PureComponent, createRef} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getAuthStatus} from '../../reducer/user/selector.js';
+
+import {getAuthStatus} from '../../reducer/user/selectors.js';
 import {Operations as UserOperations} from '../../reducer/user/user.js';
-import {Pages} from "../../const";
+
+import {Pages} from '../../const.js';
 import Footer from '../footer/footer.jsx';
 
 class SignIn extends PureComponent {

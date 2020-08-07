@@ -5,13 +5,15 @@ import {CustomPropTypes} from "../../types";
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import {getFilmById} from '../../reducer/data/selectors.js';
 
+const BASE_RATING = `1`;
+
 const withComment = (Component) => {
   class WithComment extends PureComponent {
     constructor(props) {
       super(props);
 
       this.state = {
-        rating: false,
+        rating: BASE_RATING,
         comment: false,
       };
 
