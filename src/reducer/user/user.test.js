@@ -2,8 +2,8 @@ import MockAdapter from 'axios-mock-adapter';
 import {createAPI} from '../../api.js';
 
 import {AuthorizationStatus} from '../../const.js';
-import {user} from '../../components/data-for-test.js';
 import {ActionType, Operations, reducer} from './user.js';
+import {user} from '../../components/data-for-test.js';
 
 const api = createAPI(() => {});
 
@@ -32,6 +32,7 @@ describe(`Reducer User`, () => {
     expect(reducer(void 0, {})).toEqual({
       authorizationStatus: AuthorizationStatus.NO_AUTH,
       authorizationError: false,
+      authorizationInProgress: false,
       user: {
         id: 0,
         email: ``,
@@ -79,5 +80,3 @@ describe(`Reducer User`, () => {
     });
   });
 });
-
-

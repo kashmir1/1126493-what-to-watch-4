@@ -47,6 +47,11 @@ const withComment = (Component) => {
       });
     }
 
+    componentDidMount() {
+      const {loadFilms} = this.props;
+      loadFilms();
+    }
+
     render() {
       const {rating, comment} = this.state;
 
@@ -63,6 +68,7 @@ const withComment = (Component) => {
 
   WithComment.propTypes = {
     handleSubmitReview: PropTypes.func.isRequired,
+    loadFilms: PropTypes.func.isRequired,
     selectedFilm: PropTypes.oneOfType([
       CustomPropTypes.FILM,
       PropTypes.bool,
