@@ -57,7 +57,8 @@ const withActiveTab = (Component) => {
           return (
             <MovieNavReviews
               selectedFilm={selectedFilm}
-            />          );
+            />
+          );
         default: return ``;
       }
     }
