@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from "../../types";
+import {CustomPropTypes} from "../../types/types";
 import history from '../../history.js';
 import VideoPlayer from '../video-player/video-player.jsx';
 import {Pages} from '../../const.js';

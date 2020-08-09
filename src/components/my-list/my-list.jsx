@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from "../../types";
+import {CustomPropTypes} from "../../types/types";
 
 import {Pages} from '../../const.js';
 import {getFavoriteFilms, getFavoriteFilmsStatus} from '../../reducer/data/selectors.js';

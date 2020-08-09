@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from "../../types";
+import {CustomPropTypes} from "../../types/types";
 
 import {Operations as DataOperations} from '../../reducer/data/data.js';
 import {getCommetsStatus, getFilmComments} from '../../reducer/data/selectors.js';

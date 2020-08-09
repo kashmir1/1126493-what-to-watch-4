@@ -3,7 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import history from '../../history.js';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from "../../types";
+import {CustomPropTypes} from "../../types/types";
 
 import {Pages} from '../../const.js';
 import {sendCommentStatus} from '../../reducer/data/selectors.js';

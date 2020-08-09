@@ -1,5 +1,5 @@
 import React from 'react';
-import {CustomPropTypes} from "../../types";
+import {CustomPropTypes} from "../../types/types";
 import moment from "moment";
 
 const MovieReview = (props) => {

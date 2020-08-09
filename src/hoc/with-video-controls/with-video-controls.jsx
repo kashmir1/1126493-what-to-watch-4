@@ -1,7 +1,7 @@
 import React, {PureComponent, createRef} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from "../../types";
+import {CustomPropTypes} from "../../types/types";
 
 import {Time} from '../../const.js';
 import {getFilmById} from '../../reducer/data/selectors.js';
@@ -77,7 +77,7 @@ const withVideoControls = (Component) => {
       video.controls = true;
     }
 
-    _leftTime() {
+    _getLeftTime() {
       const {currentTime, duration} = this.state;
 
       const timeDiff = duration - currentTime;
@@ -92,7 +92,7 @@ const withVideoControls = (Component) => {
     render() {
       const {currentTime, duration, isPlaying} = this.state;
       const {selectedFilm} = this.props;
-      const leftTime = this._leftTime();
+      const leftTime = this._getLeftTime();
 
       return <Component
         {...this.props}

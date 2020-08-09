@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from "../../types";
+import {CustomPropTypes} from "../../types/types";
 
 import SmallMovieCard from "../small-movie-card/small-movie-card.jsx";
 import withVideo from '../../hoc/with-video/with-video.jsx';

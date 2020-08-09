@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import history from '../../history.js';
 import PropTypes from 'prop-types';
-import {CustomPropTypes} from "../../types";
+import {CustomPropTypes} from "../../types/types";
 
 import {AuthorizationStatus, MovieNavList, Pages} from '../../const.js';
 import {Operations as DataOperations} from '../../reducer/data/data.js';
